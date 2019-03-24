@@ -24,20 +24,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/R-programming/</loc>
-        <lastmod>2019-03-24T08:23:53.665Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/Class/</loc>
-        <lastmod>2019-03-24T08:23:53.665Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/newblogtest/tags/Service-Design/</loc>
         <lastmod>2019-03-24T10:53:01.435Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -108,8 +94,36 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/R-programming/</loc>
+        <lastmod>2019-03-24T13:50:58.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Class/</loc>
+        <lastmod>2019-03-24T13:50:58.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/newblogtest/tags/Daily-life/</loc>
-        <lastmod>2019-03-24T11:36:36.385Z</lastmod>
+        <lastmod>2019-03-24T14:10:26.943Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Self-Interior/</loc>
+        <lastmod>2019-03-24T14:10:26.943Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Computer-room/</loc>
+        <lastmod>2019-03-24T14:10:26.943Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
