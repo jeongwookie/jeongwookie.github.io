@@ -3,11 +3,11 @@
   <title>Jeongwook&#39;s Blog</title>
   
   <subtitle>Make stuff people want</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/newblogtest/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://jeongwookie.github.io/newblogtest/"/>
   <updated>2019-03-23T16:28:49.308Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://jeongwookie.github.io/newblogtest/</id>
   
   <author>
     <name>Jeongwook, Kim</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/03/24/hello-world/"/>
-    <id>http://yoursite.com/2019/03/24/hello-world/</id>
+    <link href="https://jeongwookie.github.io/newblogtest/2019/03/24/hello-world/"/>
+    <id>https://jeongwookie.github.io/newblogtest/2019/03/24/hello-world/</id>
     <published>2019-03-23T16:28:49.308Z</published>
     <updated>2019-03-23T16:28:49.308Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>네이버 금융에서 주식 가격 크롤링하기</title>
-    <link href="http://yoursite.com/2019/03/18/naver-finance/"/>
-    <id>http://yoursite.com/2019/03/18/naver-finance/</id>
+    <link href="https://jeongwookie.github.io/newblogtest/2019/03/18/naver-finance/"/>
+    <id>https://jeongwookie.github.io/newblogtest/2019/03/18/naver-finance/</id>
     <published>2019-03-18T01:36:15.000Z</published>
     <updated>2019-03-23T18:25:49.993Z</updated>
     
@@ -52,23 +52,23 @@
     
     </summary>
     
-      <category term="Programming" scheme="http://yoursite.com/categories/Programming/"/>
+      <category term="Programming" scheme="https://jeongwookie.github.io/newblogtest/categories/Programming/"/>
     
     
-      <category term="개발" scheme="http://yoursite.com/tags/%EA%B0%9C%EB%B0%9C/"/>
+      <category term="개발" scheme="https://jeongwookie.github.io/newblogtest/tags/%EA%B0%9C%EB%B0%9C/"/>
     
-      <category term="파이썬" scheme="http://yoursite.com/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"/>
+      <category term="파이썬" scheme="https://jeongwookie.github.io/newblogtest/tags/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"/>
     
-      <category term="크롤링" scheme="http://yoursite.com/tags/%ED%81%AC%EB%A1%A4%EB%A7%81/"/>
+      <category term="크롤링" scheme="https://jeongwookie.github.io/newblogtest/tags/%ED%81%AC%EB%A1%A4%EB%A7%81/"/>
     
-      <category term="데이터 마이닝" scheme="http://yoursite.com/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"/>
+      <category term="데이터 마이닝" scheme="https://jeongwookie.github.io/newblogtest/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"/>
     
   </entry>
   
   <entry>
     <title>R을 사용한 데이터 시각화, 1편</title>
-    <link href="http://yoursite.com/2019/03/06/data-visualization-using-R-1/"/>
-    <id>http://yoursite.com/2019/03/06/data-visualization-using-R-1/</id>
+    <link href="https://jeongwookie.github.io/newblogtest/2019/03/06/data-visualization-using-R-1/"/>
+    <id>https://jeongwookie.github.io/newblogtest/2019/03/06/data-visualization-using-R-1/</id>
     <published>2019-03-06T12:54:08.000Z</published>
     <updated>2019-03-23T18:03:23.401Z</updated>
     
@@ -80,14 +80,14 @@
     
     </summary>
     
-      <category term="Programming" scheme="http://yoursite.com/categories/Programming/"/>
+      <category term="Programming" scheme="https://jeongwookie.github.io/newblogtest/categories/Programming/"/>
     
     
-      <category term="R programming" scheme="http://yoursite.com/tags/R-programming/"/>
+      <category term="R programming" scheme="https://jeongwookie.github.io/newblogtest/tags/R-programming/"/>
     
-      <category term="교육" scheme="http://yoursite.com/tags/%EA%B5%90%EC%9C%A1/"/>
+      <category term="교육" scheme="https://jeongwookie.github.io/newblogtest/tags/%EA%B5%90%EC%9C%A1/"/>
     
-      <category term="개발" scheme="http://yoursite.com/tags/%EA%B0%9C%EB%B0%9C/"/>
+      <category term="개발" scheme="https://jeongwookie.github.io/newblogtest/tags/%EA%B0%9C%EB%B0%9C/"/>
     
   </entry>
   

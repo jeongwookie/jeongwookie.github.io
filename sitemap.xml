@@ -3,22 +3,22 @@
 
 
     <sitemap>
-        <loc>http://yoursite.com/post-sitemap.xml</loc>
+        <loc>https://jeongwookie.github.io/newblogtest/post-sitemap.xml</loc>
         <lastmod>2019-03-23T18:25:49.993Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/page-sitemap.xml</loc>
+        <loc>https://jeongwookie.github.io/newblogtest/page-sitemap.xml</loc>
         <lastmod>2019-03-23T19:17:24.893Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/category-sitemap.xml</loc>
+        <loc>https://jeongwookie.github.io/newblogtest/category-sitemap.xml</loc>
         <lastmod>2019-03-23T18:25:49.993Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite.com/tag-sitemap.xml</loc>
+        <loc>https://jeongwookie.github.io/newblogtest/tag-sitemap.xml</loc>
         <lastmod>2019-03-23T18:03:23.401Z</lastmod>
     </sitemap>
 
