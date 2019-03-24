@@ -24,20 +24,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/WEB-Crawling/</loc>
-        <lastmod>2019-03-24T08:08:43.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/Datamining/</loc>
-        <lastmod>2019-03-24T08:08:43.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/newblogtest/tags/R-programming/</loc>
         <lastmod>2019-03-24T08:23:53.665Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -52,36 +38,8 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/Startup/</loc>
-        <lastmod>2019-03-24T10:53:01.435Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/Business/</loc>
-        <lastmod>2019-03-24T10:53:01.435Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/newblogtest/tags/Service-Design/</loc>
         <lastmod>2019-03-24T10:53:01.435Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/Daily-life/</loc>
-        <lastmod>2019-03-24T10:53:26.611Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/Python/</loc>
-        <lastmod>2019-03-24T10:53:57.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -110,6 +68,48 @@
     <url>
         <loc>https://jeongwookie.github.io/newblogtest/tags/Hexo/</loc>
         <lastmod>2019-03-24T10:54:26.427Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Startup/</loc>
+        <lastmod>2019-03-24T11:10:13.432Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Business/</loc>
+        <lastmod>2019-03-24T11:10:13.432Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Python/</loc>
+        <lastmod>2019-03-24T11:13:46.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/WEB-Crawling/</loc>
+        <lastmod>2019-03-24T11:13:46.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Datamining/</loc>
+        <lastmod>2019-03-24T11:13:46.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/tags/Daily-life/</loc>
+        <lastmod>2019-03-24T11:36:36.385Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -8,6 +8,38 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/newblogtest/2018/12/31/181231-looking-back-on-2018/</loc>
+        <lastmod>2019-03-24T11:36:36.385Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/2019/03/20/190320-collect-data-using-naver-search-api/</loc>
+        <lastmod>2019-03-24T11:13:46.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
+        <lastmod>2019-03-24T11:12:43.291Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/newblogtest/2018/09/18/180918-customer-discovery-kaist-e5/</loc>
+        <lastmod>2019-03-24T11:10:13.432Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/newblogtest/2018/09/13/180913-category-name-problem/</loc>
         <lastmod>2019-03-24T10:54:26.427Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -64,14 +96,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/2018/09/18/180918-customer-discovery-kaist-e5/</loc>
-        <lastmod>2019-03-24T08:25:06.546Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/newblogtest/2019/03/08/190308-data-visualization-using-R-2/</loc>
         <lastmod>2019-03-24T08:23:53.665Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -82,22 +106,6 @@
     <url>
         <loc>https://jeongwookie.github.io/newblogtest/2018/09/10/180910-common-string-operation/</loc>
         <lastmod>2019-03-24T08:14:04.894Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/2019/03/20/190320-collect-data-using-naver-search-api/</loc>
-        <lastmod>2019-03-24T08:08:43.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/newblogtest/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
-        <lastmod>2019-03-24T08:06:30.745Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
