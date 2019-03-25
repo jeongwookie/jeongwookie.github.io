@@ -8,8 +8,48 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
-        <lastmod>2019-03-25T02:05:39.439Z</lastmod>
+        <loc>https://jeongwookie.github.io/2019/02/08/190208-goal-directed-design/</loc>
+        <lastmod>2019-03-25T03:25:15.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/11/06/181106-customer-interview-mental-model/</loc>
+        <lastmod>2019-03-25T03:23:21.639Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/17/190117-house-remodeling-4/</loc>
+        <lastmod>2019-03-25T03:17:58.333Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/12/190112-house-remodeling-3/</loc>
+        <lastmod>2019-03-25T03:17:16.568Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/09/190109-house-remodeling-2/</loc>
+        <lastmod>2019-03-25T03:16:42.727Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/05/190105-house-remodeling-1/</loc>
+        <lastmod>2019-03-25T03:15:21.170Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +57,15 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/14/180914-kschool-student/</loc>
-        <lastmod>2019-03-25T02:04:54.665Z</lastmod>
+        <lastmod>2019-03-25T03:14:28.255Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
+        <lastmod>2019-03-25T02:05:39.439Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,38 +90,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2019/03/06/190306-data-visualization-using-R-1/</loc>
         <lastmod>2019-03-25T01:43:45.405Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/17/190117-house-remodeling-4/</loc>
-        <lastmod>2019-03-24T14:16:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/12/190112-house-remodeling-3/</loc>
-        <lastmod>2019-03-24T14:04:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/09/190109-house-remodeling-2/</loc>
-        <lastmod>2019-03-24T13:58:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/05/190105-house-remodeling-1/</loc>
-        <lastmod>2019-03-24T13:49:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -122,14 +138,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2019/02/03/190203-find-a-new-hobby/</loc>
         <lastmod>2019-03-24T10:53:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/02/08/190208-goal-directed-design/</loc>
-        <lastmod>2019-03-24T10:53:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

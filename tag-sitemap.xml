@@ -24,13 +24,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Service-Design/</loc>
-        <lastmod>2019-03-24T10:53:01.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/KAIST-IT-Program/</loc>
         <lastmod>2019-03-24T10:53:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -80,27 +73,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
-        <lastmod>2019-03-24T14:16:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Self-Interior/</loc>
-        <lastmod>2019-03-24T14:16:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Computer-room/</loc>
-        <lastmod>2019-03-24T14:16:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/R-programming/</loc>
         <lastmod>2019-03-25T01:43:50.437Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,29 +87,57 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Startup/</loc>
-        <lastmod>2019-03-25T01:45:12.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Business/</loc>
-        <lastmod>2019-03-25T01:45:12.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/KAIST/</loc>
-        <lastmod>2019-03-25T02:05:39.439Z</lastmod>
+        <lastmod>2019-03-25T03:14:28.255Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/K-school/</loc>
-        <lastmod>2019-03-25T02:05:39.439Z</lastmod>
+        <lastmod>2019-03-25T03:14:28.255Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
+        <lastmod>2019-03-25T03:17:58.333Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Self-Interior/</loc>
+        <lastmod>2019-03-25T03:17:58.333Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Computer-room/</loc>
+        <lastmod>2019-03-25T03:17:58.333Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Startup/</loc>
+        <lastmod>2019-03-25T03:25:15.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Business/</loc>
+        <lastmod>2019-03-25T03:25:15.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Service-Design/</loc>
+        <lastmod>2019-03-25T03:25:15.873Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
