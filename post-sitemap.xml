@@ -8,8 +8,48 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2019/03/20/190320-collect-data-using-naver-search-api/</loc>
+        <lastmod>2019-03-25T03:35:53.967Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
+        <lastmod>2019-03-25T03:35:43.047Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2019/02/08/190208-goal-directed-design/</loc>
-        <lastmod>2019-03-25T03:25:15.873Z</lastmod>
+        <lastmod>2019-03-25T03:35:14.501Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/18/180918-customer-discovery-kaist-e5/</loc>
+        <lastmod>2019-03-25T03:34:26.843Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/14/180914-kschool-student/</loc>
+        <lastmod>2019-03-25T03:34:07.338Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/13/180913-category-name-problem/</loc>
+        <lastmod>2019-03-25T03:33:51.772Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -56,30 +96,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2018/09/14/180914-kschool-student/</loc>
-        <lastmod>2019-03-25T03:14:28.255Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
-        <lastmod>2019-03-25T02:05:39.439Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/18/180918-customer-discovery-kaist-e5/</loc>
-        <lastmod>2019-03-25T01:45:12.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/2019/03/08/190308-data-visualization-using-R-2/</loc>
         <lastmod>2019-03-25T01:43:50.437Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -104,24 +120,8 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/03/20/190320-collect-data-using-naver-search-api/</loc>
-        <lastmod>2019-03-24T11:13:46.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
         <lastmod>2019-03-24T11:12:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/13/180913-category-name-problem/</loc>
-        <lastmod>2019-03-24T10:54:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
