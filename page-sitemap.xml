@@ -2,27 +2,27 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest</loc>
+        <loc>https://jeongwookie.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/about/</loc>
+        <loc>https://jeongwookie.github.io/about/</loc>
         <lastmod>2019-03-23T19:17:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/tags/</loc>
+        <loc>https://jeongwookie.github.io/tags/</loc>
         <lastmod>2019-03-23T18:53:51.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://jeongwookie.github.io/newblogtest/categories/</loc>
+        <loc>https://jeongwookie.github.io/categories/</loc>
         <lastmod>2019-03-23T18:53:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
