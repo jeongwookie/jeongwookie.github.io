@@ -8,8 +8,40 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
-        <lastmod>2019-03-25T11:54:27.549Z</lastmod>
+        <loc>https://jeongwookie.github.io/2018/12/31/181231-looking-back-on-2018/</loc>
+        <lastmod>2019-03-25T12:29:28.002Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/10/02/181002-put-google-adsense-in-your-hexo-blog/</loc>
+        <lastmod>2019-03-25T12:29:11.901Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/03/29/180329-what-is-growth-hacker/</loc>
+        <lastmod>2019-03-25T12:20:10.981Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/12/180912-list-operation/</loc>
+        <lastmod>2019-03-25T12:15:22.437Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/10/12/181012-python-adress-book-program/</loc>
+        <lastmod>2019-03-25T12:10:43.156Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +49,15 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/14/180914-kschool-student/</loc>
-        <lastmod>2019-03-25T11:53:40.584Z</lastmod>
+        <lastmod>2019-03-25T11:58:06.741Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
+        <lastmod>2019-03-25T11:58:00.474Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -106,14 +146,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2019/03/06/190306-data-visualization-using-R-1/</loc>
         <lastmod>2019-03-25T01:43:45.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/12/31/181231-looking-back-on-2018/</loc>
-        <lastmod>2019-03-24T11:36:36.385Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
