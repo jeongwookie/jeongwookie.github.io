@@ -1349,6 +1349,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/10/04/181004-python-module/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/54869412-28d90a80-4ddb-11e9-8c02-aaff77b52031.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongwook's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/04/181004-python-module/" class="post-title-link" itemprop="url">모듈과 패키지</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-04 21:46:51" itemprop="dateCreated datePublished" datetime="2018-10-04T21:46:51+09:00">2018-10-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-29 23:28:26" itemprop="dateModified" datetime="2019-04-29T23:28:26+09:00">2019-04-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/10/04/181004-python-module/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/04/181004-python-module/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>코딩에서 가장 중요한 것은, 바로 남이 구현해 놓은 것을 가져다가 잘 쓰는 것이라고 배웠다.</p>
+<p><strong>모듈 (moudule)</strong>이란 함수나 변수 혹은 클래스 등을 뫃아놓은 파일이며, 쉽게 말하면 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만들어진 파이썬 파일이다.</p>
+<p>다른 사람들이 이미 만들어 놓은 모듈을 사용하거나, 내가 직접 만들어서 사용할 수도 있다.</p>
+<p>간단히 모듈을 만들고 불러와 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_statistics.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line"><span class="comment"># my_main.py (my_statistics.py와 같은 폴더 내의 파일)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> my_statistics</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(my_statistics.add(<span class="number">10</span>,<span class="number">20</span>))</span><br><span class="line"><span class="number">30</span></span><br></pre></td></tr></table></figure>
+<p><code>my_statistics.py</code>라는 모듈을 불러오기 위하여 <code>import</code> 를 사용하였다.</p>
+<p>불러온 이후, 모듈 내의 함수 <code>add</code>를 사용하기 위해 <strong>모듈이름.함수명()</strong>  와 같이 도트 연산자를 붙였다.</p>
+<p><code>my_statistics.add(10,20)</code></p>
+<p>조금 길지 않은가? 모듈 이름을 쓰지 않고 함수를 사용하는 방법도 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_main.py</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> my_statistics <span class="keyword">import</span> sum</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(sum(<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> my_statistics <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(sub(<span class="number">5</span>,<span class="number">2</span>))</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>위와 같이 <strong>from 모듈이름 import 모듈함수</strong> 와 같은 형태를 입력하면, 그 함수를 모듈이름을 붙이지 않고 사용할 수 있다.</p>
+<p>모듈 내 모든 함수를 불러오려면, <code>*</code>을 붙이면 된다.</p>
+<p>이번에는, 앞서 만든 <code>my_statistics.py</code> 모듈에 몇 개의 코드를 추가해 보자.</p>
+<p>모듈이 제대로 작동하는지 테스트를 위한 코드이다.</p>
+<p>그리고, <code>import</code>를 통해 다른 파이썬 파일에서 모듈을 불러와 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_statistics.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line">print(add(<span class="number">1</span>,<span class="number">3</span>))   <span class="comment"># 테스트 코드</span></span><br><span class="line">print(<span class="string">"my_statistics 파일입니다"</span>)   <span class="comment"># 테스트 코드</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># my_main.py</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> my_statistics</span><br><span class="line"><span class="number">4</span></span><br><span class="line">my_statistics 파일입니다</span><br></pre></td></tr></table></figure>
+<p>나는 <code>my_statistics.py</code> 모듈 안의 <code>add</code> 함수와 <code>sub</code> 함수를 사용하려고 <code>import</code>했는데, 테스트 코드까지 같이 출력되어 버린다..</p>
+<p>이러한 문제를 방지하기 위하여, <code>if __name__ == &quot;__main__&quot;</code>을 사용한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_statistics.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">   print(add(<span class="number">1</span>,<span class="number">3</span>))   </span><br><span class="line">   print(<span class="string">"my_statistics 파일입니다"</span>)   </span><br><span class="line"></span><br><span class="line"><span class="comment"># my_main.py</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> my_statistics</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p><code>import</code>를 실행했을 때 이제는 테스트 코드가 출력되지 않음을 알 수 있다.</p>
+<p> 내가 만약 <code>my_statistics.py</code>을 직접 실행시킬 경우 <code>__name__</code>에는 <code>__main__</code> 이라는 값이 저장된다.</p>
+<p> 하지만, my_main.py와 같은 다른 파이썬 파일에서 <code>my_statistics.py</code>을 직접 실행시킬 경우, <code>__name__</code>에는 <code>my_main.py</code> 이라는 값이 대신 저장된다.</p>
+<p> 지금까지는 작성한 모듈과 실행하고 있는 파이썬 파일이 같은 디렉토리 안에 존재하는 경우만 다루었다.</p>
+<p> 만약 내가 적당한 곳 (ex.바탕화면에 있는 python 폴더)에 py파일을 저장해 놓았는데, 이를 불러서 현재 디렉토리 내에서 사용하려면 어떻게 해야할까?</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.path.append(<span class="string">"C:\\Users\\JEONGWOOK\\python"</span>)</span><br></pre></td></tr></table></figure>
+<p><code>sys.path</code>는 파이썬 라이브러리들이 설치되어 있는 디렉토리를 list 자료형으로 가지고 있다.</p>
+<p>여기다가 우리는 <a href="https://jeongwookie.github.io/2018/09/12/list-operation/">list 자료형 다루기</a>에서 언급하였던 <code>append()</code>함수를 사용하여 요소를 추가하면 된다.</p>
+<p>파이썬 모듈의 경로를 입력할 때, <code>\</code>가 <code>&quot; &quot;</code> 안에서 인식되게 하기 위하여 <code>\\</code> 이렇게 두 번 입력했음에 유의하자.</p>
+<p><strong>패키지 (package)</strong>는 모듈들을 묶어놓은 것으로, 폴더 형태로 생각하면 된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root_package/</span><br><span class="line">    __init__.py</span><br><span class="line">    sub_package_1/</span><br><span class="line">        __init__.py</span><br><span class="line">        module1.py</span><br><span class="line">        module2.py</span><br><span class="line">    sub_package_2/</span><br><span class="line">        __init__.py</span><br><span class="line">        module3.py</span><br><span class="line">        module4.py</span><br></pre></td></tr></table></figure>
+<p>위 구조를 예시로 살펴보면, <code>root_package</code>안에 <code>sub_package_1</code>과 <code>sub_package_2</code>가 있고 각각의 디렉토리 안에 모듈들이 들어 있다.</p>
+<p>패키지 안의 모듈을 사용하려면 루트 디렉토리부터 경로를 적어주면 된다.</p>
+<p><code>import root_package.sub_package_1.module1</code></p>
+<p>패키지의 경우 보통 많은 개발자들이 참여하는 복잡한 프로젝트의 경우에 사용한다. </p>
+<p>그러므로 조금 더 자세한 내용을 보려면 <a href="https://wikidocs.net/1418" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 클릭하자.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/10/02/181017-python-class-finish/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1741,6 +1961,241 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/30/180930-python-class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/54869412-28d90a80-4ddb-11e9-8c02-aaff77b52031.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongwook's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/30/180930-python-class/" class="post-title-link" itemprop="url">Python - 파이썬에서 클래스 쉽게 다루기</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-30 01:25:25" itemprop="dateCreated datePublished" datetime="2018-09-30T01:25:25+09:00">2018-09-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-29 23:24:51" itemprop="dateModified" datetime="2019-04-29T23:24:51+09:00">2019-04-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/09/30/180930-python-class/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/30/180930-python-class/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>오랜만의 포스트.</p>
+<p>추석동안 집에 다녀오고, 돌아와서는 이것저것 일하다 보니 벌써 주말이다.</p>
+<p>세 번째 섹션부터 배우기 시작한 클래스는 우리의 단순 노동 작업을 크게 줄여주고, 코드를 깔끔하게 해 주는 효자다.</p>
+<p>찬찬히 배운 내용을 정리해 보겠다.</p>
+<p><strong>클래스</strong>는 <u>붕어빵 틀</u>이다. 일종의 틀로, 똑같은 무언가를 만들어 낼 수 있는 도면과 같은 것이다.</p>
+<p><strong>객체</strong>는 클래스라는 틀에 의해 생성된 구체적인 어떤 것을 칭한다.</p>
+<blockquote>
+<p>붕어빵 틀은 클래스, 만들어진 붕어빵은 객체</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/25416425/46248490-cec34200-c454-11e8-8aa5-310335ed6530.png" width="500"></p>
+<p>간단하게 예제를 통해서 클래스의 기본 구조에 대해 먼저 이해해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FourCal</span>:</span>    <span class="comment"># 클래스명 "FourCal" 선언</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setdata</span><span class="params">(self, first, second)</span>:</span>   <span class="comment"># 매개변수 선언</span></span><br><span class="line">        self.first = first</span><br><span class="line">        self.second = second</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = FourCal()    <span class="comment"># 객체 "a" 생성 (FourCal의 인스턴스)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.setdata(<span class="number">4</span>,<span class="number">2</span>)   <span class="comment"># 입력값 4와 2 전달</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.first)</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.second)</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>파이썬에서 클래스를 다룰 때, 매개변수에 <strong>self</strong>를 포함시켜야 함에 주의하자.</p>
+<p>아래의 그림을 보면 그 구조를 파악하기 쉬울 것이다. 참고 : <a href="https://wikidocs.net/28" rel="external nofollow noopener noreferrer" target="_blank">파이썬 위키</a></p>
+<blockquote>
+<p>객체와 호출 입력값의 전달 구조</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/25416425/46248374-8192a080-c453-11e8-8c0e-aa1e4a8f7c72.png" width="550"></p>
+<p>이제 이 기본 지식으로 하나하나 클래스를 구현해 볼 것이다.</p>
+<p>지금부터 내가 게임 개발자라고 가정해 보자. 다음과 같은 임무가 주어졌다.</p>
+<ul>
+<li>기사, 마법사, 궁수 캐릭터를 만들어라.</li>
+<li>각각의 캐릭터는 레벨, 이름, HP가 있다.</li>
+<li>각각의 캐릭터는 좌우, 앞뒤로 움직일 수 있다.</li>
+<li>각각의 캐릭터는 공격을 할 수 있다.</li>
+<li>마법사는 마법을 쓸 수 있다.</li>
+</ul>
+<p>먼저 기사 클래스부터 만들어 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Knight</span>:</span></span><br><span class="line">    level = <span class="number">20</span></span><br><span class="line">    name = <span class="string">"Battery"</span></span><br><span class="line">    hp = <span class="number">200</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self, direction)</span>:</span></span><br><span class="line">        print(direction + <span class="string">"방향으로 이동합니다"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">attack</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name + <span class="string">"이(가) 공격합니다"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>knight1 = Knight()    <span class="comment"># knight1 객체 선언 (클래스명 Knight의 인스턴스)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(knight1.level, knight1.name, knight1.hp)</span><br><span class="line"><span class="number">20</span> Battery <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>knight1.move(<span class="string">"왼쪽"</span>)</span><br><span class="line">왼쪽방향으로 이동합니다</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>knight1.attack()</span><br><span class="line">Battery이(가) 공격합니다</span><br></pre></td></tr></table></figure>
+<p>위에서 level, name, hp 등의 클래스 안에서 변수를 지정하는 것을 <strong>클래스 변수</strong> 라고 한다. 멤버 변수라고도 부른다.</p>
+<p>위 코드에 따르면, Knight 클래스에 의해서 생성된 인스턴스들은 기본적으로 지정된 클래스 변수 값을 가진다.</p>
+<p>기사 직업을 가진 유저가 어디 한둘 이겠는가? 객체를 생성할 때 바로바로 클래스 변수를 설정할 수 있도록 <strong>객체 변수</strong>를 설정해 보자.</p>
+<p><strong><strong>init</strong>()</strong> 은 객체를 생성할 때 호출되는 함수이다.</p>
+<p>여러가지 클래스 변수들을 객체가 생성될 때 설정할 수 있게 해준다.</p>
+<p>이번에는 기사 말고 마법사 클래스를 <strong>객체 변수</strong>를 사용하여 예시로 만들어보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wizard</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, level, name, hp)</span>:</span>    <span class="comment"># 4개의 객체 변수 지정</span></span><br><span class="line">        self.level = level</span><br><span class="line">        self.name = name</span><br><span class="line">        self.hp = hp</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self, direction)</span>:</span></span><br><span class="line">        print(direction + <span class="string">"방향으로 이동합니다"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">attack</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name + <span class="string">"이(가) 공격합니다"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">magic</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name + <span class="string">"이(가) 마법을 사용합니다"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wizard1 = Wizard(<span class="number">30</span>, Bloodtrail, <span class="number">150</span>)    <span class="comment"># wizard1 객체 생성</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(wizard1.level, wizard1.name, wizard1.hp)</span><br><span class="line"><span class="number">30</span> Bloodtrail <span class="number">150</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wizard1.move(<span class="string">"위쪽"</span>)</span><br><span class="line">위쪽방향으로 이동합니다</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wizard1.attack()</span><br><span class="line">Bloodtrail이(가) 공격합니다</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wizard1.magic()</span><br><span class="line">Bloodtrail이(가) 마법을 사용합니다</span><br></pre></td></tr></table></figure>
+<p>코드를 짜다보니 앞서 작성한 기사 클래스와 겹치는 부분이 많다. (짜증)</p>
+<p>그리고 이렇게 각각의 클래스를 작성하면, 객체 변수를 하나 추가하고 싶을 경우 클래스 3개를 수정해야 하는 불상사가 발생하게 된다..</p>
+<p>지금은 클래스가 3개라서 다행이지만, 만약 클래스가 100개라면?</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/46248998-a8090980-c45c-11e8-99ce-b1dcc08a1f09.jpg" width="300"></p>
+<p>이런 경우, 우리는 <u>상속이 추가된 클래스 구조</u>를 생각해야 한다.</p>
+<p><strong>상속</strong>이란, 부모 클래스에 이미 구현되어진 클래스 변수와 함수를 자식 클래스가 받아서 사용하는 것을 의미한다.</p>
+<p>위 예제 코드에서 반복되는 부분을 부모 클래스로 구성해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Character</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, level, name, hp)</span>:</span>    <span class="comment"># 반복되는 클래스 변수</span></span><br><span class="line">        self.level = level</span><br><span class="line">        self.name = name</span><br><span class="line">        self.hp = hp</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self, direction)</span>:</span>    <span class="comment"># 반복되는 클래스 함수 1</span></span><br><span class="line">        print(direction + <span class="string">"방향으로 이동합니다"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">attack</span><span class="params">(self)</span>:</span>     <span class="comment"># 반복되는 클래스 함수 2</span></span><br><span class="line">        print(self.name + <span class="string">"이(가) 공격합니다"</span>)</span><br></pre></td></tr></table></figure>
+<p>Character 이라는 클래스를 새로 만들고, 기사, 마법사, 궁수 클래스를 만들 때 공통적으로 포함되는 클래스 변수와 클래스 함수들을 집어 넣었다.</p>
+<p>이제 이 부모 클래스를 사용해서 자식 클래스를 구성해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Knight</span><span class="params">(Character)</span>:</span>    <span class="comment"># 부모 클래스인 Character을 사용</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Archer</span><span class="params">(Character)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wizard</span><span class="params">(Character)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">magic</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name + <span class="string">"이(가) 마법을 사용합니다"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>knight_user = Knight(<span class="number">20</span>, <span class="string">"Battery"</span>, <span class="number">200</span>)</span><br><span class="line">    wizard_user = Wizard(<span class="number">30</span>, <span class="string">"Bloodtrail"</span>, <span class="number">150</span>)</span><br><span class="line">    archer_user = Archer(<span class="number">15</span>, <span class="string">"CashIsK1ng"</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>knight_user.move(<span class="string">"오른쪽"</span>)</span><br><span class="line">오른쪽방향으로 이동합니다</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wizard_user.magic()</span><br><span class="line">Bloodtrail이(가) 마법을 사용합니다</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>archer_user.attack()</span><br><span class="line">CashIsK1ng이(가) 공격합니다</span><br></pre></td></tr></table></figure>
+<p>클래스의 상속 관계를 잘 설정해 놓으면, 이렇게 깔끔하게 코드가 완성된다.</p>
+<p>차후 MP, 마지막으로 접속한 시간 등의 변수를 추가할 때에도 부모 클래스인 Character만 수정하면 모든 자식 클래스에 제대로 적용될 것이다.</p>
+<p>클래스 작성에 익숙해지자!</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/20/180920-function-in-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1924,395 +2379,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/18/180918-customer-discovery-kaist-e5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeongwook, Kim">
-      <meta itemprop="description" content="Love code, travel, and game">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/54869412-28d90a80-4ddb-11e9-8c02-aaff77b52031.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/18/180918-customer-discovery-kaist-e5/" class="post-title-link" itemprop="url">서비스의 시장 크기 제시하기</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-18 22:59:02" itemprop="dateCreated datePublished" datetime="2018-09-18T22:59:02+09:00">2018-09-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-25 12:34:26" itemprop="dateModified" datetime="2019-03-25T12:34:26+09:00">2019-03-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Startup-Story/" itemprop="url" rel="index"><span itemprop="name">Startup Story</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/09/18/180918-customer-discovery-kaist-e5/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/18/180918-customer-discovery-kaist-e5/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>아닛..!! 저번주에 참여했던 KAIST E5 에서 놀랍게도 상금을 받으면서 2차 미션 대상팀이 되었다.</p>
-<p>아무래도 주제가 좋지 않았나 싶다. 아직 많이 부족하지만..</p>
-<p>아무튼 그래서 오늘은 2차 Mission 인 <strong>Customer Discovery</strong> 강의를 들으러 KAIST 스타트업 스튜디오 1층으로 모였다.</p>
-<p>저번 비즈니스 모델링은 카카오벤처스 <strong>김기준 상무님</strong>께서 강연해 주셨고, 이번에는 씨엔티테크 <strong>전화성 대표님</strong>께서 직접 방문하셨다.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/09/18/180918-customer-discovery-kaist-e5/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/14/180914-kschool-student/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeongwook, Kim">
-      <meta itemprop="description" content="Love code, travel, and game">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/54869412-28d90a80-4ddb-11e9-8c02-aaff77b52031.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/14/180914-kschool-student/" class="post-title-link" itemprop="url">KAIST 창업석사 소개</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-14 12:49:15" itemprop="dateCreated datePublished" datetime="2018-09-14T12:49:15+09:00">2018-09-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-25 20:58:06" itemprop="dateModified" datetime="2019-03-25T20:58:06+09:00">2019-03-25</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/School/" itemprop="url" rel="index"><span itemprop="name">School</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/09/14/180914-kschool-student/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/14/180914-kschool-student/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>오늘은 내가 다니고 있는 과정에 대해서 소개하고자 한다.</p>
-<p>나는 현재 KAIST 기술경영학부 대학원에 다니고 있는데, 특이하게도 학위 과정이 <strong>창업융합전문석사</strong> 이다.</p>
-<p>아직 이 전형으로 입학한 학생이 겨우 5기 뿐이고, 사람들이 잘 모르는 것 같아 간략하게나마 써본다.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/09/14/180914-kschool-student/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2361,7 +2427,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

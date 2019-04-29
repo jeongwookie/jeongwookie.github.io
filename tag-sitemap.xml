@@ -115,20 +115,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Startup/</loc>
-        <lastmod>2019-03-25T12:20:10.981Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Growth-hacking/</loc>
-        <lastmod>2019-03-25T12:20:10.981Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/Hexo/</loc>
         <lastmod>2019-03-25T12:29:11.901Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -150,15 +136,29 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/tags/Startup/</loc>
+        <lastmod>2019-04-29T14:07:47.192Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Growth-hacking/</loc>
+        <lastmod>2019-04-29T14:07:47.192Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/tags/Python/</loc>
-        <lastmod>2019-04-29T14:02:34.351Z</lastmod>
+        <lastmod>2019-04-29T14:28:26.436Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/KAIST-IT-Program/</loc>
-        <lastmod>2019-04-29T14:02:34.351Z</lastmod>
+        <lastmod>2019-04-29T14:28:26.436Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

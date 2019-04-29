@@ -22,20 +22,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/</loc>
-        <lastmod>2019-03-25T12:15:22.437Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/Startup-Story/</loc>
-        <lastmod>2019-03-25T12:20:10.981Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/categories/Blog-setting/</loc>
         <lastmod>2019-03-25T12:29:11.901Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -45,6 +31,20 @@
     <url>
         <loc>https://jeongwookie.github.io/categories/Diary/</loc>
         <lastmod>2019-04-29T14:02:34.351Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/Startup-Story/</loc>
+        <lastmod>2019-04-29T14:07:47.192Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/Programming/</loc>
+        <lastmod>2019-04-29T14:28:26.436Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
