@@ -115,20 +115,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Python/</loc>
-        <lastmod>2019-03-25T12:15:22.437Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/KAIST-IT-Program/</loc>
-        <lastmod>2019-03-25T12:15:22.437Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/Startup/</loc>
         <lastmod>2019-03-25T12:20:10.981Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -159,6 +145,20 @@
     <url>
         <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
         <lastmod>2019-03-25T12:29:28.002Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Python/</loc>
+        <lastmod>2019-04-29T14:02:34.351Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/KAIST-IT-Program/</loc>
+        <lastmod>2019-04-29T14:02:34.351Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
