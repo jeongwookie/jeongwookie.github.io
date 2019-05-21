@@ -99,14 +99,14 @@
   <meta name="description" content="코딩에서 가장 중요한 것은, 바로 남이 구현해 놓은 것을 가져다가 잘 쓰는 것이라고 배웠다. 모듈 (moudule)이란 함수나 변수 혹은 클래스 등을 뫃아놓은 파일이며, 쉽게 말하면 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만들어진 파이썬 파일이다. 다른 사람들이 이미 만들어 놓은 모듈을 사용하거나, 내가 직접 만들어서 사용할 수도 있다. 간단히">
 <meta name="keywords" content="Python,KAIST IT Program">
 <meta property="og:type" content="article">
-<meta property="og:title" content="모듈과 패키지">
+<meta property="og:title" content="Python 기본 - 10. 모듈과 패키지">
 <meta property="og:url" content="https://jeongwookie.github.io/2018/10/04/181004-python-module/index.html">
 <meta property="og:site_name" content="Jeongwook&#39;s Blog">
 <meta property="og:description" content="코딩에서 가장 중요한 것은, 바로 남이 구현해 놓은 것을 가져다가 잘 쓰는 것이라고 배웠다. 모듈 (moudule)이란 함수나 변수 혹은 클래스 등을 뫃아놓은 파일이며, 쉽게 말하면 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만들어진 파이썬 파일이다. 다른 사람들이 이미 만들어 놓은 모듈을 사용하거나, 내가 직접 만들어서 사용할 수도 있다. 간단히">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-29T14:28:26.436Z">
+<meta property="og:updated_time" content="2019-05-21T05:59:54.660Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="모듈과 패키지">
+<meta name="twitter:title" content="Python 기본 - 10. 모듈과 패키지">
 <meta name="twitter:description" content="코딩에서 가장 중요한 것은, 바로 남이 구현해 놓은 것을 가져다가 잘 쓰는 것이라고 배웠다. 모듈 (moudule)이란 함수나 변수 혹은 클래스 등을 뫃아놓은 파일이며, 쉽게 말하면 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만들어진 파이썬 파일이다. 다른 사람들이 이미 만들어 놓은 모듈을 사용하거나, 내가 직접 만들어서 사용할 수도 있다. 간단히">
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>모듈과 패키지 | Jeongwook's Blog</title>
+  <title>Python 기본 - 10. 모듈과 패키지 | Jeongwook's Blog</title>
   
 
 
@@ -383,7 +383,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">모듈과 패키지
+          <h1 class="post-title" itemprop="name headline">Python 기본 - 10. 모듈과 패키지
 
               
             
@@ -413,22 +413,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-29 23:28:26" itemprop="dateModified" datetime="2019-04-29T23:28:26+09:00">2019-04-29</time>
-              
-            
           </span>
 
           
@@ -444,6 +428,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -495,6 +486,7 @@
 <p><strong>모듈 (moudule)</strong>이란 함수나 변수 혹은 클래스 등을 뫃아놓은 파일이며, 쉽게 말하면 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만들어진 파이썬 파일이다.</p>
 <p>다른 사람들이 이미 만들어 놓은 모듈을 사용하거나, 내가 직접 만들어서 사용할 수도 있다.</p>
 <p>간단히 모듈을 만들고 불러와 보자.</p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_statistics.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sub</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a - b</span><br><span class="line"></span><br><span class="line"><span class="comment"># my_main.py (my_statistics.py와 같은 폴더 내의 파일)</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> my_statistics</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(my_statistics.add(<span class="number">10</span>,<span class="number">20</span>))</span><br><span class="line"><span class="number">30</span></span><br></pre></td></tr></table></figure>
 <p><code>my_statistics.py</code>라는 모듈을 불러오기 위하여 <code>import</code> 를 사용하였다.</p>
 <p>불러온 이후, 모듈 내의 함수 <code>add</code>를 사용하기 위해 <strong>모듈이름.함수명()</strong>  와 같이 도트 연산자를 붙였다.</p>
@@ -574,8 +566,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/12/181012-python-adress-book-program/" rel="prev" title="파이썬으로 주소록 만들기">
-                파이썬으로 주소록 만들기 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/12/181012-python-adress-book-program/" rel="prev" title="Python 기본 - 11. 파이썬으로 주소록 만들기">
+                Python 기본 - 11. 파이썬으로 주소록 만들기 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -645,7 +637,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -674,7 +666,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -957,7 +955,7 @@
   var disqus_config = function() {
     this.page.url = "https://jeongwookie.github.io/2018/10/04/181004-python-module/";
     this.page.identifier = "2018/10/04/181004-python-module/";
-    this.page.title = '모듈과 패키지';
+    this.page.title = 'Python 기본 - 10. 모듈과 패키지';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');

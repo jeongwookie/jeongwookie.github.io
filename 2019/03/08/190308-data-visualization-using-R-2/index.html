@@ -99,7 +99,7 @@
   <meta name="description" content="지난 포스트에서는 기본적인 plot을 그리는 방법과, 가장 널리 쓰이는 패키지인 ggplot2을 간단히 다루어 보았다. 이번 포스트에서는 내장 데이터셋을 Barplot (막대 그래프) 으로 표현해 볼 것이다. library는 마찬가지로 gglpot2 plotrix boot scatterplot3d lattice MASS 을 기본으로 한다.">
 <meta name="keywords" content="KAIST,R programming,Class">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R을 사용한 데이터 시각화, 2편">
+<meta property="og:title" content="R을 사용한 데이터 시각화 - 2. barplot 그리기">
 <meta property="og:url" content="https://jeongwookie.github.io/2019/03/08/190308-data-visualization-using-R-2/index.html">
 <meta property="og:site_name" content="Jeongwook&#39;s Blog">
 <meta property="og:description" content="지난 포스트에서는 기본적인 plot을 그리는 방법과, 가장 널리 쓰이는 패키지인 ggplot2을 간단히 다루어 보았다. 이번 포스트에서는 내장 데이터셋을 Barplot (막대 그래프) 으로 표현해 볼 것이다. library는 마찬가지로 gglpot2 plotrix boot scatterplot3d lattice MASS 을 기본으로 한다.">
@@ -110,9 +110,9 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54422623-401c5600-4752-11e9-9ba1-526d71c32915.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54423376-e74dbd00-4753-11e9-9c56-3c657d5f3e6a.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54423687-968a9400-4754-11e9-9f62-b28064818b10.png">
-<meta property="og:updated_time" content="2019-03-25T01:43:50.000Z">
+<meta property="og:updated_time" content="2019-05-21T05:22:48.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R을 사용한 데이터 시각화, 2편">
+<meta name="twitter:title" content="R을 사용한 데이터 시각화 - 2. barplot 그리기">
 <meta name="twitter:description" content="지난 포스트에서는 기본적인 plot을 그리는 방법과, 가장 널리 쓰이는 패키지인 ggplot2을 간단히 다루어 보았다. 이번 포스트에서는 내장 데이터셋을 Barplot (막대 그래프) 으로 표현해 볼 것이다. library는 마찬가지로 gglpot2 plotrix boot scatterplot3d lattice MASS 을 기본으로 한다.">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/54420514-84f1be00-474d-11e9-833d-22eb7ab4cf8c.png">
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>R을 사용한 데이터 시각화, 2편 | Jeongwook's Blog</title>
+  <title>R을 사용한 데이터 시각화 - 2. barplot 그리기 | Jeongwook's Blog</title>
   
 
 
@@ -390,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">R을 사용한 데이터 시각화, 2편
+          <h1 class="post-title" itemprop="name headline">R을 사용한 데이터 시각화 - 2. barplot 그리기
 
               
             
@@ -420,22 +420,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-25 10:43:50" itemprop="dateModified" datetime="2019-03-25T10:43:50+09:00">2019-03-25</time>
-              
-            
           </span>
 
           
@@ -451,6 +435,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/R-programming/" itemprop="url" rel="index"><span itemprop="name">R programming</span></a></span>
 
                 
                 
@@ -578,8 +569,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/06/190306-data-visualization-using-R-1/" rel="next" title="R을 사용한 데이터 시각화, 1편">
-                <i class="fa fa-chevron-left"></i> R을 사용한 데이터 시각화, 1편
+              <a href="/2019/03/06/190306-data-visualization-using-R-1/" rel="next" title="R을 사용한 데이터 시각화 - 1. ggplot2 기본">
+                <i class="fa fa-chevron-left"></i> R을 사용한 데이터 시각화 - 1. ggplot2 기본
               </a>
             
           </div>
@@ -668,7 +659,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -697,7 +688,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -997,7 +994,7 @@
   var disqus_config = function() {
     this.page.url = "https://jeongwookie.github.io/2019/03/08/190308-data-visualization-using-R-2/";
     this.page.identifier = "2019/03/08/190308-data-visualization-using-R-2/";
-    this.page.title = 'R을 사용한 데이터 시각화, 2편';
+    this.page.title = 'R을 사용한 데이터 시각화 - 2. barplot 그리기';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');

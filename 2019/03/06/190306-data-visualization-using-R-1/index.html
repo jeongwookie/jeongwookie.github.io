@@ -99,7 +99,7 @@
   <meta name="description" content="R은 데이터 시각화에 강력한 라이브러리들을 여럿 가지고 있어서 매우 유용하다. 이번 포스트에서 사용할 라이브러리는 아래와 같다. library : gglpot2 plotrix boot scatterplot3d lattice MASS">
 <meta name="keywords" content="KAIST,R programming,Class">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R을 사용한 데이터 시각화, 1편">
+<meta property="og:title" content="R을 사용한 데이터 시각화 - 1. ggplot2 기본">
 <meta property="og:url" content="https://jeongwookie.github.io/2019/03/06/190306-data-visualization-using-R-1/index.html">
 <meta property="og:site_name" content="Jeongwook&#39;s Blog">
 <meta property="og:description" content="R은 데이터 시각화에 강력한 라이브러리들을 여럿 가지고 있어서 매우 유용하다. 이번 포스트에서 사용할 라이브러리는 아래와 같다. library : gglpot2 plotrix boot scatterplot3d lattice MASS">
@@ -111,9 +111,9 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54252070-c6873b00-458c-11e9-934b-2f1d1fed3da7.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54253074-ba9d7800-4590-11e9-8bf7-eb477fea57fa.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54253032-95106e80-4590-11e9-8cd2-03386699c406.png">
-<meta property="og:updated_time" content="2019-03-25T01:43:45.000Z">
+<meta property="og:updated_time" content="2019-05-21T05:21:39.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R을 사용한 데이터 시각화, 1편">
+<meta name="twitter:title" content="R을 사용한 데이터 시각화 - 1. ggplot2 기본">
 <meta name="twitter:description" content="R은 데이터 시각화에 강력한 라이브러리들을 여럿 가지고 있어서 매우 유용하다. 이번 포스트에서 사용할 라이브러리는 아래와 같다. library : gglpot2 plotrix boot scatterplot3d lattice MASS">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/54251976-80ca7280-458c-11e9-99f8-fe3fbbb703b6.png">
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>R을 사용한 데이터 시각화, 1편 | Jeongwook's Blog</title>
+  <title>R을 사용한 데이터 시각화 - 1. ggplot2 기본 | Jeongwook's Blog</title>
   
 
 
@@ -391,7 +391,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">R을 사용한 데이터 시각화, 1편
+          <h1 class="post-title" itemprop="name headline">R을 사용한 데이터 시각화 - 1. ggplot2 기본
 
               
             
@@ -421,22 +421,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-25 10:43:45" itemprop="dateModified" datetime="2019-03-25T10:43:45+09:00">2019-03-25</time>
-              
-            
           </span>
 
           
@@ -452,6 +436,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/R-programming/" itemprop="url" rel="index"><span itemprop="name">R programming</span></a></span>
 
                 
                 
@@ -591,8 +582,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/08/190308-data-visualization-using-R-2/" rel="prev" title="R을 사용한 데이터 시각화, 2편">
-                R을 사용한 데이터 시각화, 2편 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/08/190308-data-visualization-using-R-2/" rel="prev" title="R을 사용한 데이터 시각화 - 2. barplot 그리기">
+                R을 사용한 데이터 시각화 - 2. barplot 그리기 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +653,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -691,7 +682,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -974,7 +971,7 @@
   var disqus_config = function() {
     this.page.url = "https://jeongwookie.github.io/2019/03/06/190306-data-visualization-using-R-1/";
     this.page.identifier = "2019/03/06/190306-data-visualization-using-R-1/";
-    this.page.title = 'R을 사용한 데이터 시각화, 1편';
+    this.page.title = 'R을 사용한 데이터 시각화 - 1. ggplot2 기본';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
