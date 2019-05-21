@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2019/05/21/190521-ubuntu-install-usb/</loc>
+        <lastmod>2019-05-21T18:39:41.281Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2018/10/12/181012-python-adress-book-program/</loc>
-        <lastmod>2019-05-21T06:01:06.314Z</lastmod>
+        <lastmod>2019-05-21T06:00:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +25,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/10/04/181004-python-module/</loc>
-        <lastmod>2019-05-21T05:59:54.660Z</lastmod>
+        <lastmod>2019-05-21T05:59:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +33,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/30/180930-python-class/</loc>
-        <lastmod>2019-05-21T05:59:25.136Z</lastmod>
+        <lastmod>2019-05-21T05:59:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,7 +41,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/21/180921-second-homework-python/</loc>
-        <lastmod>2019-05-21T05:58:48.882Z</lastmod>
+        <lastmod>2019-05-21T05:58:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,7 +49,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/20/180920-function-in-python/</loc>
-        <lastmod>2019-05-21T05:58:27.556Z</lastmod>
+        <lastmod>2019-05-21T05:58:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +57,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/18/180918-set-in-python/</loc>
-        <lastmod>2019-05-21T05:58:09.336Z</lastmod>
+        <lastmod>2019-05-21T05:58:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,7 +65,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/14/180914-tuple-and-dictionary/</loc>
-        <lastmod>2019-05-21T05:57:56.821Z</lastmod>
+        <lastmod>2019-05-21T05:57:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -65,7 +73,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/20/190320-collect-data-using-naver-search-api/</loc>
-        <lastmod>2019-05-21T05:34:25.645Z</lastmod>
+        <lastmod>2019-05-21T05:34:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,7 +81,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
-        <lastmod>2019-05-21T05:34:20.774Z</lastmod>
+        <lastmod>2019-05-21T05:34:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -81,7 +89,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/01/22/190122-AI-development-training-course-in-kaist/</loc>
-        <lastmod>2019-05-21T05:33:38.804Z</lastmod>
+        <lastmod>2019-05-21T05:33:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -89,7 +97,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/12/180912-list-operation/</loc>
-        <lastmod>2019-05-21T05:27:29.637Z</lastmod>
+        <lastmod>2019-05-21T05:27:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -97,7 +105,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/180911-code-alignment-using-format-function/</loc>
-        <lastmod>2019-05-21T05:27:02.573Z</lastmod>
+        <lastmod>2019-05-21T05:27:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -105,7 +113,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/11/180911-first-homework-python/</loc>
-        <lastmod>2019-05-21T05:26:11.992Z</lastmod>
+        <lastmod>2019-05-21T05:26:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -113,7 +121,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/180910-common-string-operation/</loc>
-        <lastmod>2019-05-21T05:24:25.347Z</lastmod>
+        <lastmod>2019-05-21T05:24:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,7 +129,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/08/190308-data-visualization-using-R-2/</loc>
-        <lastmod>2019-05-21T05:22:48.867Z</lastmod>
+        <lastmod>2019-05-21T05:22:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -129,23 +137,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/06/190306-data-visualization-using-R-1/</loc>
-        <lastmod>2019-05-21T05:21:39.325Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/10/02/181017-python-class-finish/</loc>
-        <lastmod>2019-04-29T13:57:55.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/10/02/181002-put-google-adsense-in-your-hexo-blog/</loc>
-        <lastmod>2019-03-25T12:29:00.000Z</lastmod>
+        <lastmod>2019-05-21T05:21:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -153,87 +145,15 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/03/29/180329-what-is-growth-hacker/</loc>
-        <lastmod>2019-03-25T12:20:10.000Z</lastmod>
+        <lastmod>2019-04-29T14:07:47.192Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
-        <lastmod>2019-03-25T11:54:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/02/08/190208-goal-directed-design/</loc>
-        <lastmod>2019-03-25T03:35:14.501Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/18/180918-customer-discovery-kaist-e5/</loc>
-        <lastmod>2019-03-25T03:34:26.843Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/14/180914-kschool-student/</loc>
-        <lastmod>2019-03-25T03:34:07.338Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/13/180913-category-name-problem/</loc>
-        <lastmod>2019-03-25T03:33:51.772Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/11/06/181106-customer-interview-mental-model/</loc>
-        <lastmod>2019-03-25T03:23:21.639Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/17/190117-house-remodeling-4/</loc>
-        <lastmod>2019-03-25T03:17:58.333Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/12/190112-house-remodeling-3/</loc>
-        <lastmod>2019-03-25T03:17:16.568Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/09/190109-house-remodeling-2/</loc>
-        <lastmod>2019-03-25T03:16:42.727Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/05/190105-house-remodeling-1/</loc>
-        <lastmod>2019-03-25T03:15:21.170Z</lastmod>
+        <loc>https://jeongwookie.github.io/2018/10/02/181017-python-class-finish/</loc>
+        <lastmod>2019-04-29T14:02:34.351Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -241,7 +161,95 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/12/31/181231-looking-back-on-2018/</loc>
-        <lastmod>2019-03-24T11:36:34.000Z</lastmod>
+        <lastmod>2019-03-25T12:29:28.002Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/10/02/181002-put-google-adsense-in-your-hexo-blog/</loc>
+        <lastmod>2019-03-25T12:29:11.901Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/14/180914-kschool-student/</loc>
+        <lastmod>2019-03-25T11:58:06.741Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
+        <lastmod>2019-03-25T11:58:00.474Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/02/08/190208-goal-directed-design/</loc>
+        <lastmod>2019-03-25T03:35:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/18/180918-customer-discovery-kaist-e5/</loc>
+        <lastmod>2019-03-25T03:34:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/13/180913-category-name-problem/</loc>
+        <lastmod>2019-03-25T03:33:51.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/11/06/181106-customer-interview-mental-model/</loc>
+        <lastmod>2019-03-25T03:23:21.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/17/190117-house-remodeling-4/</loc>
+        <lastmod>2019-03-25T03:17:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/12/190112-house-remodeling-3/</loc>
+        <lastmod>2019-03-25T03:17:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/09/190109-house-remodeling-2/</loc>
+        <lastmod>2019-03-25T03:16:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/05/190105-house-remodeling-1/</loc>
+        <lastmod>2019-03-25T03:15:21.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -249,7 +257,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/02/03/190203-find-a-new-hobby/</loc>
-        <lastmod>2019-03-24T10:53:26.000Z</lastmod>
+        <lastmod>2019-03-24T10:53:26.611Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -257,7 +265,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/180910-github-blog-image-upload/</loc>
-        <lastmod>2019-03-24T10:43:41.000Z</lastmod>
+        <lastmod>2019-03-24T10:43:41.310Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -265,7 +273,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/03/27/180327-after-meeting/</loc>
-        <lastmod>2019-03-24T07:52:51.000Z</lastmod>
+        <lastmod>2019-03-24T07:52:51.489Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
