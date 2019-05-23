@@ -323,6 +323,11 @@ $(document).ready(function() {
       }, 0);
     });
 
+    // add by typeart.cc
+    $(window).on("scroll", () => {
+      $(".gooAd").css("margin-top", $(".affix").height() + +NexT.utils.getSidebarb2tHeight() + 15 + "px");
+    });
+
     // Initialize Sidebar & TOC Width.
     var scrollbarWidth = NexT.utils.getScrollbarWidth();
     if ($('.site-overview-wrap').height() > (document.body.clientHeight - NexT.utils.getSidebarSchemePadding())) {
