@@ -102,22 +102,22 @@
      });
 </script>
 
-  <meta name="description" content="튜플(tuple)은 리스트와 거의 유사하지만 다음과 같은 차이점이 있다.  대괄호 []가 아닌, 소괄호 ()를 사용 리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)  얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 왜 쓸까? 이에 대해 조교님께 물어봤는데, 튜플은 변경이 불가능하다는 속성 자체가 가치 있다고..">
-<meta name="keywords" content="Python,KAIST IT Program">
+  <meta name="description" content="튜플(tuple)은 리스트와 거의 유사하지만 다음과 같은 차이점이 있다.  대괄호 []가 아닌, 소괄호 ()를 사용 리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)  얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 언제 사용하는 걸까? 튜플은 변경이 불가능하다는 속성 자체가 가치있다.">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 기본 - 5. 튜플과 딕셔너리 자료형">
 <meta property="og:url" content="https://jeongwookie.github.io/2018/09/14/180914-tuple-and-dictionary/index.html">
-<meta property="og:site_name" content="Jeongwook&#39;s Blog">
-<meta property="og:description" content="튜플(tuple)은 리스트와 거의 유사하지만 다음과 같은 차이점이 있다.  대괄호 []가 아닌, 소괄호 ()를 사용 리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)  얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 왜 쓸까? 이에 대해 조교님께 물어봤는데, 튜플은 변경이 불가능하다는 속성 자체가 가치 있다고..">
+<meta property="og:site_name" content="JW&#39;s Blog">
+<meta property="og:description" content="튜플(tuple)은 리스트와 거의 유사하지만 다음과 같은 차이점이 있다.  대괄호 []가 아닌, 소괄호 ()를 사용 리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)  얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 언제 사용하는 걸까? 튜플은 변경이 불가능하다는 속성 자체가 가치있다.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-21T05:57:56.000Z">
+<meta property="og:updated_time" content="2019-05-25T11:24:43.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 기본 - 5. 튜플과 딕셔너리 자료형">
-<meta name="twitter:description" content="튜플(tuple)은 리스트와 거의 유사하지만 다음과 같은 차이점이 있다.  대괄호 []가 아닌, 소괄호 ()를 사용 리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)  얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 왜 쓸까? 이에 대해 조교님께 물어봤는데, 튜플은 변경이 불가능하다는 속성 자체가 가치 있다고..">
+<meta name="twitter:description" content="튜플(tuple)은 리스트와 거의 유사하지만 다음과 같은 차이점이 있다.  대괄호 []가 아닌, 소괄호 ()를 사용 리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)  얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 언제 사용하는 걸까? 튜플은 변경이 불가능하다는 속성 자체가 가치있다.">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Jeongwook's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="JW's Blog" type="application/atom+xml">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>Python 기본 - 5. 튜플과 딕셔너리 자료형 | Jeongwook's Blog</title>
+  <title>Python 기본 - 5. 튜플과 딕셔너리 자료형 | JW's Blog</title>
   
 
 
@@ -202,7 +202,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jeongwook's Blog</span>
+        <span class="site-title">JW's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -381,7 +381,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -493,10 +493,10 @@
 <li>대괄호 []가 아닌, 소괄호 ()를 사용</li>
 <li>리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)</li>
 </ul>
-<p>얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 왜 쓸까?</p>
-<p>이에 대해 조교님께 물어봤는데, 튜플은 변경이 불가능하다는 속성 자체가 가치 있다고..</p>
+<p>얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 언제 사용하는 걸까?</p>
+<p>튜플은 변경이 불가능하다는 속성 자체가 가치있다. </p>
 <a id="more"></a>
-<p>즉 여러 명의 개발자가 같이 프로젝트를 진행할 경우, 어떤 요소들을 튜플로 표시했을 때 다른 개발자가 보고 ‘아 이것은 변경하지 말라는 소리구나’ 라고 이해한다고 한다.</p>
+<p>즉 여러 명의 개발자가 같이 프로젝트를 진행할 경우, 어떤 요소들을 튜플로 표시했을 때 다른 개발자가 보고 ‘아 이것은 변경하지 말라는 소리구나’ 라고 이해할수 있다.</p>
 <p>그리고 일반적인 경우에도 값이 바뀌는 상황이 걱정될 경우, 튜플을 일부러 사용하기도 한다.</p>
 <p><a href="https://www.w3schools.com/python/python_dictionaries.asp" rel="external nofollow noopener noreferrer" target="_blank">딕셔너리(dictionary)</a> 자료형은 대응 관계를 표시한다. </p>
 <p>key와 value가 한 쌍이 되는데, 딕셔너리 자료형에서 값을 찾을 때는 index가 아닌 <strong>key</strong>로 이에 대응되는 값을 찾게 된다.</p>
@@ -541,8 +541,6 @@
         <div class="post-tags">
           
             <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/KAIST-IT-Program/" rel="tag"># KAIST IT Program</a>
           
         </div>
       
@@ -645,7 +643,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -753,9 +751,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

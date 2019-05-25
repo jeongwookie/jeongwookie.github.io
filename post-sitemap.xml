@@ -8,6 +8,102 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2018/10/12/181012-python-adress-book-program/</loc>
+        <lastmod>2019-05-25T11:36:05.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/10/04/181004-python-module/</loc>
+        <lastmod>2019-05-25T11:28:22.612Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/30/180930-python-class/</loc>
+        <lastmod>2019-05-25T11:28:15.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/21/180921-second-homework-python/</loc>
+        <lastmod>2019-05-25T11:27:18.304Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/20/180920-function-in-python/</loc>
+        <lastmod>2019-05-25T11:25:14.228Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/18/180918-set-in-python/</loc>
+        <lastmod>2019-05-25T11:25:01.469Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/14/180914-tuple-and-dictionary/</loc>
+        <lastmod>2019-05-25T11:24:43.788Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/12/180912-list-operation/</loc>
+        <lastmod>2019-05-25T11:23:18.756Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/11/180911-first-homework-python/</loc>
+        <lastmod>2019-05-25T11:22:34.188Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/10/180911-code-alignment-using-format-function/</loc>
+        <lastmod>2019-05-25T11:22:23.855Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/09/10/180910-common-string-operation/</loc>
+        <lastmod>2019-05-25T11:22:18.121Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
+        <lastmod>2019-05-24T14:57:25.182Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2019/05/23/190523-ubuntu-jupyter-notebook-remote/</loc>
         <lastmod>2019-05-23T10:07:39.320Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,62 +120,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2018/10/12/181012-python-adress-book-program/</loc>
-        <lastmod>2019-05-21T06:00:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/10/04/181004-python-module/</loc>
-        <lastmod>2019-05-21T05:59:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/30/180930-python-class/</loc>
-        <lastmod>2019-05-21T05:59:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/21/180921-second-homework-python/</loc>
-        <lastmod>2019-05-21T05:58:48.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/20/180920-function-in-python/</loc>
-        <lastmod>2019-05-21T05:58:27.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/18/180918-set-in-python/</loc>
-        <lastmod>2019-05-21T05:58:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/14/180914-tuple-and-dictionary/</loc>
-        <lastmod>2019-05-21T05:57:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/2019/03/20/190320-collect-data-using-naver-search-api/</loc>
         <lastmod>2019-05-21T05:34:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -88,48 +128,8 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
-        <lastmod>2019-05-21T05:34:20.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/2019/01/22/190122-AI-development-training-course-in-kaist/</loc>
         <lastmod>2019-05-21T05:33:38.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/12/180912-list-operation/</loc>
-        <lastmod>2019-05-21T05:27:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/10/180911-code-alignment-using-format-function/</loc>
-        <lastmod>2019-05-21T05:27:02.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/11/180911-first-homework-python/</loc>
-        <lastmod>2019-05-21T05:26:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/10/180910-common-string-operation/</loc>
-        <lastmod>2019-05-21T05:24:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -154,14 +154,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2018/03/29/180329-what-is-growth-hacker/</loc>
         <lastmod>2019-04-29T14:07:47.192Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/10/02/181017-python-class-finish/</loc>
-        <lastmod>2019-04-29T14:02:34.351Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

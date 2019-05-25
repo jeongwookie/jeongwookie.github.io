@@ -105,18 +105,18 @@
   <meta name="description" content="Love code, travel, and game">
 <meta name="keywords" content="김정욱, KAIST">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Jeongwook&#39;s Blog">
+<meta property="og:title" content="JW&#39;s Blog">
 <meta property="og:url" content="https://jeongwookie.github.io/page/3/index.html">
-<meta property="og:site_name" content="Jeongwook&#39;s Blog">
+<meta property="og:site_name" content="JW&#39;s Blog">
 <meta property="og:description" content="Love code, travel, and game">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jeongwook&#39;s Blog">
+<meta name="twitter:title" content="JW&#39;s Blog">
 <meta name="twitter:description" content="Love code, travel, and game">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Jeongwook's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="JW's Blog" type="application/atom+xml">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Jeongwook's Blog</title>
+  <title>JW's Blog</title>
   
 
 
@@ -202,7 +202,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jeongwook's Blog</span>
+        <span class="site-title">JW's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -372,197 +372,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/30/180930-python-class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeongwook, Kim">
-      <meta itemprop="description" content="Love code, travel, and game">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/54869412-28d90a80-4ddb-11e9-8c02-aaff77b52031.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/30/180930-python-class/" class="post-title-link" itemprop="url">Python 기본 - 9. 클래스 쉽게 다루기</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-30 01:25:25" itemprop="dateCreated datePublished" datetime="2018-09-30T01:25:25+09:00">2018-09-30</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/09/30/180930-python-class/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/30/180930-python-class/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>세 번째 섹션부터 배우기 시작한 클래스는 우리의 단순 노동 작업을 크게 줄여주고, 코드를 깔끔하게 해 주는 효자다.</p>
-<p>찬찬히 배운 내용을 정리해 보겠다.</p>
-<p><strong>클래스</strong>는 <u>붕어빵 틀</u>이다. 일종의 틀로, 똑같은 무언가를 만들어 낼 수 있는 도면과 같은 것이다.</p>
-<p><strong>객체</strong>는 클래스라는 틀에 의해 생성된 구체적인 어떤 것을 칭한다.</p>
-<blockquote>
-<p>붕어빵 틀은 클래스, 만들어진 붕어빵은 객체</p>
-</blockquote>
-<p><img src="https://user-images.githubusercontent.com/25416425/46248490-cec34200-c454-11e8-8aa5-310335ed6530.png" width="500"></p>
-<p>간단하게 예제를 통해서 클래스의 기본 구조에 대해 먼저 이해해 보자.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/09/30/180930-python-class/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/21/180921-second-homework-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -572,7 +381,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -760,7 +569,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -949,7 +758,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -1128,7 +937,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -1315,7 +1124,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -1493,7 +1302,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -1608,8 +1417,8 @@
 <li>대괄호 []가 아닌, 소괄호 ()를 사용</li>
 <li>리스트는 요소의 변경이 가능하지만, 튜플은 변경이 불가능 (immutable)</li>
 </ul>
-<p>얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 왜 쓸까?</p>
-<p>이에 대해 조교님께 물어봤는데, 튜플은 변경이 불가능하다는 속성 자체가 가치 있다고..</p>
+<p>얼핏 보면 리스트보다 튜플이 나은 점이 없어 보이는데, 언제 사용하는 걸까?</p>
+<p>튜플은 변경이 불가능하다는 속성 자체가 가치있다. </p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -1682,7 +1491,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -1860,7 +1669,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -1970,8 +1779,7 @@
 
       
         
-          <p>파이썬 강의 첫 날, 또 하나의 자주 쓰는 자료형을 배웠다.</p>
-<p><a href="https://wikidocs.net/14" rel="external nofollow noopener noreferrer" target="_blank">리스트 (list)</a>란 특정 값들을 <strong>순서 있게 저장</strong>하는 자료형이다.</p>
+          <p><a href="https://wikidocs.net/14" rel="external nofollow noopener noreferrer" target="_blank">리스트 (list)</a>란 특정 값들을 <strong>순서 있게 저장</strong>하는 자료형이다.</p>
 <p>C와는 달리, 하나의 리스트 안에 숫자와 문자가 공존할 수 있더라.</p>
 <p>앞서 배운 문자열처럼 리스트 또한 인덱싱과 슬라이싱을 할 수 있다.</p>
 <p>하지만, 각각의 결과물에 대해 조심해야 할 필요가 있다.</p>
@@ -2048,7 +1856,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongwook's Blog">
+      <meta itemprop="name" content="JW's Blog">
     </span>
 
     
@@ -2209,6 +2017,212 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/10/180911-code-alignment-using-format-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/54869412-28d90a80-4ddb-11e9-8c02-aaff77b52031.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JW's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/10/180911-code-alignment-using-format-function/" class="post-title-link" itemprop="url">Python 기본 - 2. Format 함수로 정렬하기</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-10 23:38:47" itemprop="dateCreated datePublished" datetime="2018-09-10T23:38:47+09:00">2018-09-10</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/09/10/180911-code-alignment-using-format-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/10/180911-code-alignment-using-format-function/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>파이썬에서 내가 편하다고 느끼는 부분 중 하나가 바로 <strong>Format 함수.</strong></p>
+<p>원하는 문자열을 참조하여 출력할 때 많이 사용하고, 출력물을 보기 좋게 정렬하고 싶을 때도 종종 사용한다.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{:k&gt;10}</td>
+<td>10칸 공간, <strong>오른쪽 정렬</strong>, 공백을 k로 채우기</td>
+</tr>
+<tr>
+<td>{:k&lt;10}</td>
+<td>10칸 공간, <strong>왼쪽 정렬</strong>, 공백을 k로 채우기</td>
+</tr>
+<tr>
+<td>{:k^10}</td>
+<td>10칸 공간, <strong>가운데 정렬</strong>, 공백을 k로 채우기</td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/10/180911-code-alignment-using-format-function/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2257,7 +2271,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2365,9 +2379,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
