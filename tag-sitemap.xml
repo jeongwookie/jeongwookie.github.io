@@ -31,13 +31,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Business/</loc>
-        <lastmod>2019-03-25T03:35:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/Service-Design/</loc>
         <lastmod>2019-03-25T03:35:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,42 +39,35 @@
 
     <url>
         <loc>https://jeongwookie.github.io/tags/K-school/</loc>
-        <lastmod>2019-03-25T11:58:06.741Z</lastmod>
+        <lastmod>2019-03-25T11:58:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Hexo/</loc>
-        <lastmod>2019-03-25T12:29:11.901Z</lastmod>
+        <lastmod>2019-03-25T12:29:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Google-Adsense/</loc>
-        <lastmod>2019-03-25T12:29:11.901Z</lastmod>
+        <lastmod>2019-03-25T12:29:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
-        <lastmod>2019-03-25T12:29:28.002Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Startup/</loc>
-        <lastmod>2019-04-29T14:07:47.192Z</lastmod>
+        <lastmod>2019-03-25T12:29:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Growth-hacking/</loc>
-        <lastmod>2019-04-29T14:07:47.192Z</lastmod>
+        <lastmod>2019-04-29T14:07:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -137,56 +123,70 @@
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Boot-USB/</loc>
-        <lastmod>2019-05-21T18:39:41.281Z</lastmod>
+        <lastmod>2019-05-21T18:39:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Server-setting/</loc>
-        <lastmod>2019-05-23T10:07:39.320Z</lastmod>
+        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Ubuntu/</loc>
-        <lastmod>2019-05-23T10:07:39.320Z</lastmod>
+        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Linux/</loc>
-        <lastmod>2019-05-23T10:07:39.320Z</lastmod>
+        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Jupyter-notebook/</loc>
-        <lastmod>2019-05-23T10:07:39.320Z</lastmod>
+        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/WEB-Crawling/</loc>
-        <lastmod>2019-05-24T14:57:25.182Z</lastmod>
+        <loc>https://jeongwookie.github.io/tags/Startup/</loc>
+        <lastmod>2019-05-25T11:40:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Datamining/</loc>
-        <lastmod>2019-05-24T14:57:25.182Z</lastmod>
+        <loc>https://jeongwookie.github.io/tags/Business/</loc>
+        <lastmod>2019-05-25T11:40:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Python/</loc>
-        <lastmod>2019-05-25T11:36:05.278Z</lastmod>
+        <lastmod>2019-05-31T09:14:45.598Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/WEB-Crawling/</loc>
+        <lastmod>2019-05-31T09:14:45.598Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Datamining/</loc>
+        <lastmod>2019-05-31T09:14:45.598Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
