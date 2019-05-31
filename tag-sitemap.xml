@@ -122,27 +122,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Python/</loc>
-        <lastmod>2019-05-31T09:18:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/WEB-Crawling/</loc>
-        <lastmod>2019-05-31T09:18:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Datamining/</loc>
-        <lastmod>2019-05-31T09:18:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/Game/</loc>
         <lastmod>2019-05-31T14:41:09.687Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -208,6 +187,27 @@
     <url>
         <loc>https://jeongwookie.github.io/tags/Class/</loc>
         <lastmod>2019-05-31T15:19:51.053Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Python/</loc>
+        <lastmod>2019-05-31T17:23:25.063Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/WEB-Crawling/</loc>
+        <lastmod>2019-05-31T17:23:25.063Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Datamining/</loc>
+        <lastmod>2019-05-31T17:23:25.063Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

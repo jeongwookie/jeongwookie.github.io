@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2019/05/31/190531-naver-main-news-crawling/</loc>
+        <lastmod>2019-05-31T17:23:25.063Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2019/03/25/190325-data-visualization-using-R-3/</loc>
         <lastmod>2019-05-31T15:19:51.053Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -122,14 +130,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2019/03/08/190308-data-visualization-using-R-2/</loc>
         <lastmod>2019-05-31T13:22:04.951Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/05/31/190531-naver-main-news-crawling/</loc>
-        <lastmod>2019-05-31T09:18:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
