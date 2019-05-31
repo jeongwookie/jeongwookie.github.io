@@ -116,7 +116,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54422623-401c5600-4752-11e9-9ba1-526d71c32915.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54423376-e74dbd00-4753-11e9-9c56-3c657d5f3e6a.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/54423687-968a9400-4754-11e9-9f62-b28064818b10.png">
-<meta property="og:updated_time" content="2019-05-21T05:22:48.000Z">
+<meta property="og:updated_time" content="2019-05-31T13:22:04.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R을 사용한 데이터 시각화 - 2. barplot 그리기">
 <meta name="twitter:description" content="지난 포스트에서는 기본적인 plot을 그리는 방법과, 가장 널리 쓰이는 패키지인 ggplot2을 간단히 다루어 보았다. 이번 포스트에서는 내장 데이터셋을 Barplot (막대 그래프) 으로 표현해 볼 것이다. library는 마찬가지로 gglpot2 plotrix boot scatterplot3d lattice MASS 을 기본으로 한다.">
@@ -506,7 +506,7 @@
 <p>이제 x축은 ID, y축은 extra, 그리고 group별로 다른 색상을 나타내는 Barplot을 그려 보자.</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">head(sleep)</span><br><span class="line"><span class="keyword">attach</span>(sleep) <span class="comment">#sleep내의 objects(extra, group, ID)를 이름으로 쉽게 접근가능</span></span><br><span class="line">y &lt;- rbind(extra[<span class="number">1</span>:<span class="number">10</span>], extra[<span class="number">11</span>:<span class="number">20</span>]) <span class="comment">#group별로 extra값을 나누어 row bind 시킴. form : num</span></span><br><span class="line">barplot(y, names.arg = ID[<span class="number">1</span>:<span class="number">10</span>], col = <span class="number">5</span>:<span class="number">6</span>, xlab = <span class="string">"ID"</span>, ylab = <span class="string">"Extra Sleep Hour"</span>, beside = <span class="literal">T</span>)</span><br><span class="line"><span class="comment"># beside는 논리값으로, True이면 값을 병렬적으로, False이면 값을 쌓아서 반환함</span></span><br><span class="line">abline(h=<span class="number">0</span>) <span class="comment">#높이가 0인 line을 덧그림</span></span><br><span class="line">legend(<span class="string">'topleft'</span>, title = <span class="string">'group'</span>, legend = <span class="number">1</span>:<span class="number">2</span>, fill = <span class="number">5</span>:<span class="number">6</span>) <span class="comment"># legend 추가</span></span><br></pre></td></tr></table></figure>
 <p><strong>결과</strong><br><img src="https://user-images.githubusercontent.com/25416425/54420947-adc68300-474e-11e9-9d39-6d4eaae4db11.png" width="450"></p>
-<p><code>attatch()</code>는 데이터를 붙인다는 뜻인데, 데이터 내의 오브젝트에 이름으로 접근이 가능해진다.</p>
+<p><code>attach()</code>는 데이터를 붙인다는 뜻인데, 데이터 내의 오브젝트에 이름으로 접근이 가능해진다.</p>
 <p>그래서 바로 아랫줄에서 <code>extra[1:10]</code> 이런 식으로 서술이 가능하고, 이를 <code>rbind()</code>을 사용하여 행렬로 만든다.</p>
 <p><code>barplot()</code>을 사용하려면 제일 앞에 들어가는 y를 이처럼 vector 혹은 matrix 형태로 바꾸어 주어야 한다.</p>
 <p>함수 내부의 <code>beside=</code> 옵션은 TRUE일 때 데이터를 병렬적으로 보여주고, FALSE이면 하나의 막대에 전부 합쳐서 출력한다.</p>
@@ -531,7 +531,7 @@
 <p>앞선 <strong>sleep</strong>와 마찬가지로 데이터를 병렬적으로 표기하기 위해 <code>beside=T</code> 옵션을 넣었고, 각각의 막대 컬러를 2번 ~ 6번 색상으로 다르게 지정했다.</p>
 <p>그리고 <code>legend()</code>를 사용하여 따로 범례를 추가하였는데, 범례 이름은 <strong>UPE</strong>의 행 이름으로 지정했고, 색상은 <code>fill=</code>을 사용하여 앞서 지정하였던 막대 컬러 2~6번과 동일하게 하였다.</p>
 <p>또한 <code>cex=</code>가 등장하였는데, 이는 글자 크기를 조절하는 데에 사용하며 비율로 결정되므로 적절히 조절해서 숫자를 넣으면 된다. 자주 쓰이는 옵션이니 기억해 두자.</p>
-<p>이어지는 포스트에서는 barplot 외에 자주 쓰이는 pie chart 와 histogram에 대해 다루어 볼 예정이다.</p>
+<p>이어지는 포스트에서는 barplot 외에 자주 쓰이는 histogram 및 boxplot 에 대해 다루어 볼 예정이다.</p>
 <blockquote>
 <p><em>본 포스트는 KAIST 전산학부 대학원 과정에서 수강하고 있는 Big Data Analytics using R (CS564)을 실습하며 작성하였음을 밝힙니다.</em></p>
 </blockquote>
@@ -665,7 +665,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

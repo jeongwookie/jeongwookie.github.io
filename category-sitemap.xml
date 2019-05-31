@@ -16,21 +16,14 @@
 
     <url>
         <loc>https://jeongwookie.github.io/categories/School/</loc>
-        <lastmod>2019-03-25T11:58:06.000Z</lastmod>
+        <lastmod>2019-03-25T11:58:06.741Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/Blog-setting/</loc>
-        <lastmod>2019-03-25T12:29:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/R-programming/</loc>
-        <lastmod>2019-05-21T05:22:48.000Z</lastmod>
+        <lastmod>2019-03-25T12:29:11.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -44,35 +37,42 @@
 
     <url>
         <loc>https://jeongwookie.github.io/categories/Programming/Server/</loc>
-        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
+        <lastmod>2019-05-23T10:07:39.320Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/Programming/Python/</loc>
-        <lastmod>2019-05-25T11:36:05.000Z</lastmod>
+        <lastmod>2019-05-25T11:36:05.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/Startup-Story/</loc>
-        <lastmod>2019-05-25T11:40:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/</loc>
-        <lastmod>2019-05-31T09:14:45.598Z</lastmod>
+        <lastmod>2019-05-25T11:40:22.114Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/Programming/Data-Crawling/</loc>
-        <lastmod>2019-05-31T09:14:45.598Z</lastmod>
+        <lastmod>2019-05-31T09:18:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/Programming/</loc>
+        <lastmod>2019-05-31T14:13:42.001Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/Programming/R-programming/</loc>
+        <lastmod>2019-05-31T14:13:42.001Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

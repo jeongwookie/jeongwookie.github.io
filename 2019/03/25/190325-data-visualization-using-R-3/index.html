@@ -102,18 +102,27 @@
      });
 </script>
 
-  <meta name="description" content="리스트 (list)란 특정 값들을 순서 있게 저장하는 자료형이다. C와는 달리, 하나의 리스트 안에 숫자와 문자가 공존할 수 있더라. 앞서 배운 문자열처럼 리스트 또한 인덱싱과 슬라이싱을 할 수 있다. 하지만, 각각의 결과물에 대해 조심해야 할 필요가 있다. 123456789&amp;gt;&amp;gt;&amp;gt; lst = [&quot;Python&quot;,2,3,4,5]&amp;gt;&amp;gt;&amp;">
-<meta name="keywords" content="Python">
+  <meta name="description" content="이번 포스트에서는 Histogram 과 Boxplot 다루어 볼 것이다. 내장 데이터셋인 cane을 활용하여 먼저 Histogram을 그려보자.">
+<meta name="keywords" content="KAIST,R programming,Class">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 기본 - 4. 리스트 자료형 다루기">
-<meta property="og:url" content="https://jeongwookie.github.io/2018/09/12/180912-list-operation/index.html">
+<meta property="og:title" content="R을 사용한 데이터 시각화 - 3. histogram과 barplot 그리기">
+<meta property="og:url" content="https://jeongwookie.github.io/2019/03/25/190325-data-visualization-using-R-3/index.html">
 <meta property="og:site_name" content="JW&#39;s Blog">
-<meta property="og:description" content="리스트 (list)란 특정 값들을 순서 있게 저장하는 자료형이다. C와는 달리, 하나의 리스트 안에 숫자와 문자가 공존할 수 있더라. 앞서 배운 문자열처럼 리스트 또한 인덱싱과 슬라이싱을 할 수 있다. 하지만, 각각의 결과물에 대해 조심해야 할 필요가 있다. 123456789&amp;gt;&amp;gt;&amp;gt; lst = [&quot;Python&quot;,2,3,4,5]&amp;gt;&amp;gt;&amp;">
+<meta property="og:description" content="이번 포스트에서는 Histogram 과 Boxplot 다루어 볼 것이다. 내장 데이터셋인 cane을 활용하여 먼저 Histogram을 그려보자.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-05-25T11:23:18.756Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58708769-9749d280-83f3-11e9-99f7-71cea977212b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58709127-7635b180-83f4-11e9-82b1-f0aa805f3e23.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58709161-8fd6f900-83f4-11e9-9694-471d2de5b72f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58710078-7df65580-83f6-11e9-8436-e8374169e332.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58710691-de39c700-83f7-11e9-9855-7e041a70ed07.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58710962-759f1a00-83f8-11e9-91ef-d743bce361e4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58710999-894a8080-83f8-11e9-9eec-28b45072b2a1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58711160-d9294780-83f8-11e9-8689-429a08b549be.png">
+<meta property="og:updated_time" content="2019-05-31T14:13:42.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 기본 - 4. 리스트 자료형 다루기">
-<meta name="twitter:description" content="리스트 (list)란 특정 값들을 순서 있게 저장하는 자료형이다. C와는 달리, 하나의 리스트 안에 숫자와 문자가 공존할 수 있더라. 앞서 배운 문자열처럼 리스트 또한 인덱싱과 슬라이싱을 할 수 있다. 하지만, 각각의 결과물에 대해 조심해야 할 필요가 있다. 123456789&amp;gt;&amp;gt;&amp;gt; lst = [&quot;Python&quot;,2,3,4,5]&amp;gt;&amp;gt;&amp;">
+<meta name="twitter:title" content="R을 사용한 데이터 시각화 - 3. histogram과 barplot 그리기">
+<meta name="twitter:description" content="이번 포스트에서는 Histogram 과 Boxplot 다루어 볼 것이다. 내장 데이터셋인 cane을 활용하여 먼저 Histogram을 그려보자.">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/58708769-9749d280-83f3-11e9-99f7-71cea977212b.png">
 
 
 
@@ -122,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="https://jeongwookie.github.io/2018/09/12/180912-list-operation/">
+  <link rel="canonical" href="https://jeongwookie.github.io/2019/03/25/190325-data-visualization-using-R-3/">
 
 
 
@@ -132,7 +141,7 @@
   };
 </script>
 
-  <title>Python 기본 - 4. 리스트 자료형 다루기 | JW's Blog</title>
+  <title>R을 사용한 데이터 시각화 - 3. histogram과 barplot 그리기 | JW's Blog</title>
   
 
 
@@ -372,7 +381,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/12/180912-list-operation/">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2019/03/25/190325-data-visualization-using-R-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeongwook, Kim">
@@ -389,7 +398,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python 기본 - 4. 리스트 자료형 다루기
+          <h1 class="post-title" itemprop="name headline">R을 사용한 데이터 시각화 - 3. histogram과 barplot 그리기
 
               
             
@@ -415,7 +424,7 @@
                 
               
 
-              <time title="Created: 2018-09-12 13:49:03" itemprop="dateCreated datePublished" datetime="2018-09-12T13:49:03+09:00">2018-09-12</time>
+              <time title="Created: 2019-03-25 22:23:09" itemprop="dateCreated datePublished" datetime="2019-03-25T22:23:09+09:00">2019-03-25</time>
             
 
             
@@ -440,7 +449,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming/R-programming/" itemprop="url" rel="index"><span itemprop="name">R programming</span></a></span>
 
                 
                 
@@ -459,8 +468,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/09/12/180912-list-operation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/12/180912-list-operation/" itemprop="commentCount"></span>
+                <a href="/2019/03/25/190325-data-visualization-using-R-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/25/190325-data-visualization-using-R-3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -488,34 +497,46 @@
       
 
       
-        <p><a href="https://wikidocs.net/14" rel="external nofollow noopener noreferrer" target="_blank">리스트 (list)</a>란 특정 값들을 <strong>순서 있게 저장</strong>하는 자료형이다.</p>
-<p>C와는 달리, 하나의 리스트 안에 숫자와 문자가 공존할 수 있더라.</p>
-<p>앞서 배운 문자열처럼 리스트 또한 인덱싱과 슬라이싱을 할 수 있다.</p>
-<p>하지만, 각각의 결과물에 대해 조심해야 할 필요가 있다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [<span class="string">"Python"</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">0</span>])  <span class="comment">#lst의 첫번째 원소를 출력</span></span><br><span class="line">Python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">1</span>])  <span class="comment">#lst의 두번째 원소를 출력</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">1</span>:])   <span class="comment">#lst를 두번째 부터 끝까지 슬라이싱</span></span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">0</span>][<span class="number">0</span>])   <span class="comment">#lst의 첫번째 원소 안의 첫번째 원소</span></span><br><span class="line">P</span><br></pre></td></tr></table></figure>
+        <p>이번 포스트에서는 Histogram 과 Boxplot 다루어 볼 것이다.</p>
+<p>내장 데이터셋인 <code>cane</code>을 활용하여 먼저 Histogram을 그려보자.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58708769-9749d280-83f3-11e9-99f7-71cea977212b.png" width="450"></p>
 <a id="more"></a>
-<p>위의 결과를 보면 특이한 점이 한 가지 보인다.</p>
-<p>바로, 리스트를 인덱싱 한 결과값은 그 자리의 원소 (숫자)인 반면</p>
-<p><strong><u>리스트를 슬라이싱 한 결과값은 리스트로 반환되는 것이다!</u></strong></p>
-<p>리스트의 값을 수정하거나 삭제하고 싶은 경우가 있다.</p>
-<p>문자열의 요소값을 바꿀수 없는 것과는 달리, <strong>리스트의 값은 쉽게 바꿀 수 있다.</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">4</span>] = <span class="string">"Python"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="number">100</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, Python]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> a[<span class="number">0</span>]    <span class="comment">#a의 첫번째 원소 삭제</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, Python]</span><br></pre></td></tr></table></figure>
-<p>위의 예시를 보면 알겠지만, 리스트의 요소값을 삭제하고 싶은 경우 <a href="https://wikidocs.net/14#4-del" rel="external nofollow noopener noreferrer" target="_blank">del 함수</a>를 사용하여 정확히 인덱싱 한 부분을 삭제할 수 있다.</p>
-<p>리스트 또한 문자열과 마찬가지로 변수명 뒤에 ‘.’을 붙여서 관련 함수들을 사용할 수 있다. 자주 쓰이는 함수 몇 가지만 알아보자.</p>
-<h2 id="요소-추가하기-append"><a href="#요소-추가하기-append" class="headerlink" title="요소 추가하기 (append)"></a>요소 추가하기 (append)</h2><p><a href="https://www.w3schools.com/python/ref_list_append.asp" rel="external nofollow noopener noreferrer" target="_blank">.append(x)</a>는 리스트의 맨 마지막에 x를 추가시키는 함수이다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'cherry'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fruits.append(<span class="string">"orange"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fruits)</span><br><span class="line">[<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'cherry'</span>, <span class="string">'orange'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>append()를 사용할 경우 원본 data가 변형된다는 점에 주의해야 한다.</p>
-<h2 id="리스트-정렬하기-sort"><a href="#리스트-정렬하기-sort" class="headerlink" title="리스트 정렬하기 (sort)"></a>리스트 정렬하기 (sort)</h2><p><a href="https://www.w3schools.com/python/ref_list_sort.asp" rel="external nofollow noopener noreferrer" target="_blank">.sort()</a>는 리스트의 요소를 순서대로 정렬해 주는 함수이다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.sort()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
-<p>문자가 요소인 리스트의 경우, 기본적으로 제일 첫 글자의 순서대로 정렬해 준다. key값을 지정해 줌으로써 정렬 기준을 바꿀 수 있다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A function that returns the length of the value:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">myFunc</span><span class="params">(e)</span>:</span></span><br><span class="line">             <span class="keyword">return</span> len(e)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cars = [<span class="string">'Ford'</span>, <span class="string">'Mitsubishi'</span>, <span class="string">'BMW'</span>, <span class="string">'VW'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cars.sort(key=myFunc)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(cars)</span><br><span class="line">[<span class="string">'VW'</span>, <span class="string">'BMW'</span>, <span class="string">'Ford'</span>, <span class="string">'Mitsubishi'</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="리스트-순서-뒤집기-reverse"><a href="#리스트-순서-뒤집기-reverse" class="headerlink" title="리스트 순서 뒤집기 (reverse)"></a>리스트 순서 뒤집기 (reverse)</h2><p><a href="https://www.w3schools.com/python/ref_list_reverse.asp" rel="external nofollow noopener noreferrer" target="_blank">.reverse()</a>는 리스트를 역순으로 뒤집는 함수이다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.reverse()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'a'</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="요소-끄집어내기-pop"><a href="#요소-끄집어내기-pop" class="headerlink" title="요소 끄집어내기 (pop)"></a>요소 끄집어내기 (pop)</h2><p><a href="https://www.w3schools.com/python/ref_list_pop.asp" rel="external nofollow noopener noreferrer" target="_blank">.pop(x)</a>은 리스트의 x번째 요소를 반환하고 해당 요소는 리스트에서 삭제하는 함수이다.</p>
-<p>주로 index로 요소를 찾고, 그 값을 반환하고 리스트에서 삭제를 원할 경우 사용한다.</p>
-<p>index로 요소를 찾고 단순히 제거를 원할 경우 <a href="https://www.w3schools.com/python/ref_keyword_del.asp" rel="external nofollow noopener noreferrer" target="_blank">del</a>을 사용하고,<br>index가 아닌 그 값으로 요소를 찾고 제거를 원할 경우 <a href="https://www.w3schools.com/python/ref_list_remove.asp" rel="external nofollow noopener noreferrer" target="_blank">remove()</a>를 사용한다.</p>
-<p>후자의 경우 입력한 값이 리스트에 없는 경우 <em>ValueError</em>가 발생한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fruits = [<span class="string">'apple'</span>, <span class="string">'banana'</span>, <span class="string">'cherry'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fruits.pop(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(fruits)</span><br><span class="line">[<span class="string">'apple'</span>, <span class="string">'cherry'</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a.pop())    <span class="comment">#index을 지정하지 않은 경우</span></span><br><span class="line"><span class="number">3</span>   <span class="comment">#리스트의 맨 마지막 요소를 반환</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(a)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-<p>위에서 소개하지 않은 나머지 리스트와 관련된 함수들은 <a href="https://wikidocs.net/14" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하면 된다.</p>
-<p>특히 <strong>.append()</strong> 와 <strong>.pop()</strong> 은 자주 쓰이는 함수이다.</p>
-<p>예를 들어 data stream을 append()를 이용해서 차례대로 받고, pop()을 통해서 제일 뒤부터 차례대로 뽑아서 처리하는 식으로 종종 사용한다.</p>
+<h2 id="Simple-histogram"><a href="#Simple-histogram" class="headerlink" title="Simple histogram"></a>Simple histogram</h2><p><code>hist()</code> 함수가 기본적으로 내장되어 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(boot)</span><br><span class="line">head(cane)</span><br><span class="line">ratio &lt;- cane$r/cane$n <span class="comment"># dataset_name$column_name</span></span><br><span class="line">hist(ratio, breaks = <span class="number">20</span>, xlab = <span class="string">"Diseased Shoot Ratio"</span>, </span><br><span class="line">    col = <span class="string">'aquamarine'</span>, main = <span class="string">"Histogram of Diseased Shoot Ratio"</span>)</span><br></pre></td></tr></table></figure>
+<p>코드에서 <code>breaks</code> 옵션은 블록의 크기를 얼마나 잘게 쪼갤지 조절한다.</p>
+<blockquote>
+<p>왼쪽은 breaks = 20, 오른쪽은 breaks = 40 일때</p>
+</blockquote>
+<div style="width:50%; height:450px; float:left;"><br><img src="https://user-images.githubusercontent.com/25416425/58709127-7635b180-83f4-11e9-82b1-f0aa805f3e23.png" width="450"><br></div>
+
+<div style="width:50%; height:450px; float:right;"><br><img src="https://user-images.githubusercontent.com/25416425/58709161-8fd6f900-83f4-11e9-9694-471d2de5b72f.png" width="450"><br></div>
+
+<h2 id="ggplot으로-histogram-그리기"><a href="#ggplot으로-histogram-그리기" class="headerlink" title="ggplot으로 histogram 그리기"></a>ggplot으로 histogram 그리기</h2><p>ggplot으로 histogram을 그릴 때는, <code>geom_histogram()</code> 함수를 사용한다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(cane, aes(x=r/n, fill=block)) + </span><br><span class="line">  geom_histogram(col=<span class="string">"black"</span>, bins=<span class="number">20</span>) + theme_bw() + </span><br><span class="line">  facet_grid(block ~ .) + xlab(<span class="string">'Diseased Shoot Ratio'</span>) + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>) <span class="comment"># legend를 제거</span></span><br></pre></td></tr></table></figure>
+<p><code>fill</code> 옵션으로 block 별로 다르게 색상을 표시하라고 지정했다.</p>
+<p>히스토그램 내 <code>bins</code> 옵션은 위의 <code>breaks</code>와 동일한 효과이며, <code>facet_grid()</code> 를 활용하여 cane 내의 block 값 별로 분리하여 출력했다.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58710078-7df65580-83f6-11e9-8436-e8374169e332.png" width="450"></p>
+<h2 id="Simple-boxplot"><a href="#Simple-boxplot" class="headerlink" title="Simple boxplot"></a>Simple boxplot</h2><p>이번에는 <strong>Boxplot</strong> 을 그려 보자. 주로 그룹 간의 차이를 나타낼 때 사용하며, 꽤나 자주 등장하는 타입이므로 중요하다.</p>
+<p>데이터는 내장 데이터셋인 <code>ToothGrowth</code>를 사용한다. 데이터를 먼저 살펴보자.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58710691-de39c700-83f7-11e9-9855-7e041a70ed07.png" width="450"></p>
+<p>기본적으로 <code>boxplot()</code> 함수로 그릴 수 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># simple boxplot</span></span><br><span class="line">boxplot(len~supp, data=ToothGrowth, xlab=<span class="string">'Supplement Type'</span>, ylab=<span class="string">'Tooth Length'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Boxplot of len against dose and supp factors</span></span><br><span class="line">boxplot(len~supp*dose, data=ToothGrowth, notch=<span class="literal">T</span>, </span><br><span class="line">        xlab=<span class="string">'Suppliment and Dose'</span>, ylab=<span class="string">'Tooth length'</span>, col=c(<span class="string">'cyan'</span>, <span class="string">'magenta'</span>))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>왼쪽은 <strong>supp</strong>을 기준으로, 오른쪽은 <strong>supp</strong>와 <strong>dose</strong>를 조합하여 그린 boxplot</p>
+</blockquote>
+<div style="width:50%; height:450px; float:left;"><br><img src="https://user-images.githubusercontent.com/25416425/58710962-759f1a00-83f8-11e9-91ef-d743bce361e4.png" width="450"><br></div>
+
+<div style="width:50%; height:450px; float:right;"><br><img src="https://user-images.githubusercontent.com/25416425/58710999-894a8080-83f8-11e9-9eec-28b45072b2a1.png" width="450"><br></div>
+
+<h2 id="ggplot으로-boxplot-그리기"><a href="#ggplot으로-boxplot-그리기" class="headerlink" title="ggplot으로 boxplot 그리기"></a>ggplot으로 boxplot 그리기</h2><p>ggplot으로 boxplot을 그릴 때는, <code>geom_boxplot()</code> 함수를 사용한다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(ToothGrowth, aes(x=factor(dose), y=len)) +</span><br><span class="line">  geom_boxplot(aes(fill=supp)) +</span><br><span class="line">  xlab(<span class="string">'Dose'</span>) + ylab(<span class="string">'Tooth length'</span>) + ggtitle(<span class="string">'Analyzing ToothGrowth Data'</span>)</span><br></pre></td></tr></table></figure>
+<p>x 값에 우리가 원하는 <code>dose</code>를 넣을 때, 자료형을 num 에서 factor로 바꿔주기 위해서 (category화) <code>factor()</code> 함수를 사용했다.</p>
+<p>boxplot의 색상은 <code>supp</code>에 따라 바뀌도록 <code>fill</code> 옵션을 지정하였다.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58711160-d9294780-83f8-11e9-8689-429a08b549be.png" width="450"></p>
+<p>확실히 ggplot으로 그린 그래프들이 전반적으로 깔끔하다. 기본적인 graph 그리기 포스트는 끝!</p>
+<blockquote>
+<p><em>본 포스트는 KAIST 전산학부 대학원 과정에서 수강하고 있는 Big Data Analytics using R (CS564)을 실습하며 작성하였음을 밝힙니다.</em></p>
+</blockquote>
 
       
     </div>
@@ -539,7 +560,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/KAIST/" rel="tag"># KAIST</a>
+          
+            <a href="/tags/R-programming/" rel="tag"># R programming</a>
+          
+            <a href="/tags/Class/" rel="tag"># Class</a>
           
         </div>
       
@@ -552,8 +577,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/11/180911-first-homework-python/" rel="next" title="Python 기본 - 3. 문자열 실습 예제">
-                <i class="fa fa-chevron-left"></i> Python 기본 - 3. 문자열 실습 예제
+              <a href="/2019/03/20/190320-collect-data-using-naver-search-api/" rel="next" title="Data Crawling - 네이버 검색 api 사용하여 데이터 수집하기">
+                <i class="fa fa-chevron-left"></i> Data Crawling - 네이버 검색 api 사용하여 데이터 수집하기
               </a>
             
           </div>
@@ -562,8 +587,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/13/180913-category-name-problem/" rel="prev" title="Hexo 카테고리 이름 설정 시 문제">
-                Hexo 카테고리 이름 설정 시 문제 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/21/190521-ubuntu-install-usb/" rel="prev" title="Server Setting - 우분투(Ubuntu) 18.04 설치하기">
+                Server Setting - 우분투(Ubuntu) 18.04 설치하기 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -826,7 +851,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#요소-추가하기-append"><span class="nav-number">1.</span> <span class="nav-text">요소 추가하기 (append)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#리스트-정렬하기-sort"><span class="nav-number">2.</span> <span class="nav-text">리스트 정렬하기 (sort)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#리스트-순서-뒤집기-reverse"><span class="nav-number">3.</span> <span class="nav-text">리스트 순서 뒤집기 (reverse)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#요소-끄집어내기-pop"><span class="nav-number">4.</span> <span class="nav-text">요소 끄집어내기 (pop)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-histogram"><span class="nav-number">1.</span> <span class="nav-text">Simple histogram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot으로-histogram-그리기"><span class="nav-number">2.</span> <span class="nav-text">ggplot으로 histogram 그리기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-boxplot"><span class="nav-number">3.</span> <span class="nav-text">Simple boxplot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot으로-boxplot-그리기"><span class="nav-number">4.</span> <span class="nav-text">ggplot으로 boxplot 그리기</span></a></li></ol></div>
             
 
           </div>
@@ -994,9 +1019,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jeongwookie.github.io/2018/09/12/180912-list-operation/";
-    this.page.identifier = "2018/09/12/180912-list-operation/";
-    this.page.title = 'Python 기본 - 4. 리스트 자료형 다루기';
+    this.page.url = "https://jeongwookie.github.io/2019/03/25/190325-data-visualization-using-R-3/";
+    this.page.identifier = "2019/03/25/190325-data-visualization-using-R-3/";
+    this.page.title = 'R을 사용한 데이터 시각화 - 3. histogram과 barplot 그리기';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
