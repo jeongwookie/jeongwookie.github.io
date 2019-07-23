@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2019/07/23/190723-my-summer-these-days/</loc>
+        <lastmod>2019-07-23T13:11:08.537Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2019/06/29/190629-multiprocessing-crawler/</loc>
-        <lastmod>2019-06-29T16:01:40.502Z</lastmod>
+        <lastmod>2019-06-29T16:06:03.706Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
