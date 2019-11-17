@@ -164,20 +164,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Python/</loc>
-        <lastmod>2019-06-29T16:06:03.706Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Datamining/</loc>
-        <lastmod>2019-06-29T16:06:03.706Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/Twitter/</loc>
         <lastmod>2019-06-29T16:06:03.706Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -186,35 +172,56 @@
 
     <url>
         <loc>https://jeongwookie.github.io/tags/KAIST/</loc>
-        <lastmod>2019-11-04T06:08:05.935Z</lastmod>
+        <lastmod>2019-11-04T06:08:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/K-school/</loc>
-        <lastmod>2019-11-04T06:08:05.935Z</lastmod>
+        <lastmod>2019-11-04T06:08:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
-        <lastmod>2019-11-04T06:10:09.339Z</lastmod>
+        <lastmod>2019-11-04T06:10:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Game/</loc>
-        <lastmod>2019-11-04T06:10:09.339Z</lastmod>
+        <lastmod>2019-11-04T06:10:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/Hobby/</loc>
-        <lastmod>2019-11-04T06:10:09.339Z</lastmod>
+        <lastmod>2019-11-04T06:10:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Python/</loc>
+        <lastmod>2019-11-17T12:55:04.747Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Datamining/</loc>
+        <lastmod>2019-11-17T12:55:04.747Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Korean-NLP/</loc>
+        <lastmod>2019-11-17T12:55:04.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

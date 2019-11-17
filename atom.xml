@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jeongwookie.github.io/"/>
-  <updated>2019-07-23T13:11:08.537Z</updated>
+  <updated>2019-11-17T12:55:04.747Z</updated>
   <id>https://jeongwookie.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Khaiii 형태소 분석기 사용하기</title>
+    <link href="https://jeongwookie.github.io/2019/11/17/191117-khaiii-korean-tokenizer/"/>
+    <id>https://jeongwookie.github.io/2019/11/17/191117-khaiii-korean-tokenizer/</id>
+    <published>2019-11-17T09:36:23.000Z</published>
+    <updated>2019-11-17T12:55:04.747Z</updated>
+    
+    <content type="html"><![CDATA[<p>한국어로 된 데이터를 분석할 때, 이를 적절한 형태로 토크나이즈 (tokenize)하는 과정은 반드시 필요하다.</p><p>특히나 한국어는 영어와 달리 최소 의미 전달이 단어로 이루어진 언어가 아니기 때문에 형태소 단위로 잘라주는 패키지를 자주 사용한다.</p><p>오늘은 내가 평소에 자주 사용하는 형태소 분석기 중 <strong>Khaiii 형태소 분석기</strong> 에 대해 포스팅하고자 한다.</p><p><strong>Khaiii</strong> 는 카카오에서 18년도 말에 공개한 딥러닝 기반의 형태소 분석기이다. 기존의 사전 의존 방법과는 달리 세종 코퍼스 약 1000만 어절을 학습하여 형태소 단위로 분리한다고 한다.</p><p><img src="https://user-images.githubusercontent.com/25416425/69005815-8b82a600-096a-11ea-85da-f30967fa6f26.png" width="450"></p><a id="more"></a><h2 id="설치하기"><a href="#설치하기" class="headerlink" title="설치하기"></a>설치하기</h2><p>설치가 생각보다 까다롭다. 오래전에 설치하여 정확한 프로세스는 잘 기억이 나지 않지만, 상당히 많은 에러 동반 끝에 설치한 기억이..</p><p>기본적으로 리눅스 환경에서만 지원한다. 윈도우에서도 할 수 있는 방법이 있는지는 잘 모르겠다.</p><p>나는 한번 설치의 어려움을 경험한 후, 다시는 리눅스 커멘드로 일일히 설치하지 않는다. 대신 도커파일을 받아서 그대로 활용한다. 도커 파일의 경우 <a href="https://github.com/kakao/khaiii/blob/master/docker/Dockerfile" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하자.</p><p>위 도커파일로 Khaiii를 설치 후, 원하는 세팅을 해서 나만의 도커 이미지를 만들어 놓으면 세팅 하는데 시간을 획기적으로 줄일 수 있다. 도커 사용법의 경우 시간 날때 천천히 정리할 계획.</p><h2 id="사용하기"><a href="#사용하기" class="headerlink" title="사용하기"></a>사용하기</h2><p>설치를 완료했다면, 이제 사용해 보자. 주피터 노트북에서 아래와 같은 코드를 실행한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> khaiii <span class="keyword">import</span> KhaiiiApi</span><br><span class="line">api = KhaiiiApi(rsc_dir=<span class="string">'/deps/khaiii/build/share/khaiii'</span>) <span class="comment"># 내 설치 경로</span></span><br><span class="line"></span><br><span class="line">morphs = []</span><br><span class="line">sentence = <span class="string">"하스스톤 전장이 새로 나왔는데 재밌어요!"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> api.analyze(sentence):</span><br><span class="line">    <span class="keyword">for</span> morph <span class="keyword">in</span> word.morphs:</span><br><span class="line">        morphs.append((morph.lex, morph.tag))</span><br></pre></td></tr></table></figure><p>적당한 sentence로 출력을 해보면 아래와 같이 형태소 단위로 잘 토크나이즈 된 것을 확인할 수 있다.</p><p><img src="https://user-images.githubusercontent.com/25416425/69006362-81b07100-0971-11ea-87cf-aae710ba18c1.png" width="350"></p><p>위 코드에서 <code>rsc_dir</code> 부분은 현재는 중요하지 않지만, 기분석 사전이나 오분석 패치 기능을 활용할 때 엄청 중요하다. 먼저 짚고 넘어가보자.</p><p>대부분이 비슷한 경로에 설치가 될 것 같은데 혹시 모르니 커멘드 창에 아래와 같은 코드를 입력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name <span class="string">'khaiii*'</span> -type d</span><br></pre></td></tr></table></figure><p>khaiii 라는 이름을 가진 디렉토리를 모두 찾으라는 뜻이다. 코드를 실행하여 <code>/deps/khaiii/build/share/khaiii&#39;</code> 와 비슷하게 share 폴더 안의 khaiii의 경로를 찾으면 된다.</p><h2 id="기분석-사전-추가"><a href="#기분석-사전-추가" class="headerlink" title="기분석 사전 추가"></a>기분석 사전 추가</h2><p>기분석 사전이란 내가 원하는 단일 어절에 대해, 문맥에 상관없이 일괄적인 분석 결과를 얻고 싶을 때 추가한다.</p><p>기본적인 사용 방법은 <a href="https://github.com/kakao/khaiii/wiki/%EA%B8%B0%EB%B6%84%EC%84%9D-%EC%82%AC%EC%A0%84" rel="external nofollow noopener noreferrer" target="_blank">Khaiii 깃헙 페이지</a>에 잘 정리되어 있다.</p><p>페이지에 적힌 대로 사전 형식은 따라하면 되는데, 내가 문제를 겪은 부분은 다름 아닌 사전 빌드였다.</p><p><img src="https://user-images.githubusercontent.com/25416425/69006983-d99fa580-097a-11ea-8517-d54d5ee830af.png" width="550"></p><p>요약하자면, modulenotfounderror: no module named ‘khaiii.munjong’ 이런 에러가 뜬다.</p><p>대부분이 <code>PYTHONPATH</code> 경로 문제인데, 위와 유사한 방법으로 찾아보자.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name <span class="string">'munjong*'</span> -type d</span><br></pre></td></tr></table></figure><p>위 코드로 <code>munjong</code> 이 있는 디렉토리 위치를 찾는다. 나는 약 4개의 디렉토리 위치가 떴는데, 이중에서 적당히 파이썬 위치가 어딜까 하고 보니 보인다.</p><p><img src="https://user-images.githubusercontent.com/25416425/69007060-2768dd80-097c-11ea-881d-3a4a3dbe53e4.png" width="550"></p><p>이제 위치를 찾았으니, <code>PYTHONPATH</code> 경로를 수정한 코드를 차례대로 커멘드 창에 입력하여 사전을 빌드하면 된다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd rsc <span class="comment"># 어디에 있던 rsc로 와서 실행하기</span></span><br><span class="line">mkdir -p ../build/share/khaiii</span><br><span class="line">PYTHONPATH=/deps/khaiii/src/main/python/ ./bin/compile_preanal.py --rsc-src=./src --rsc-dir=/deps/khaiii/build/share/khaiii</span><br></pre></td></tr></table></figure><p>빌드 완료! 혹시 빌드한 사전이 적용이 안된다면, <code>rsc_dir</code> 경로를 다시 확인하자.</p><h2 id="오분석-패치"><a href="#오분석-패치" class="headerlink" title="오분석 패치"></a>오분석 패치</h2><p>오분석 패치는 기계학습 모델의 결과로 출력된 결과가 오분석일 경우, 이를 원하는 정분석으로 바로잡을 수 있는 사용자 사전이다.</p><p>기분석 사전과 마찬가지로 기본적인 사용 방법은 <a href="https://github.com/kakao/khaiii/wiki/%EC%98%A4%EB%B6%84%EC%84%9D-%ED%8C%A8%EC%B9%98" rel="external nofollow noopener noreferrer" target="_blank">Khaiii 깃헙 페이지</a>에 잘 정리되어 있다.</p><p>정해진 포멧을 맞추어 등록하고, 이를 빌드하면 되는데 위의 오분석 패치와 마찬가지로 약간의 코드 수정이 필요하다. (PYTHONPATH 부분)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd rsc <span class="comment"># 어디에 있던 rsc로 와서 실행하기</span></span><br><span class="line">mkdir -p ../build/share/khaiii</span><br><span class="line">PYTHONPATH=/deps/khaiii/src/main/python/  ./bin/compile_errpatch.py --model-size=base --rsc-src ./src --rsc-dir=/deps/khaiii/build/share/khaiii</span><br></pre></td></tr></table></figure><p>빌드 완료!</p><h2 id="맺음말"><a href="#맺음말" class="headerlink" title="맺음말"></a>맺음말</h2><p>Khaiii 형태소 분석기를 사용해보면 딥러닝 기반인데 사전 기반처럼 정확하게 작동함을 확인할 수 있다.</p><p>그러나, 아쉬운 점은 띄어쓰기가 잘 안된 비문들을 넣으면 기존에 잘 사용하는 <code>Mecab</code> 형태소 분석기보다 성능이 조금 떨어진다.</p><p>그리고 내가 다루는 데이터 안에 ‘후쿠시마’ 라는 단어가 있는데, 이를 <code>Mecab</code>을 사용했을 땐 몰랐는데 자꾸 후 + 쿠시마 또는 후쿠시 + 마 로 오분석이 되더라.. 기분석 사전에 추가하는 번거로움이 있었다.</p><p>서로 장단점이 있으니 적절하게 사용하면 될 것 같다.</p><p>기분석 사전 및 오분석 패치 사전 작성 시에 기본 한글 형태소 품사표를 알고 싶다면 <a href="http://kkma.snu.ac.kr/documents/?doc=postag" rel="external nofollow noopener noreferrer" target="_blank">한글 형태소 품사 (POS) 태그표</a>를 참고하자.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;한국어로 된 데이터를 분석할 때, 이를 적절한 형태로 토크나이즈 (tokenize)하는 과정은 반드시 필요하다.&lt;/p&gt;
+&lt;p&gt;특히나 한국어는 영어와 달리 최소 의미 전달이 단어로 이루어진 언어가 아니기 때문에 형태소 단위로 잘라주는 패키지를 자주 사용한다.&lt;/p&gt;
+&lt;p&gt;오늘은 내가 평소에 자주 사용하는 형태소 분석기 중 &lt;strong&gt;Khaiii 형태소 분석기&lt;/strong&gt; 에 대해 포스팅하고자 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Khaiii&lt;/strong&gt; 는 카카오에서 18년도 말에 공개한 딥러닝 기반의 형태소 분석기이다. 기존의 사전 의존 방법과는 달리 세종 코퍼스 약 1000만 어절을 학습하여 형태소 단위로 분리한다고 한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/25416425/69005815-8b82a600-096a-11ea-85da-f30967fa6f26.png&quot; width=&quot;450&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Programming" scheme="https://jeongwookie.github.io/categories/Programming/"/>
+    
+      <category term="Data preprocessing" scheme="https://jeongwookie.github.io/categories/Programming/Data-preprocessing/"/>
+    
+    
+      <category term="Python" scheme="https://jeongwookie.github.io/tags/Python/"/>
+    
+      <category term="Datamining" scheme="https://jeongwookie.github.io/tags/Datamining/"/>
+    
+      <category term="Korean NLP" scheme="https://jeongwookie.github.io/tags/Korean-NLP/"/>
+    
+  </entry>
   
   <entry>
     <title>2019년 여름, 연구실에서 근황</title>
@@ -579,41 +611,6 @@
 &lt;li&gt;방문 문고리 부착 완료&lt;/li&gt;
 &lt;li&gt;방 두개 굽도리 프라이머 1회, 페인트 2회 완료&lt;/li&gt;
 &lt;li&gt;화장실 문 프라이머 1회 완료&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Hobby" scheme="https://jeongwookie.github.io/categories/Hobby/"/>
-    
-    
-      <category term="Daily life" scheme="https://jeongwookie.github.io/tags/Daily-life/"/>
-    
-      <category term="Self Interior" scheme="https://jeongwookie.github.io/tags/Self-Interior/"/>
-    
-      <category term="Computer room" scheme="https://jeongwookie.github.io/tags/Computer-room/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>컴퓨터방 셀프 인테리어, 첫번째</title>
-    <link href="https://jeongwookie.github.io/2019/01/05/190105-house-remodeling-1/"/>
-    <id>https://jeongwookie.github.io/2019/01/05/190105-house-remodeling-1/</id>
-    <published>2019-01-05T12:34:22.000Z</published>
-    <updated>2019-03-25T03:15:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="처음-시도하는-셀프-인테리어-도전기-1탄-페인트-칠하기"><a href="#처음-시도하는-셀프-인테리어-도전기-1탄-페인트-칠하기" class="headerlink" title="처음 시도하는 셀프 인테리어 도전기 1탄, 페인트 칠하기"></a>처음 시도하는 셀프 인테리어 도전기 1탄, 페인트 칠하기</h2><p>인터넷 커뮤니티 클리앙에 올라온 <a href="https://www.clien.net/service/board/use/12810598" rel="external nofollow noopener noreferrer" target="_blank">혼자서 한 컴퓨터방 리모델링</a>을 보고 느낌이 와서 계획한 <u>투룸 리모델링.</u></p><p>현재 살고 있는 집은 1.5룸인데 친구랑 둘이 살기 너무 좁아서 1년만 채우고 투룸으로 이사가기로 했었다.</p><p>이왕 이사가는 김에 얼마나 살지는 모르겠지만 인테리어 한번 해볼까? 하고 시작 ㅋㅋㅋ 심지어 집 구할때도 제일 큰 조건 중 하나가 “이집 뜯어고쳐도 돼요?” 였다..</p><p>우리는 컴퓨터쟁이니까 방은 컴퓨터방 리모델링 사진들을 많이 참고했고, 원래는 가구 배치나 여러가지 인테리어 소품들도 막 살펴봤지만 예산이..ㅠㅠ</p><p>1주일에 걸쳐서 총 15번 이상 각각 다른 투룸들을 방문하면서 좋은 물건(?)을 물색했고, 12월 30일 큰방 + 작은방 + 분리 주방 + 베란다 2개 형태의 방으로 확정지었다.</p><ul><li>방 스펙 : W480 x D400 x h207 (m)</li><li>우리 스펙 : 인테리어 경험 전무, 27세 남자 두명</li><li>1차 결정 사항 : 문 페인트칠, 바닥 시공, 조명 교체, 커튼 설치</li></ul><a id="more"></a><h3 id="페인트-결정하기"><a href="#페인트-결정하기" class="headerlink" title="페인트 결정하기"></a>페인트 결정하기</h3><blockquote><p><strong>12월 31일 :  벤자민 무어에서 페인트와 프라이머 구매</strong></p></blockquote><p>다음날 곧바로 대전 둔산동에 위치한 <a href="http://www.benjaminmoore.co.kr/" rel="external nofollow noopener noreferrer" target="_blank">벤자민 무어 (Benjamin Moore)</a> 페인트 샾에 다녀왔다.</p><div style="width:50%; height:350px; float:left;"><br><img src="https://user-images.githubusercontent.com/25416425/50962721-4140c500-150e-11e9-9c45-1cd23fdf5b47.jpeg" width="350"><br></div><div style="width:50%; height:350px; float:right;"><br><img src="https://user-images.githubusercontent.com/25416425/50962759-51f13b00-150e-11e9-8d25-8df1b499be38.jpeg" width="350"><br></div><p>원래 방문 전에는 <a href="https://www.ggumim.co.kr/star/view/1184" rel="external nofollow noopener noreferrer" target="_blank">이분</a>을 참고해서 총 3가지 색상을 구매하려 했는데, 생각보다 가격이 비싸서 그냥 하나로만 칠하기로 결정.</p><p>우리가 정한 색상은 <strong>클라우드 화이트 (Cloud White)</strong> 이다. 이걸로 문을 칠하고, 굽도리도 칠하기로 했다.</p><p>벽지도 원래는 떼어내고 투톤으로 칠하려 했는데, 돈이 무지막지하게 많이 들어서 포기..ㅠㅠ</p><p>페인트 1 갤런, 프라이머 2 리터, 롤러 외 기타 페인트 용도의 물품들 구매에 약 <strong>18만원</strong> 정도 소비되었다. (최종 포스트에서 총 사용한 비용을 표로 정리할 계획이니 참고)</p><p><img src="https://user-images.githubusercontent.com/25416425/50963331-c4164f80-150f-11e9-9e05-9a58136ae2ad.jpeg" width="500"></p><p>구매한 페인트 제품은 내구성이 강한 <em>SCUFF-X</em> 모델이다.</p><p>참고로, <strong>프라이머 (Primer)</strong>는 페인트를 칠하기 전, 이미 도색된 곳에 발라서 원래의 색을 묻는 역할을 한다. 다른 말로 젯소 (Gesso)라고도 한다. 색칠 전에 흰색 계열로 바탕을 칠해준다고 생각하면 될듯? 프라이머에 대해 자세히 알고 싶다면 <a href="https://ohou.se/advices/1953" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하자.</p><p>또한, 페인트를 구매하기 전 제일 고민되는게 <strong>“페인트를 얼마나 사야하지??”</strong> 였다.</p><p>처음에는 인터넷으로 페인트를 구매하려 했기 때문에 수량을 미리 알아야 했고, <a href="https://ohou.se/advices/10" rel="external nofollow noopener noreferrer" target="_blank">오늘의 집: 페인트 양 계산하기</a>를 주로 읽었다. 그래도 감이 안잡혀서 오프라인 매장을 방문하기로 결정했는데, 정답이었다. </p><p>대충 수치만 알아가도 벤자민 무어의 엄청난 고객 응대 서비스에 감탄하면서 고개를 끄덕이며 페인트를 들고 나올 수 있다고 확신한다. 받아본 적은 없지만, 비싼 양복점에서 맞춤 정장을 사는 기분이었다.</p><p><em>벤자민 무어 페인트 : 극상의 오프라인 고객 응대, 냄새가 전혀 나지 않는 친환경 페인트, 수많은 후기가 증명하는 페인트 색감의 우월함</em></p><h3 id="프라이머-칠하기"><a href="#프라이머-칠하기" class="headerlink" title="프라이머 칠하기"></a>프라이머 칠하기</h3><blockquote><p><strong>1월 1일 ~ 1월 2일 : 방문 프라이머 칠하기</strong></p></blockquote><p>우리가 정한 집의 가장 큰 문제가 방문이다.</p><p>문고리는 쭈글쭈글하고, 경첩은 녹이 슬어 있었으며, 무엇보다도 방문의 색깔이 너무 촌스러웠다.</p><p><img src="https://user-images.githubusercontent.com/25416425/50964639-2755b100-1513-11e9-98e6-f8eac9fb58e4.jpeg" width="350"></p><p>작업 순서는 아래와 같이 진행했다.</p><ol><li>방문 손잡이 제거</li><li>물티슈로 더러운 얼룩 닦아내기</li><li>마른 걸레로 먼지 제거</li><li>마스킹 테이프로 방문 틀과 아래쪽 마킹</li><li>프라이머 도색</li></ol><p><img src="https://user-images.githubusercontent.com/25416425/50964950-f6c24700-1513-11e9-8b0f-2a37e7e992fc.jpeg" width="500"></p><p>슥슥 칠해주면 된다! 원래 저렇게 얼룩덜룩 하더라고..</p><p>하루 칠해보고 안 사실이 있다.</p><ul><li>잘 칠하려면 처음에는 작은 붓으로 사이사이 테두리를 그려야 한다는 것</li><li>넓은 면은 무조건 롤러를 사용해야 한다는 것</li><li>살살 해도 바닥에 많이 튄다는거.. 물론 옷에도 ㅠㅠ</li></ul><p>세가지 모두 다 칠하고 나서 안 사실이다 ㅋㅋㅋㅋ 처음 문은 망함 ㅋㅋㅋㅋㅋ 바닥도 엉망 ㅋㅋㅋㅋㅋㅋ</p><blockquote><p>바닥에 급하게 종이 깔고 1회차 프라이머 완성한 문</p></blockquote><p><img src="https://user-images.githubusercontent.com/25416425/50965276-e3fc4200-1514-11e9-9783-ff3e5ae048fa.jpeg" width="500"></p><p>그래도 처음으로 붓칠 하면서 느낀 점은.. <strong>생각보다 재밌다?!</strong></p><p>새로운 취미가 생긴 기분이다. 물론 바닥에 튄 프라이머 긁어낸다고 고생하긴 했지만 ㅋㅋ</p><p>다음날은 작업복으로 갈아입고 굽도리 제대로 칠했다!</p><p><img src="https://user-images.githubusercontent.com/25416425/50965640-e0b58600-1515-11e9-95e2-5984e949f213.jpeg" width="500"></p><h3 id="페인트-칠하기"><a href="#페인트-칠하기" class="headerlink" title="페인트 칠하기"></a>페인트 칠하기</h3><blockquote><p><strong>1월 3일 ~ 1월 4일 : 방문 페인트 칠하기</strong></p></blockquote><p>위에서 언급한 대로, 우리가 정한 방 문 색상은 <a href="https://www.benjaminmoore.com/en-us/color-overview/find-your-color/color/967/cloud-white?color=967" rel="external nofollow noopener noreferrer" target="_blank">Cloud White</a>이다.</p><p>프라이머가 잘 마른 것을 확인하고 <strong>1회차 페인트 칠</strong>, 그리고 그 다음날 다시 와서 <strong>2회차 페인트 칠</strong>을 진행했다.</p><blockquote><p>1회차 페인트칠이 끝난 방문</p></blockquote><p><img src="https://user-images.githubusercontent.com/25416425/50965921-c16b2880-1516-11e9-95bf-b76c5ed5814b.jpeg" width="500"></p><blockquote><p>2회차 페인트칠 후. 이제 좀 느낌이 나지 않는가?</p></blockquote><p><img src="https://user-images.githubusercontent.com/25416425/50966022-0b540e80-1517-11e9-8c99-bbc2fdd44d14.jpeg" width="350"></p><h3 id="굽돌이-및-기타-작업하기"><a href="#굽돌이-및-기타-작업하기" class="headerlink" title="굽돌이 및 기타 작업하기"></a>굽돌이 및 기타 작업하기</h3><blockquote><p><strong>1월 5일 : 굽도리 페인트 칠하기 &amp; 방문 손잡이 달기</strong></p></blockquote><p>그 다음날은 방 전체 굽도리 페인트 칠을 진행했다.</p><p>여기서 중요한건, 페인트칠이 아니라 <u>각 부분에 마스킹 테이프가 꼼꼼하게 붙여져 있어야 한다는 것이다.</u></p><p>천장과 바닥에 붙인 마스킹 테이프를 다시 보수해 주고, 작업 시작!</p><p><img src="https://user-images.githubusercontent.com/25416425/50966316-eca24780-1517-11e9-8429-e24078ca2164.jpeg" width="500"></p><p>한창 작업하느라 더러워진 방. 하지만 다시 태어난 방문을 보면 기분이 좋아졌다.</p><p>문고리는 셀프 인테리어 물품 판매 사이트중에서 유명한 <a href="http://www.moongori.com/main/index" rel="external nofollow noopener noreferrer" target="_blank">문고리닷컴</a>에서 제일 인기 많은 블랙 색상의 문고리를 부착했다.</p><p>페인트칠 완료된 하얀 문과 검은 문고리. 완벽해</p><p><img src="https://user-images.githubusercontent.com/25416425/50966599-c03afb00-1518-11e9-83fc-2e87978d0483.jpeg" width="350"></p><p>흰색 경첩도 달아야 완벽한데, 아직 전동 드릴이 없어서 그대로 놔두었다.</p><p>한 4일 정도 걸려서 <strong>양쪽 방문 &amp; 굽도리 페인팅</strong>을 끝냈다.</p><p>수업도 가고 일도 하는 와중에 밤에 와서 조금씩 작업을 한 탓에 좀 오래 걸리긴 했지만 만족!</p><p><a href="https://jeongwookie.github.io/2019/01/09/190109-house-remodeling-2/">다음 포스트</a>는 바닥 깔기로 찾아오겠습니다..ㅎㅎ</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;처음-시도하는-셀프-인테리어-도전기-1탄-페인트-칠하기&quot;&gt;&lt;a href=&quot;#처음-시도하는-셀프-인테리어-도전기-1탄-페인트-칠하기&quot; class=&quot;headerlink&quot; title=&quot;처음 시도하는 셀프 인테리어 도전기 1탄, 페인트 칠하기&quot;&gt;&lt;/a&gt;처음 시도하는 셀프 인테리어 도전기 1탄, 페인트 칠하기&lt;/h2&gt;&lt;p&gt;인터넷 커뮤니티 클리앙에 올라온 &lt;a href=&quot;https://www.clien.net/service/board/use/12810598&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;혼자서 한 컴퓨터방 리모델링&lt;/a&gt;을 보고 느낌이 와서 계획한 &lt;u&gt;투룸 리모델링.&lt;/u&gt;&lt;/p&gt;
-&lt;p&gt;현재 살고 있는 집은 1.5룸인데 친구랑 둘이 살기 너무 좁아서 1년만 채우고 투룸으로 이사가기로 했었다.&lt;/p&gt;
-&lt;p&gt;이왕 이사가는 김에 얼마나 살지는 모르겠지만 인테리어 한번 해볼까? 하고 시작 ㅋㅋㅋ 심지어 집 구할때도 제일 큰 조건 중 하나가 “이집 뜯어고쳐도 돼요?” 였다..&lt;/p&gt;
-&lt;p&gt;우리는 컴퓨터쟁이니까 방은 컴퓨터방 리모델링 사진들을 많이 참고했고, 원래는 가구 배치나 여러가지 인테리어 소품들도 막 살펴봤지만 예산이..ㅠㅠ&lt;/p&gt;
-&lt;p&gt;1주일에 걸쳐서 총 15번 이상 각각 다른 투룸들을 방문하면서 좋은 물건(?)을 물색했고, 12월 30일 큰방 + 작은방 + 분리 주방 + 베란다 2개 형태의 방으로 확정지었다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;방 스펙 : W480 x D400 x h207 (m)&lt;/li&gt;
-&lt;li&gt;우리 스펙 : 인테리어 경험 전무, 27세 남자 두명&lt;/li&gt;
-&lt;li&gt;1차 결정 사항 : 문 페인트칠, 바닥 시공, 조명 교체, 커튼 설치&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
