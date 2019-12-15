@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2019/11/19/191118-test/</loc>
+        <lastmod>2019-11-18T15:36:12.707Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2019/11/17/191117-khaiii-korean-tokenizer/</loc>
-        <lastmod>2019-11-17T12:55:04.747Z</lastmod>
+        <lastmod>2019-11-17T13:11:38.347Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +57,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/06/29/190629-multiprocessing-crawler/</loc>
-        <lastmod>2019-06-29T16:06:03.706Z</lastmod>
+        <lastmod>2019-06-29T16:06:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,7 +65,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/06/28/190628-spring-semester-finish/</loc>
-        <lastmod>2019-06-29T08:51:50.619Z</lastmod>
+        <lastmod>2019-06-29T08:51:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,7 +81,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/05/31/190531-naver-main-news-crawling/</loc>
-        <lastmod>2019-06-03T08:35:20.737Z</lastmod>
+        <lastmod>2019-06-03T08:35:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
