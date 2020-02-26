@@ -29,6 +29,13 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/categories/Hobby/</loc>
+        <lastmod>2019-05-31T14:41:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/categories/Startup-Story/</loc>
         <lastmod>2019-05-31T15:17:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -38,13 +45,6 @@
     <url>
         <loc>https://jeongwookie.github.io/categories/Programming/R-programming/</loc>
         <lastmod>2019-05-31T15:19:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Data-Crawling/</loc>
-        <lastmod>2019-06-29T16:06:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -64,22 +64,22 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Hobby/</loc>
-        <lastmod>2019-11-04T06:10:09.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/Programming/Data-preprocessing/</loc>
+        <lastmod>2019-11-17T12:54:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/Programming/</loc>
-        <lastmod>2019-11-17T13:11:38.347Z</lastmod>
+        <lastmod>2020-02-26T11:19:37.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Data-preprocessing/</loc>
-        <lastmod>2019-11-17T13:11:38.347Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/Programming/Data-Crawling/</loc>
+        <lastmod>2020-02-26T11:19:37.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

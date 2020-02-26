@@ -8,16 +8,16 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/11/17/191117-khaiii-korean-tokenizer/</loc>
-        <lastmod>2019-11-17T13:11:38.347Z</lastmod>
+        <loc>https://jeongwookie.github.io/2020/02/25/200225-twitter-data-crawling-without-package/</loc>
+        <lastmod>2020-02-26T11:19:37.624Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2018/03/31/180331-my-hobby/</loc>
-        <lastmod>2019-11-04T06:10:09.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/2019/11/17/191117-khaiii-korean-tokenizer/</loc>
+        <lastmod>2019-11-17T12:54:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,7 +41,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/07/23/190723-my-summer-these-days/</loc>
-        <lastmod>2019-07-23T13:11:08.000Z</lastmod>
+        <lastmod>2019-07-23T13:11:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +49,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/06/29/190629-multiprocessing-crawler/</loc>
-        <lastmod>2019-06-29T16:06:03.000Z</lastmod>
+        <lastmod>2019-06-29T16:01:40.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,7 +57,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/06/28/190628-spring-semester-finish/</loc>
-        <lastmod>2019-06-29T08:51:50.000Z</lastmod>
+        <lastmod>2019-06-29T08:51:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,7 +73,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/05/31/190531-naver-main-news-crawling/</loc>
-        <lastmod>2019-06-03T08:35:20.000Z</lastmod>
+        <lastmod>2019-06-03T08:35:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -146,6 +146,14 @@
     <url>
         <loc>https://jeongwookie.github.io/2018/11/14/181114-make-ir-presentation/</loc>
         <lastmod>2019-05-31T14:42:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2018/03/31/180331-my-hobby/</loc>
+        <lastmod>2019-05-31T14:41:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
