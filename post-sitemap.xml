@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2019/06/10/190610-twitter-data-crawling/</loc>
+        <lastmod>2020-02-27T06:59:04.474Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2020/02/25/200225-twitter-data-crawling-without-package/</loc>
-        <lastmod>2020-02-26T11:19:37.624Z</lastmod>
+        <lastmod>2020-02-27T06:57:39.835Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -58,14 +66,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2019/06/28/190628-spring-semester-finish/</loc>
         <lastmod>2019-06-29T08:51:41.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/06/10/190610-twitter-data-crawling/</loc>
-        <lastmod>2019-06-10T15:37:12.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
