@@ -9,15 +9,15 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2020/04/23/200423-analyze-tweet-series-1-collect/</loc>
-        <lastmod>2020-04-29T06:38:04.117Z</lastmod>
+        <lastmod>2020-04-30T08:08:42.058Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2020/03/24/200324-pytorch-cuda-gpu-allocate/</loc>
-        <lastmod>2020-03-24T08:17:43.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/2020/04/29/200429-analyze-tweet-series-2-preprocessing/</loc>
+        <lastmod>2020-04-30T08:08:14.935Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +25,15 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2020/02/25/200225-twitter-data-crawling-without-package/</loc>
-        <lastmod>2020-03-24T07:56:11.000Z</lastmod>
+        <lastmod>2020-04-23T08:39:37.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2020/03/24/200324-pytorch-cuda-gpu-allocate/</loc>
+        <lastmod>2020-04-23T08:39:35.848Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,7 +129,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/21/180924-saving-account/</loc>
-        <lastmod>2019-05-31T15:05:51.000Z</lastmod>
+        <lastmod>2019-05-31T15:05:51.115Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -129,7 +137,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/03/29/180328-start-from-customer/</loc>
-        <lastmod>2019-05-31T15:02:28.000Z</lastmod>
+        <lastmod>2019-05-31T15:02:28.192Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -137,7 +145,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/03/25/180325-start/</loc>
-        <lastmod>2019-05-31T15:00:15.000Z</lastmod>
+        <lastmod>2019-05-31T15:00:15.469Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -145,7 +153,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/13/180913-recommend-lingerwater/</loc>
-        <lastmod>2019-05-31T14:54:48.000Z</lastmod>
+        <lastmod>2019-05-31T14:54:48.779Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -153,7 +161,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/15/180915-kaist-e5-18f/</loc>
-        <lastmod>2019-05-31T14:48:03.000Z</lastmod>
+        <lastmod>2019-05-31T14:48:03.671Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -169,7 +177,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/03/31/180331-my-hobby/</loc>
-        <lastmod>2019-05-31T14:41:09.000Z</lastmod>
+        <lastmod>2019-05-31T14:41:09.687Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -177,7 +185,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/06/190306-data-visualization-using-R-1/</loc>
-        <lastmod>2019-05-31T14:13:38.000Z</lastmod>
+        <lastmod>2019-05-31T14:13:38.724Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -185,7 +193,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/08/190308-data-visualization-using-R-2/</loc>
-        <lastmod>2019-05-31T13:22:04.000Z</lastmod>
+        <lastmod>2019-05-31T13:22:04.951Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -193,7 +201,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/11/06/181106-customer-interview-mental-model/</loc>
-        <lastmod>2019-05-25T11:40:22.000Z</lastmod>
+        <lastmod>2019-05-25T11:40:22.114Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -201,7 +209,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/10/12/181012-python-adress-book-program/</loc>
-        <lastmod>2019-05-25T11:36:05.000Z</lastmod>
+        <lastmod>2019-05-25T11:36:05.278Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -209,7 +217,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/10/04/181004-python-module/</loc>
-        <lastmod>2019-05-25T11:28:22.000Z</lastmod>
+        <lastmod>2019-05-25T11:28:22.612Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -217,7 +225,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/30/180930-python-class/</loc>
-        <lastmod>2019-05-25T11:28:15.000Z</lastmod>
+        <lastmod>2019-05-25T11:28:15.660Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -225,7 +233,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/21/180921-second-homework-python/</loc>
-        <lastmod>2019-05-25T11:27:18.000Z</lastmod>
+        <lastmod>2019-05-25T11:27:18.304Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -233,7 +241,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/20/180920-function-in-python/</loc>
-        <lastmod>2019-05-25T11:25:14.000Z</lastmod>
+        <lastmod>2019-05-25T11:25:14.228Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -241,7 +249,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/18/180918-set-in-python/</loc>
-        <lastmod>2019-05-25T11:25:01.000Z</lastmod>
+        <lastmod>2019-05-25T11:25:01.469Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -249,7 +257,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/14/180914-tuple-and-dictionary/</loc>
-        <lastmod>2019-05-25T11:24:43.000Z</lastmod>
+        <lastmod>2019-05-25T11:24:43.788Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -257,7 +265,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/12/180912-list-operation/</loc>
-        <lastmod>2019-05-25T11:23:18.000Z</lastmod>
+        <lastmod>2019-05-25T11:23:18.756Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -265,7 +273,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/11/180911-first-homework-python/</loc>
-        <lastmod>2019-05-25T11:22:34.000Z</lastmod>
+        <lastmod>2019-05-25T11:22:34.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -273,7 +281,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/180911-code-alignment-using-format-function/</loc>
-        <lastmod>2019-05-25T11:22:23.000Z</lastmod>
+        <lastmod>2019-05-25T11:22:23.855Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -281,7 +289,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/180910-common-string-operation/</loc>
-        <lastmod>2019-05-25T11:22:18.000Z</lastmod>
+        <lastmod>2019-05-25T11:22:18.121Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -289,7 +297,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/18/190318-naver-finance-data-crawling-using-python/</loc>
-        <lastmod>2019-05-24T14:57:25.000Z</lastmod>
+        <lastmod>2019-05-24T14:57:25.182Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -297,7 +305,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/05/23/190523-ubuntu-jupyter-notebook-remote/</loc>
-        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
+        <lastmod>2019-05-23T10:07:39.320Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -305,7 +313,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/05/21/190521-ubuntu-install-usb/</loc>
-        <lastmod>2019-05-21T18:39:41.000Z</lastmod>
+        <lastmod>2019-05-21T18:39:41.281Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -337,7 +345,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/10/02/181002-put-google-adsense-in-your-hexo-blog/</loc>
-        <lastmod>2019-03-25T12:29:11.000Z</lastmod>
+        <lastmod>2019-03-25T12:29:11.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -345,7 +353,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/03/14/190314-kschool-2019-fall-admission/</loc>
-        <lastmod>2019-03-25T11:58:00.000Z</lastmod>
+        <lastmod>2019-03-25T11:58:00.474Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -409,7 +417,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2019/02/03/190203-find-a-new-hobby/</loc>
-        <lastmod>2019-03-24T10:53:26.000Z</lastmod>
+        <lastmod>2019-03-24T10:53:26.611Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -417,7 +425,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/180910-github-blog-image-upload/</loc>
-        <lastmod>2019-03-24T10:43:41.000Z</lastmod>
+        <lastmod>2019-03-24T10:43:41.310Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
