@@ -43,13 +43,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/</loc>
-        <lastmod>2021-11-21T11:28:05.091Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%B7%A8%EB%AF%B8/</loc>
         <lastmod>2021-11-21T11:28:17.658Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,13 +52,6 @@
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%ED%95%99%EA%B5%90-%EC%9D%B4%EC%95%BC%EA%B8%B0/</loc>
         <lastmod>2021-11-21T11:28:21.136Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/</loc>
-        <lastmod>2021-11-21T11:29:36.588Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -129,6 +115,20 @@
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A5-Startup/</loc>
         <lastmod>2021-11-21T11:47:06.677Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/</loc>
+        <lastmod>2021-11-21T12:14:56.167Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/</loc>
+        <lastmod>2021-11-21T12:14:56.167Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

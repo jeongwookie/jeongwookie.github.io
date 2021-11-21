@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jeongwookie.github.io/"/>
-  <updated>2021-11-21T11:21:46.905Z</updated>
+  <updated>2021-11-21T12:14:56.167Z</updated>
   <id>https://jeongwookie.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021년의 근황</title>
+    <link href="https://jeongwookie.github.io/2021/11/14/others/diary/7-my-recent-days-in-2021/"/>
+    <id>https://jeongwookie.github.io/2021/11/14/others/diary/7-my-recent-days-in-2021/</id>
+    <published>2021-11-14T12:14:29.000Z</published>
+    <updated>2021-11-21T12:14:56.167Z</updated>
+    
+    <content type="html"><![CDATA[<p>블로그를 오랜만에 접속했습니다.<br>18년도에 블로그를 만들었을 때, 꾸준히 한달에 한번이라도 글을 쓰자 생각했었는데 지켜지지 않았네요 ㅠ.ㅠ<br>2020년의 나와 현재의 나를 비교하면서 되돌아보니 생각보다 이것저것 바뀐 것이 있습니다. 물론 시간이 너무 빨리 지나가는 것 같은 생각은 항상 하지만요.</p><p>현재 저는 분당에 있는 티맥스소프트에서 전문연구요원을 하고 있습니다. 시작한지 벌써 1년이 지났네요…<br>그 사이에 훈련소도 다녀오고, 훈련소 다녀온 시점부터 현재까지 약 7개월 이상 꾸준하게 헬스를 하고 있습니다.<br>과거에 저는 헬스를 정말 싫어하던 사람이더라구요 옛날 글들을 보니까 ㅋㅋㅋ 지금은 사람이 뭘 잘못먹었나 싶을 정도로 헬스에 집착(?)하고 있습니다. 운동 한번 제대로 시작해보자 생각하고 꾸준하게 생활로 가져가니까 되긴 되더라구요. 식단도 관리 하면서 주에 5~6회 헬스장에 퇴근하고 반드시 갑니다.</p><p>블로그를 다시 시작할려고 생각한 이유는, 회사에 익숙해지고 분당이란 곳에 충분히 익숙해졌다고 생각했기 때문입니다. 이제 또 다른 도약을 진지하게 준비해야 하는 시점이라고 생각이 들었어요. (사실 위기감입니다 이렇게 살아도 되나 현자타임이 강하게 왔습니다;;;)</p><p>저의 다음 스텝에 대한 진지한 고민을 병행하면서, 일단은 방향을 Data Scientist / ML Engineer 로 잡았습니다. 그리고 더 늦기 전에 Computer Science 교과목들을 제대로 짚고 넘어가야겠다고 생각했습니다. 이쪽 분야로 계속 들어가려면 CS공부는 필수적이고, 앒게 공부한 분들이나 학부때부터 전공했음에도 불구하고 당시 수업때 많이 놀아서(?) 까먹음을 후회하는 개발자들을 많이 보았습니다. 회사 다니면서 시간 쪼개서 공부하는 것이 쉽지는 않겠지만, 이직을 하고 더 deep dive하게 되면 점점 더 시간이 없어서 결국은 못하게 되지 않을까 하는 생각입니다.</p><p>다른 학부때부터 전공자들에 비해서 확실히 부족한 부분들이 있다는 점이 제 마음에 계속 응어리처럼 남아있었습니다. 회사에서 갑자기 java로 백엔드 서비스 개발을 맡았을 때도, DB에 대한 이해가 부족하여서 계속 구글링하거나 물어보는 수 밖에 없었죠 ㅠㅠ 이걸 해결하지 못하면, 운좋게 어디 다른 좋은 회사에 이직하게 된다 하더라도 결국은 끝에 가서 발목을 잡을 것 같습니다.</p><p>잡설이 길었는데, 이런 여러가지 생각으로 공부를 시작했고 공부한 내용들을 복습하기 위해 블로그에 기록을 하자는게 취지입니다. 덤으로 코테 문제들을 안풀어본지 대단히 오래되어서;;;; 이직을 하는데 문제가 있을 것이라 판단하여서 기본부터 다시 매일 조금씩 풀기로 결정했습니다. 요것도 복습이 필요한 문제의 경우에는 포스팅을 약간씩 해보려구요 :)</p><p>거품 다 빼고, 프로그래밍적 마인드 부터 알고리즘, 자료구조, 컴퓨터시스템, 운영체제, 네트워크, 데이터베이스 등 CS과목들을 쭉 다 읽을 계획을 가지고 있습니다. 주로 관련 전공서 읽기 + 해외 유명 대학 수업듣고 lab session 수행하는 방법으로 마치 다시 대학교 가서 수업 듣는 것처럼 생각하고 진행할 것 같아요.</p><p>구체적인 CS 공부 커리큘럼, 이직을 위한 준비 등 이런 정보들도 제가 마음을 다잡는 겸 포스팅 할수도 있습니다 ㅎㅎ 이직이 끝나면 할수도 있구요. 일단은 공부부터, 코드부터 짜고 해보겠습니다. 안녕.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;블로그를 오랜만에 접속했습니다.&lt;br&gt;18년도에 블로그를 만들었을 때, 꾸준히 한달에 한번이라도 글을 쓰자 생각했었는데 지켜지지 않았네요 ㅠ.ㅠ&lt;br&gt;2020년의 나와 현재의 나를 비교하면서 되돌아보니 생각보다 이것저것 바뀐 것이 있습니다. 물론
+      
+    
+    </summary>
+    
+      <category term="Ⅹ. Others" scheme="https://jeongwookie.github.io/categories/%E2%85%A9-Others/"/>
+    
+      <category term="일기" scheme="https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/"/>
+    
+    
+      <category term="Daily life" scheme="https://jeongwookie.github.io/tags/Daily-life/"/>
+    
+  </entry>
   
   <entry>
     <title>트위터 파헤치기 시리즈 두번째 - 한국어 전처리</title>
@@ -596,33 +623,6 @@
       <category term="Business" scheme="https://jeongwookie.github.io/tags/Business/"/>
     
       <category term="Service Design" scheme="https://jeongwookie.github.io/tags/Service-Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>문득 떠오른 취미</title>
-    <link href="https://jeongwookie.github.io/2019/02/03/others/hobby/5-find-a-new-hobby/"/>
-    <id>https://jeongwookie.github.io/2019/02/03/others/hobby/5-find-a-new-hobby/</id>
-    <published>2019-02-02T17:38:28.000Z</published>
-    <updated>2021-11-21T11:28:17.658Z</updated>
-    
-    <content type="html"><![CDATA[<p>&lt;문득 든 배우고 싶은 취미에 대한 일기&gt;</p><p>나는 음악을 많이 듣는 편은 아니다.</p><p>기차를 타고, 버스를 타고 갈 때에도 잠을 청하기 위해 가끔 음악을 듣곤 하지만.. 아무것도 귀에 꼽지 않고 갈때가 훨씬 많다.</p><p>하지만 가끔 좋은 뉴에이지 음악을 들을 때, 음색이 매력적인 기타 소리를 들을 때 나도 저렇게 연주하고 싶다는 생각은 종종 든다.</p><a id="more"></a><p>어머니께서 내가 초등학생이 되기 전까지 성악을 하셨다.</p><p>연주회에 가서 어머니를 기다렸던 기억이 조금씩 난다.</p><p>종종 방학때는 같이 유명한 피아니스트의 연주회에 갔었다.</p><p>물론 어릴때는 그때마다 저녁에 양식을 먹을 수 있어서 따라갔던 것이 크지만.. 좋은 음악을 들을 때 마다 그때의 기억이 나는 것을 보면 좋았던 모양이다.</p><p>초등학교때 많은 또래들이 그랬듯이 학원을 다니면서 피아노와 플룻을 배웠다. </p><p>정말 어릴때는 집에서 친구들과 함께 어머니께 노래를 배우기도 했었다.</p><p>근데.. 어른이 된 지금은 하나도!! 내 손가락에 남아있지 않다..ㅠㅠ</p><p>대학교 1학년때는 일렉 기타를 배워보려고 수업을 신청했었는데, 조금 만져보다가 도망갔다 ㅋㅋㅋ</p><p>아버지께서 강력히 추천하셨었지만.. 나한테는 맞지 않았던 모양이다. 손이 남들보다 작고 악력이 없어서 내 맘대로 음이 울리질 않으니 흥미가 떨어졌다.<br>(락과 같은 영역의 노래를 하나도 안듣기도 했다)</p><p>지금은 피아노를 기회가 되면 한번 더 배워보고 싶다.</p><p>내가 치고싶은 곡들만 연습해서 멋지게 연주하고 싶다.</p><p>보컬 수업도 한번 듣고 싶다. 목소리는 솔직히 자신있는데.. 노래방을 거의 안가다 시피 해서 어떻게 부르는지 모른다 ㅋㅋㅋ</p><p>이번 해에 할 수 있을까? 도전해 보자..!!</p><p><img src="https://user-images.githubusercontent.com/25416425/52431372-6fd0b080-2b4b-11e9-9bc8-ff02b6160273.jpg" width="550"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;lt;문득 든 배우고 싶은 취미에 대한 일기&amp;gt;&lt;/p&gt;
-&lt;p&gt;나는 음악을 많이 듣는 편은 아니다.&lt;/p&gt;
-&lt;p&gt;기차를 타고, 버스를 타고 갈 때에도 잠을 청하기 위해 가끔 음악을 듣곤 하지만.. 아무것도 귀에 꼽지 않고 갈때가 훨씬 많다.&lt;/p&gt;
-&lt;p&gt;하지만 가끔 좋은 뉴에이지 음악을 들을 때, 음색이 매력적인 기타 소리를 들을 때 나도 저렇게 연주하고 싶다는 생각은 종종 든다.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ⅹ. Others" scheme="https://jeongwookie.github.io/categories/%E2%85%A9-Others/"/>
-    
-      <category term="취미" scheme="https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%B7%A8%EB%AF%B8/"/>
-    
-    
-      <category term="Daily life" scheme="https://jeongwookie.github.io/tags/Daily-life/"/>
     
   </entry>
   

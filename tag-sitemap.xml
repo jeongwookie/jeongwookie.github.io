@@ -80,13 +80,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
-        <lastmod>2021-11-21T11:28:17.658Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/IBM-Watson/</loc>
         <lastmod>2021-11-21T11:28:20.468Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -222,6 +215,13 @@
     <url>
         <loc>https://jeongwookie.github.io/tags/Service-Design/</loc>
         <lastmod>2021-11-21T11:47:06.677Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
+        <lastmod>2021-11-21T12:14:56.167Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
