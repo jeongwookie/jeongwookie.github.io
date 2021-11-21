@@ -93,42 +93,42 @@
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A1-Programming/</loc>
-        <lastmod>2021-11-21T11:33:54.067Z</lastmod>
+        <lastmod>2021-11-21T11:46:12.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A1-Programming/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8/</loc>
-        <lastmod>2021-11-21T11:33:54.067Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A5-Startup/</loc>
-        <lastmod>2021-11-21T11:37:31.786Z</lastmod>
+        <lastmod>2021-11-21T11:46:12.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/Ubuntu/</loc>
-        <lastmod>2021-11-21T11:38:46.941Z</lastmod>
+        <lastmod>2021-11-21T11:46:17.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/</loc>
-        <lastmod>2021-11-21T11:39:12.094Z</lastmod>
+        <lastmod>2021-11-21T11:46:23.346Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/Jupyter/</loc>
-        <lastmod>2021-11-21T11:39:12.094Z</lastmod>
+        <lastmod>2021-11-21T11:46:23.346Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A5-Startup/</loc>
+        <lastmod>2021-11-21T11:47:06.677Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
