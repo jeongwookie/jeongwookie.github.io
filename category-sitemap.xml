@@ -8,92 +8,127 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Blog-setting/</loc>
-        <lastmod>2019-03-25T12:29:11.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%81%AC%EB%A1%A4%EB%A7%81/</loc>
+        <lastmod>2021-11-21T11:21:14.928Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Server/</loc>
-        <lastmod>2019-05-23T10:07:39.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/%ED%95%9C%EA%B5%AD%EC%96%B4-%ED%98%95%ED%83%9C%EC%86%8C-%EB%B6%84%EC%84%9D%EA%B8%B0/</loc>
+        <lastmod>2021-11-21T11:21:23.002Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Python/</loc>
-        <lastmod>2019-05-25T11:36:05.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/%ED%8A%B8%EC%9C%84%ED%84%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0/</loc>
+        <lastmod>2021-11-21T11:21:46.905Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Hobby/</loc>
-        <lastmod>2019-05-31T14:41:09.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/</loc>
+        <lastmod>2021-11-21T11:24:14.003Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Startup-Story/</loc>
-        <lastmod>2019-05-31T15:17:54.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94/</loc>
+        <lastmod>2021-11-21T11:24:14.003Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/R-programming/</loc>
-        <lastmod>2019-05-31T15:19:37.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/</loc>
+        <lastmod>2021-11-21T11:28:05.091Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/School/</loc>
-        <lastmod>2019-11-04T06:08:05.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%B7%A8%EB%AF%B8/</loc>
+        <lastmod>2021-11-21T11:28:17.658Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Diary/</loc>
-        <lastmod>2019-11-04T06:08:42.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%ED%95%99%EA%B5%90-%EC%9D%B4%EC%95%BC%EA%B8%B0/</loc>
+        <lastmod>2021-11-21T11:28:21.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Data-preprocessing/</loc>
-        <lastmod>2019-11-17T12:54:47.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/</loc>
+        <lastmod>2021-11-21T11:29:36.588Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Pytorch/</loc>
-        <lastmod>2020-03-24T08:17:43.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95/</loc>
+        <lastmod>2021-11-21T11:29:36.588Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Data-Preprocessing/</loc>
-        <lastmod>2020-04-30T08:08:14.000Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A3-Deep-Learning/</loc>
+        <lastmod>2021-11-21T11:30:16.916Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/</loc>
-        <lastmod>2020-05-23T07:10:43.460Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A3-Deep-Learning/Pytorch/</loc>
+        <lastmod>2021-11-21T11:30:16.916Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/Programming/Data-Crawling/</loc>
-        <lastmod>2020-05-23T07:10:43.460Z</lastmod>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A1-Programming/</loc>
+        <lastmod>2021-11-21T11:33:54.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A1-Programming/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8/</loc>
+        <lastmod>2021-11-21T11:33:54.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A5-Startup/</loc>
+        <lastmod>2021-11-21T11:37:31.786Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/Ubuntu/</loc>
+        <lastmod>2021-11-21T11:38:46.941Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/</loc>
+        <lastmod>2021-11-21T11:39:12.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/Jupyter/</loc>
+        <lastmod>2021-11-21T11:39:12.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

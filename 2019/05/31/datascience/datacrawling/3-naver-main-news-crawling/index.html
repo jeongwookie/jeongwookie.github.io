@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-1156366976077024",
+          enable_page_level_ads: true
+     });
+</script>
+
+  <meta name="description" content="네이버 뉴스와 관련된 데이터로 연구실에서 일하다 보니, 여러가지 관점에서 데이터를 수집하는 경우가 생긴다. 네이버 뉴스에서 오른쪽 위쪽을 잘 살펴보면 기사배열 이력 이라는 코너가 있다. 2019년 4월 4일 이후부터는 메인에 뜨는 뉴스가 개인마다 다르게 적용되도록 서비스 하고 있는 것 같은데, 그 전에는 네이버가 자신들의 기준으로 메인에 기사를 걸어놓은 것">
+<meta name="keywords" content="Python,WEB Crawling,Datamining">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Crawling - 네이버 뉴스 데이터 수집하기">
+<meta property="og:url" content="https://jeongwookie.github.io/2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/index.html">
+<meta property="og:site_name" content="JW&#39;s Blog">
+<meta property="og:description" content="네이버 뉴스와 관련된 데이터로 연구실에서 일하다 보니, 여러가지 관점에서 데이터를 수집하는 경우가 생긴다. 네이버 뉴스에서 오른쪽 위쪽을 잘 살펴보면 기사배열 이력 이라는 코너가 있다. 2019년 4월 4일 이후부터는 메인에 뜨는 뉴스가 개인마다 다르게 적용되도록 서비스 하고 있는 것 같은데, 그 전에는 네이버가 자신들의 기준으로 메인에 기사를 걸어놓은 것">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58689423-f4c52b80-83c1-11e9-9561-a1e8bd4f2fec.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58690689-1f64b380-83c5-11e9-8630-04cd97bc2be7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58693771-7326cb00-83cc-11e9-943a-996c599aa672.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/58694773-c9950900-83ce-11e9-814e-4acb2aeaefb4.png">
+<meta property="og:updated_time" content="2021-11-21T11:20:59.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Data Crawling - 네이버 뉴스 데이터 수집하기">
+<meta name="twitter:description" content="네이버 뉴스와 관련된 데이터로 연구실에서 일하다 보니, 여러가지 관점에서 데이터를 수집하는 경우가 생긴다. 네이버 뉴스에서 오른쪽 위쪽을 잘 살펴보면 기사배열 이력 이라는 코너가 있다. 2019년 4월 4일 이후부터는 메인에 뜨는 뉴스가 개인마다 다르게 적용되도록 서비스 하고 있는 것 같은데, 그 전에는 네이버가 자신들의 기준으로 메인에 기사를 걸어놓은 것">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/58689423-f4c52b80-83c1-11e9-9561-a1e8bd4f2fec.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JW's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://jeongwookie.github.io/2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Data Crawling - 네이버 뉴스 데이터 수집하기 | JW's Blog</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-125636294-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-125636294-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JW's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Make stuff people want</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://www.notion.so/jeongwookie93/Jeong-Wook-Kim-03e882670c1949a99d8b408d9785468f" rel="external nofollow noopener noreferrer" target="_blank"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/jeongwookie" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JW's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Data Crawling - 네이버 뉴스 데이터 수집하기
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-31 16:26:09" itemprop="dateCreated datePublished" datetime="2019-05-31T16:26:09+09:00">2019-05-31</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅰ-Data-Science/" itemprop="url" rel="index"><span itemprop="name">Ⅰ. Data Science</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅰ-Data-Science/데이터-크롤링/" itemprop="url" rel="index"><span itemprop="name">데이터 크롤링</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>네이버 뉴스와 관련된 데이터로 연구실에서 일하다 보니, 여러가지 관점에서 데이터를 수집하는 경우가 생긴다.</p>
+<p>네이버 뉴스에서 오른쪽 위쪽을 잘 살펴보면 <a href="https://news.naver.com/main/history/mainnews/index.nhn" rel="external nofollow noopener noreferrer" target="_blank">기사배열 이력</a> 이라는 코너가 있다.</p>
+<p>2019년 4월 4일 이후부터는 메인에 뜨는 뉴스가 개인마다 다르게 적용되도록 서비스 하고 있는 것 같은데, 그 전에는 네이버가 자신들의 기준으로 메인에 기사를 걸어놓은 것 같다.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58689423-f4c52b80-83c1-11e9-9561-a1e8bd4f2fec.png" width="550"></p>
+<a id="more"></a>
+<p>원하는 기간에 <u>네이버 뉴스 메인에 게시되었던 기사들</u>만 골라서 제목 및 링크를 수집하여 보자.</p>
+<p>차근차근 따라올 수 있도록 코드를 최대한 구성해 보도록 노력했다.</p>
+<p>코드는 <code>python 3.7</code> 환경에서 작성했다.</p>
+<h2 id="수집-기간-정의하기"><a href="#수집-기간-정의하기" class="headerlink" title="수집 기간 정의하기"></a>수집 기간 정의하기</h2><p>먼저, 원하는 수집 기간을 정의해 보자. 파이썬의 기본 패키지 중 하나인 <code>datetime</code>을 사용할 것이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가져올 범위를 정의</span></span><br><span class="line"><span class="comment"># 2015-02-25 ~ 2015-02-28 // 2015-03-01 ~ 2015-03-30</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">days_range = []</span><br><span class="line"></span><br><span class="line">start = datetime.datetime.strptime(<span class="string">"2015-02-25"</span>, <span class="string">"%Y-%m-%d"</span>)</span><br><span class="line">end = datetime.datetime.strptime(<span class="string">"2015-03-31"</span>, <span class="string">"%Y-%m-%d"</span>) <span class="comment"># 범위 + 1</span></span><br><span class="line">date_generated = [start + datetime.timedelta(days=x) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, (end-start).days)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> date <span class="keyword">in</span> date_generated:</span><br><span class="line">    days_range.append(date.strftime(<span class="string">"%Y-%m-%d"</span>))</span><br><span class="line"></span><br><span class="line">print(days_range)</span><br><span class="line"></span><br><span class="line">&gt;&gt; [<span class="string">'2015-02-25'</span>, <span class="string">'2015-02-26'</span>, <span class="string">'2015-02-27'</span>, <span class="string">'2015-02-28'</span>, <span class="string">'2015-03-01'</span>, ... , <span class="string">'2015-03-30'</span>]</span><br></pre></td></tr></table></figure>
+<p>코드를 읽어보면 별로 어렵지 않다. <code>start</code> 와 <code>end</code>로 날짜 범위를 지정한 다음, <code>striptime</code> 함수를 활용하여 원하는 형식인 <u>%Y-%m-%d</u> 으로 뽑아내어 <code>days_range</code> 라는 리스트에 저장하였다.</p>
+<h2 id="html-parser-정의하기"><a href="#html-parser-정의하기" class="headerlink" title="html parser 정의하기"></a>html parser 정의하기</h2><p>이제 원하는 페이지의 html에 접근하기 위해, parser을 정의할 것이다.</p>
+<p>다행히도 간편하게 html parsing을 지원하는 패키지인 <code>BeautifulSoup4</code>가 존재한다.</p>
+<p>혹시나 이 패키지를 다운받지 않으신 분들은 주피터 노트북 상에서 아래와 같은 코드를 입력하면 된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install bs4</span><br></pre></td></tr></table></figure>
+<p>다운로드가 완료되었다면, 이제 원래의 목적으로 돌아가보자. 아래의 코드를 작성한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_bs_obj</span><span class="params">(url)</span>:</span></span><br><span class="line">    result = requests.get(url)</span><br><span class="line">    bs_obj = BeautifulSoup(result.content, <span class="string">"html.parser"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> bs_obj</span><br></pre></td></tr></table></figure>
+<p><code>get_bs_obj()</code> 라는, url을 입력하면 bs_obj을 반환하는 함수를 작성하였다.</p>
+<h2 id="뉴스-페이지-수-구하기"><a href="#뉴스-페이지-수-구하기" class="headerlink" title="뉴스 페이지 수 구하기"></a>뉴스 페이지 수 구하기</h2><p>이제 우리가 수집할 페이지에 접속하여, 페이지가 동작하는 방식에 대해서 파악해 보자.</p>
+<p><a href="https://news.naver.com/main/history/mainnews/list.nhn" rel="external nofollow noopener noreferrer" target="_blank">네이버 주요뉴스 배열 이력 (리스트형)</a></p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58690689-1f64b380-83c5-11e9-8630-04cd97bc2be7.png" width="550"></p>
+<p>우리가 원하는 정보는 위의 페이지에서 우리 눈으로 보이는 정보들 (기사 제목, 링크, 날짜 등) 이다. </p>
+<p>빨간색 네모 부분을 누르면 다음 페이지로 넘어가며, 사진과 같이 메인 뉴스로 게시되었던 기사 및 텍스트만 메인 뉴스로 게시된 기사 모두를 수집해야 한다.</p>
+<p>날짜가 바뀔때 마다 메인 뉴스에 걸렸던 기사의 갯수가 달라질 것인데, 그러면 당연하게도 페이지 수를 알아야 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm_notebook</span><br><span class="line"></span><br><span class="line">test = [<span class="string">"2015-03-01"</span>] <span class="comment"># 테스트를 위한 데이터 수집 구간</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> date <span class="keyword">in</span> tqdm_notebook(test):</span><br><span class="line">    </span><br><span class="line">    news_arrange_url = <span class="string">"https://news.naver.com/main/history/mainnews/list.nhn"</span></span><br><span class="line">    news_list_date_page_url = news_arrange_url + <span class="string">"?date="</span> + date</span><br><span class="line"></span><br><span class="line">    <span class="comment"># get bs_obj</span></span><br><span class="line">    bs_obj = get_bs_obj(news_list_date_page_url)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 포토 뉴스 페이지 수 구하기</span></span><br><span class="line">    photo_news_count = bs_obj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"eh_page"</span>&#125;).text.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    photo_news_count = int(photo_news_count)</span><br><span class="line">    </span><br><span class="line">    print(photo_news_count)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 리스트 뉴스 페이지 수 구하기</span></span><br><span class="line">    text_news_count = bs_obj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"mtype_list_wide"</span>&#125;).find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"eh_page"</span>&#125;).text.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    text_news_count = int(text_news_count)</span><br><span class="line">    </span><br><span class="line">    print(text_news_count)</span><br><span class="line"></span><br><span class="line">&gt;&gt; <span class="number">15</span></span><br><span class="line">&gt;&gt; <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p>위 코드에 사용된 <code>tqdm</code>은 for문의 진행 정도를 시각적으로 보여주는 좋은 패키지이다. 사용법은 위와 같이 import한 후, for문의 범위에 감싸주면 된다.</p>
+<p>웹페이지의 html에서 값을 가져오는 데에는 <code>bs4</code>의 <code>find()</code> 함수를 사용하였다.</p>
+<p>사용법이 궁금하다면, 예전 포스트들을 참고하자.</p>
+<p>전체적인 흐름은, 페이지 수 주변의 html 코드를 가져온 후,  Python의 기본 함수인 <code>split()</code> 으로 쪼개어, 원하는 부분만 출력한 것이다.</p>
+<h2 id="뉴스-정보-수집하기"><a href="#뉴스-정보-수집하기" class="headerlink" title="뉴스 정보 수집하기"></a>뉴스 정보 수집하기</h2><p>이제 진짜 우리가 원하는 정보를 수집할 준비가 완료되었다.</p>
+<p>예시로 각 페이지에서 기사 제목, 발행 언론사, 카테고리, 기사 링크, 기사 고유번호 (10자리) 를 수집할 것이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm_notebook</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">test = [<span class="string">"2015-03-01"</span>]</span><br><span class="line">main_news_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> date <span class="keyword">in</span> tqdm_notebook(test):</span><br><span class="line">    </span><br><span class="line">    news_arrange_url = <span class="string">"https://news.naver.com/main/history/mainnews/list.nhn"</span></span><br><span class="line">    news_list_date_page_url = news_arrange_url + <span class="string">"?date="</span> + date</span><br><span class="line"></span><br><span class="line">    <span class="comment"># get bs_obj</span></span><br><span class="line">    bs_obj = get_bs_obj(news_list_date_page_url)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 포토 뉴스 페이지 수 구하기</span></span><br><span class="line">    photo_news_count = bs_obj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"eh_page"</span>&#125;).text.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    photo_news_count = int(photo_news_count)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 리스트 뉴스 페이지 수 구하기</span></span><br><span class="line">    text_news_count = bs_obj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"mtype_list_wide"</span>&#125;).find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"eh_page"</span>&#125;).text.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    text_news_count = int(text_news_count)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 포토 뉴스 부분 링크 크롤링</span></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> tqdm_notebook(range(<span class="number">1</span>,photo_news_count+<span class="number">1</span>)):</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 포토 뉴스 링크</span></span><br><span class="line">        news_list_photo_url = <span class="string">'http://news.naver.com/main/history/mainnews/photoTv.nhn'</span></span><br><span class="line">        date_str = <span class="string">"?date="</span></span><br><span class="line">        page_str = <span class="string">"&amp;page="</span></span><br><span class="line">        news_list_photo_full_url = news_list_photo_url + <span class="string">"?date="</span> + date + <span class="string">"&amp;page="</span> + str(page)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get bs obj</span></span><br><span class="line">        photo_bs_obj = get_bs_obj(news_list_photo_full_url)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 링크 내 정보 수집</span></span><br><span class="line">        ul = photo_bs_obj.find(<span class="string">"ul"</span>, &#123;<span class="string">"class"</span>: <span class="string">"edit_history_lst"</span>&#125;)</span><br><span class="line">        lis = ul.find_all(<span class="string">"li"</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            title = item.find(<span class="string">"a"</span>)[<span class="string">"title"</span>]</span><br><span class="line">            press = item.find(<span class="string">"span"</span>, &#123;<span class="string">"class"</span> : <span class="string">"eh_by"</span>&#125;).text</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># link</span></span><br><span class="line">            link = item.find(<span class="string">"a"</span>)[<span class="string">"href"</span>]</span><br><span class="line">            </span><br><span class="line">            sid1 = link.split(<span class="string">'&amp;'</span>)[<span class="number">-3</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">            oid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-2</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">            aid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-1</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]            </span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 연예 TV 기사 제외</span></span><br><span class="line">            <span class="keyword">if</span> sid1 == <span class="string">"shm"</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">                </span><br><span class="line">            article_type = <span class="string">"pic"</span></span><br><span class="line">            </span><br><span class="line">            pic_list = [date, article_type, title, press, sid1, link, aid]</span><br><span class="line">            </span><br><span class="line">            main_news_list.append(pic_list)</span><br><span class="line">            </span><br><span class="line">    <span class="comment"># 텍스트 뉴스 부분 링크 크롤링</span></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> tqdm_notebook(range(<span class="number">1</span>, text_news_count+<span class="number">1</span>)):</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 텍스트 뉴스 링크</span></span><br><span class="line">        news_list_text_url = <span class="string">'http://news.naver.com/main/history/mainnews/text.nhn'</span></span><br><span class="line">        date_str = <span class="string">"?date="</span></span><br><span class="line">        page_str = <span class="string">"&amp;page="</span></span><br><span class="line">        news_list_text_full_url = news_list_text_url + <span class="string">"?date="</span> + date + <span class="string">"&amp;page="</span> + str(page)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get bs obj</span></span><br><span class="line">        text_bs_obj = get_bs_obj(news_list_text_full_url)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 링크 내 정보 수집</span></span><br><span class="line">        uls = text_bs_obj.find_all(<span class="string">"ul"</span>)</span><br><span class="line">        <span class="keyword">for</span> ul <span class="keyword">in</span> uls:</span><br><span class="line">            lis = ul.find_all(<span class="string">"li"</span>)</span><br><span class="line">            <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">                title = item.find(<span class="string">"a"</span>).text</span><br><span class="line">                press = item.find(<span class="string">"span"</span>, &#123;<span class="string">"class"</span> : <span class="string">"writing"</span>&#125;).text</span><br><span class="line">                </span><br><span class="line">                <span class="comment"># link</span></span><br><span class="line">                link = item.find(<span class="string">"a"</span>)[<span class="string">"href"</span>]</span><br><span class="line"></span><br><span class="line">                sid1 = link.split(<span class="string">'&amp;'</span>)[<span class="number">-3</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">                oid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-2</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">                aid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-1</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">                </span><br><span class="line">                <span class="comment"># 연예 TV 기사 제외</span></span><br><span class="line">                <span class="keyword">if</span> sid1 == <span class="string">"shm"</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                article_type = <span class="string">"text"</span></span><br><span class="line">                </span><br><span class="line">                text_list = [date, article_type, title, press, sid1, link, aid]</span><br><span class="line">                </span><br><span class="line">                main_news_list.append(text_list)</span><br><span class="line"></span><br><span class="line">pprint(main_news_list, width = <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<p>코드가 크게 두 부분으로 나뉘어져 있다.</p>
+<p>하나는 포토 기사에 대한 데이터 수집. 앞선 step에서 <code>photo_news_count</code> 에 페이지 수를 저장했던 것을 기억할 것이다.</p>
+<p>for문으로 페이지 수만큼 반복하여 여러가지 정보를 수집하도록 코드를 짰다.</p>
+<p>그리고, 수집하다보면 네이버 기사 메인에 게시되긴 하였지만 <a href="https://entertain.naver.com/read?oid=416&amp;aid=0000140695" rel="external nofollow noopener noreferrer" target="_blank">뉴스가 아닌(?) 링크들</a>이 있어서 제외하였다.</p>
+<p>두 번째는 <code>text_news_count</code> 으로 페이지 수를 저장하였던 텍스트 기사에 대한 데이터 수집이다.</p>
+<p>또한, 수집된 기사가 포토 기사인지 텍스트 기사인지 알고 싶어서 중간에 <code>article_type</code>을 추가해 놓았다.</p>
+<p>모든 수집된 데이터는 <code>main_news_list</code> 라는 이름의 리스트에 차례대로 append 되도록 설정했다.</p>
+<p>마지막 줄의 <code>pprint()</code>는 단지 리스트를 깔끔하게 출력하고 싶어서 추가한 코드이니, 크롤러랑은 무관하다.</p>
+<blockquote>
+<p>test 기간에 대해 네이버 메인 뉴스 기사배열이력 수집 결과</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/25416425/58693771-7326cb00-83cc-11e9-943a-996c599aa672.png" width="550"></p>
+<h2 id="CSV-파일로-저장하기"><a href="#CSV-파일로-저장하기" class="headerlink" title="CSV 파일로 저장하기"></a>CSV 파일로 저장하기</h2><p>수집을 했으면 관리하기 쉽도록 적절한 형태로 저장하는 것이 필수!</p>
+<p>가장 보편적인 형태인 .csv 파일로 저장해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># make .csv file</span></span><br><span class="line">naver_news_df = pd.DataFrame(main_news_list, </span><br><span class="line">                                  columns = [<span class="string">"date"</span>, <span class="string">"type"</span>, <span class="string">"title"</span>, <span class="string">"press"</span>, <span class="string">"category"</span>, <span class="string">"link"</span>, <span class="string">"aid"</span>])</span><br><span class="line">naver_news_df.to_csv(<span class="string">"naver_main_news.csv"</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p>실행하면, working directory 내에 <code>naver_main_news.csv</code> 파일이 생성되어 있음을 확인할 수 있다.</p>
+<p>csv file을 만들기 위해, 데이터를 다루는 데에 매우 편리한 패키지인 <code>pandas</code>를 사용하였다.</p>
+<p>참고로, 주피터 노트북에서 작업하는 사용자의 경우 위에 <code>bs4</code> 패키지를 설치할 때와 유사하게 코드를 입력하면 쉽게 패키지를 다운로드 받을 수 있다.</p>
+<p>제대로 수집되었는지 csv file을 열어서 확인해 보자. 아래와 같은 코드를 입력한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># open .csv file</span></span><br><span class="line"></span><br><span class="line">df_naver_news = pd.read_csv(<span class="string">'naver_main_news.csv'</span>, dtype = &#123;<span class="string">"aid"</span> : <span class="string">"str"</span>&#125;)</span><br><span class="line">df_naver_news.head(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>위 코드에서 <code>read_csv()</code>으로 파일을 읽을 때 <code>dtype</code> 을 추가한 이유는, 저장했었던 <code>aid</code>가 뉴스 고유 번호 10자리인데 경우에 따라 0000003455와 같이 앞에 0이 있어서, 이를 그대로 출력하고 싶어서 이다.</p>
+<p>만약 저 옵션을 추가하지 않으면 방금 전 예로 든 뉴스 고유 번호는 10자리가 아니라 0을 다 빼버린 3455 라고 출력된다.. (ㅠㅠ)</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/58694773-c9950900-83ce-11e9-814e-4acb2aeaefb4.png" width="550"></p>
+<h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><p>수집을 원하는 기간을 가장 위의 <code>start</code>, <code>end</code>에 입력하면 그 결과가 csv file 로 저장되는 코드이다.</p>
+<p>본 코드는 정적 데이터를 수집하기 위해 작성되었으며, 동적 데이터가 존재하는 경우 다른 패키지를 사용해야 한다. (참고!) </p>
+<p>그리 깔끔한 코드는 아니니까 공부용으로 사용하시길..</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 가져올 범위를 정의</span></span><br><span class="line"><span class="comment"># 2015-02-25 ~ 2015-02-28 // 2015-03-01 ~ 2015-03-31</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">days_range = []</span><br><span class="line"></span><br><span class="line">start = datetime.datetime.strptime(<span class="string">"2015-02-25"</span>, <span class="string">"%Y-%m-%d"</span>) <span class="comment"># 수집 시작 날짜</span></span><br><span class="line">end = datetime.datetime.strptime(<span class="string">"2015-03-31"</span>, <span class="string">"%Y-%m-%d"</span>) <span class="comment"># 수집 종료 날짜 + 1</span></span><br><span class="line">date_generated = [start + datetime.timedelta(days=x) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, (end-start).days)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> date <span class="keyword">in</span> date_generated:</span><br><span class="line">    days_range.append(date.strftime(<span class="string">"%Y-%m-%d"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 크롤러 작성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm_notebook</span><br><span class="line"></span><br><span class="line">main_news_list = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># html parser 정의</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_bs_obj</span><span class="params">(url)</span>:</span></span><br><span class="line">    result = requests.get(url)</span><br><span class="line">    bs_obj = BeautifulSoup(result.content, <span class="string">"html.parser"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> bs_obj</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> date <span class="keyword">in</span> tqdm_notebook(days_range):</span><br><span class="line">    </span><br><span class="line">    news_arrange_url = <span class="string">"https://news.naver.com/main/history/mainnews/list.nhn"</span></span><br><span class="line">    news_list_date_page_url = news_arrange_url + <span class="string">"?date="</span> + date</span><br><span class="line"></span><br><span class="line">    <span class="comment"># get bs_obj</span></span><br><span class="line">    bs_obj = get_bs_obj(news_list_date_page_url)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 포토 뉴스 페이지 수 구하기</span></span><br><span class="line">    photo_news_count = bs_obj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"eh_page"</span>&#125;).text.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    photo_news_count = int(photo_news_count)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 리스트 뉴스 페이지 수 구하기</span></span><br><span class="line">    text_news_count = bs_obj.find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"mtype_list_wide"</span>&#125;).find(<span class="string">"div"</span>, &#123;<span class="string">"class"</span>: <span class="string">"eh_page"</span>&#125;).text.split(<span class="string">'/'</span>)[<span class="number">1</span>]</span><br><span class="line">    text_news_count = int(text_news_count)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 포토 뉴스 부분 링크 크롤링</span></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> tqdm_notebook(range(<span class="number">1</span>,photo_news_count+<span class="number">1</span>)):</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 포토 뉴스 링크</span></span><br><span class="line">        news_list_photo_url = <span class="string">'http://news.naver.com/main/history/mainnews/photoTv.nhn'</span></span><br><span class="line">        date_str = <span class="string">"?date="</span></span><br><span class="line">        page_str = <span class="string">"&amp;page="</span></span><br><span class="line">        news_list_photo_full_url = news_list_photo_url + <span class="string">"?date="</span> + date + <span class="string">"&amp;page="</span> + str(page)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get bs obj</span></span><br><span class="line">        photo_bs_obj = get_bs_obj(news_list_photo_full_url)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 링크 내 정보 수집</span></span><br><span class="line">        ul = photo_bs_obj.find(<span class="string">"ul"</span>, &#123;<span class="string">"class"</span>: <span class="string">"edit_history_lst"</span>&#125;)</span><br><span class="line">        lis = ul.find_all(<span class="string">"li"</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            title = item.find(<span class="string">"a"</span>)[<span class="string">"title"</span>]</span><br><span class="line">            press = item.find(<span class="string">"span"</span>, &#123;<span class="string">"class"</span> : <span class="string">"eh_by"</span>&#125;).text</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># link</span></span><br><span class="line">            link = item.find(<span class="string">"a"</span>)[<span class="string">"href"</span>]</span><br><span class="line">            </span><br><span class="line">            sid1 = link.split(<span class="string">'&amp;'</span>)[<span class="number">-3</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">            oid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-2</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">            aid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-1</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]            </span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 연예 TV 기사 제외</span></span><br><span class="line">            <span class="keyword">if</span> sid1 == <span class="string">"shm"</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">                </span><br><span class="line">            article_type = <span class="string">"pic"</span></span><br><span class="line">            </span><br><span class="line">            pic_list = [date, article_type, title, press, sid1, link, aid]</span><br><span class="line">            </span><br><span class="line">            main_news_list.append(pic_list)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 텍스트 뉴스 부분 링크 크롤링</span></span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> tqdm_notebook(range(<span class="number">1</span>, text_news_count+<span class="number">1</span>)):</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 텍스트 뉴스 링크</span></span><br><span class="line">        news_list_text_url = <span class="string">'http://news.naver.com/main/history/mainnews/text.nhn'</span></span><br><span class="line">        date_str = <span class="string">"?date="</span></span><br><span class="line">        page_str = <span class="string">"&amp;page="</span></span><br><span class="line">        news_list_text_full_url = news_list_text_url + <span class="string">"?date="</span> + date + <span class="string">"&amp;page="</span> + str(page)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># get bs obj</span></span><br><span class="line">        text_bs_obj = get_bs_obj(news_list_text_full_url)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 링크 내 정보 수집</span></span><br><span class="line">        uls = text_bs_obj.find_all(<span class="string">"ul"</span>)</span><br><span class="line">        <span class="keyword">for</span> ul <span class="keyword">in</span> uls:</span><br><span class="line">            lis = ul.find_all(<span class="string">"li"</span>)</span><br><span class="line">            <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">                title = item.find(<span class="string">"a"</span>).text</span><br><span class="line">                press = item.find(<span class="string">"span"</span>, &#123;<span class="string">"class"</span> : <span class="string">"writing"</span>&#125;).text</span><br><span class="line">                </span><br><span class="line">                <span class="comment"># link</span></span><br><span class="line">                link = item.find(<span class="string">"a"</span>)[<span class="string">"href"</span>]</span><br><span class="line"></span><br><span class="line">                sid1 = link.split(<span class="string">'&amp;'</span>)[<span class="number">-3</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">                oid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-2</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">                aid = link.split(<span class="string">'&amp;'</span>)[<span class="number">-1</span>].split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">                </span><br><span class="line">                <span class="comment"># 연예 TV 기사 제외</span></span><br><span class="line">                <span class="keyword">if</span> sid1 == <span class="string">"shm"</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                article_type = <span class="string">"text"</span></span><br><span class="line">                </span><br><span class="line">                text_list = [date, article_type, title, press, sid1, link, aid]</span><br><span class="line">                </span><br><span class="line">                main_news_list.append(text_list)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># make .csv file</span></span><br><span class="line">naver_news_main_df = pd.DataFrame(main_news_list, </span><br><span class="line">                                  columns = [<span class="string">"date"</span>, <span class="string">"type"</span>, <span class="string">"title"</span>, <span class="string">"press"</span>, <span class="string">"category"</span>, <span class="string">"link"</span>, <span class="string">"aid"</span>])</span><br><span class="line">naver_news_main_df.to_csv(<span class="string">"naver_main_news_&#123;&#125;_to_&#123;&#125;.csv"</span>.format(days_range[<span class="number">0</span>], days_range[<span class="number">-1</span>]), index=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"=== total # of articles is &#123;&#125; ==="</span>.format(len(main_news_list)))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/WEB-Crawling/" rel="tag"># WEB Crawling</a>
+          
+            <a href="/tags/Datamining/" rel="tag"># Datamining</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/23/server/190523-ubuntu-jupyter-notebook-remote/" rel="next" title="Server Setting - 고정 ip 없이 주피터(jupyter) 원격 접속 설정하기">
+                <i class="fa fa-chevron-left"></i> Server Setting - 고정 ip 없이 주피터(jupyter) 원격 접속 설정하기
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/10/datascience/datacrawling/4-twitter-data-crawling/" rel="prev" title="Data Crawling - 파이썬을 이용한 트위터 수집하기">
+                Data Crawling - 파이썬을 이용한 트위터 수집하기 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg" alt="Jeongwook, Kim">
+            
+              <p class="site-author-name" itemprop="name">Jeongwook, Kim</p>
+              <div class="site-description motion-element" itemprop="description">Love code, travel, and game</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jeongwookie" title="Github &rarr; https://github.com/jeongwookie" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:captainfox@kaist.ac.kr" title="E-Mail &rarr; mailto:captainfox@kaist.ac.kr" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/jeongwook-kim/" title="linkedin &rarr; https://www.linkedin.com/in/jeongwook-kim/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#수집-기간-정의하기"><span class="nav-number">1.</span> <span class="nav-text">수집 기간 정의하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html-parser-정의하기"><span class="nav-number">2.</span> <span class="nav-text">html parser 정의하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#뉴스-페이지-수-구하기"><span class="nav-number">3.</span> <span class="nav-text">뉴스 페이지 수 구하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#뉴스-정보-수집하기"><span class="nav-number">4.</span> <span class="nav-text">뉴스 정보 수집하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSV-파일로-저장하기"><span class="nav-number">5.</span> <span class="nav-text">CSV 파일로 저장하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#전체-코드"><span class="nav-number">6.</span> <span class="nav-text">전체 코드</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+    </div>
+    <div class="gooAd sidebar-inner" style"display: block;">
+      <!-- Google AdSense start -->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- jw google ad 1 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1156366976077024" data-ad-slot="2477415640" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- Google AdSense end -->
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongwook, Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://jeongwookie.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jeongwookie.github.io/2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/";
+    this.page.identifier = "2019/05/31/datascience/datacrawling/3-naver-main-news-crawling/";
+    this.page.title = 'Data Crawling - 네이버 뉴스 데이터 수집하기';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jeongwookie.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-1156366976077024",
+          enable_page_level_ads: true
+     });
+</script>
+
+  <meta name="description" content="주소록 프로젝트 with Python클래스를 이해하는 데에 가장 직관적인 방법으로는 역시 간단한 예제를 구현해 보는게 아니겠는가. 주소록 프로젝트, 우리 스마트폰을 보면 이름, 전화번호, 이메일 등을 저장하고 관리할 수 있는 주소록 프로그램이 있는데, 파이썬을 이용해서 기본적인 로직을 구현해 보자.">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 기본 - 11. 파이썬으로 주소록 만들기">
+<meta property="og:url" content="https://jeongwookie.github.io/2018/10/12/programming/pythonbasic/181012-python-adress-book-program/index.html">
+<meta property="og:site_name" content="JW&#39;s Blog">
+<meta property="og:description" content="주소록 프로젝트 with Python클래스를 이해하는 데에 가장 직관적인 방법으로는 역시 간단한 예제를 구현해 보는게 아니겠는가. 주소록 프로젝트, 우리 스마트폰을 보면 이름, 전화번호, 이메일 등을 저장하고 관리할 수 있는 주소록 프로그램이 있는데, 파이썬을 이용해서 기본적인 로직을 구현해 보자.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-11-21T11:33:54.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 기본 - 11. 파이썬으로 주소록 만들기">
+<meta name="twitter:description" content="주소록 프로젝트 with Python클래스를 이해하는 데에 가장 직관적인 방법으로는 역시 간단한 예제를 구현해 보는게 아니겠는가. 주소록 프로젝트, 우리 스마트폰을 보면 이름, 전화번호, 이메일 등을 저장하고 관리할 수 있는 주소록 프로그램이 있는데, 파이썬을 이용해서 기본적인 로직을 구현해 보자.">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JW's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://jeongwookie.github.io/2018/10/12/programming/pythonbasic/181012-python-adress-book-program/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python 기본 - 11. 파이썬으로 주소록 만들기 | JW's Blog</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-125636294-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-125636294-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JW's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Make stuff people want</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://www.notion.so/jeongwookie93/Jeong-Wook-Kim-03e882670c1949a99d8b408d9785468f" rel="external nofollow noopener noreferrer" target="_blank"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/jeongwookie" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/10/12/programming/pythonbasic/181012-python-adress-book-program/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JW's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python 기본 - 11. 파이썬으로 주소록 만들기
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-12 01:43:12" itemprop="dateCreated datePublished" datetime="2018-10-12T01:43:12+09:00">2018-10-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅱ-Programming/" itemprop="url" rel="index"><span itemprop="name">Ⅱ. Programming</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅱ-Programming/파이썬-기본/" itemprop="url" rel="index"><span itemprop="name">파이썬 기본</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/10/12/programming/pythonbasic/181012-python-adress-book-program/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/12/programming/pythonbasic/181012-python-adress-book-program/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="주소록-프로젝트-with-Python"><a href="#주소록-프로젝트-with-Python" class="headerlink" title="주소록 프로젝트 with Python"></a>주소록 프로젝트 with Python</h2><p>클래스를 이해하는 데에 가장 직관적인 방법으로는 역시 간단한 예제를 구현해 보는게 아니겠는가.</p>
+<p><strong>주소록 프로젝트</strong>, 우리 스마트폰을 보면 이름, 전화번호, 이메일 등을 저장하고 관리할 수 있는 주소록 프로그램이 있는데, 파이썬을 이용해서 기본적인 로직을 구현해 보자.</p>
+<a id="more"></a>
+<h3 id="기본-클래스-만들기"><a href="#기본-클래스-만들기" class="headerlink" title="기본 클래스 만들기"></a>기본 클래스 만들기</h3><p>가장 먼저, <code>Contact</code>라는 클래스를 만드는 것 부터 시작한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Contact</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, phone_number, e_mail, address)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.phone_number = phone_number</span><br><span class="line">        self.e_mail = e_mail</span><br><span class="line">        self.address = address</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Name : "</span>, self.name)</span><br><span class="line">        print(<span class="string">"Phone number : "</span>, self.phone_number)</span><br><span class="line">        print(<span class="string">"E-mail : "</span>, self.e_mail)</span><br><span class="line">        print(<span class="string">"Address : "</span>, self.address)</span><br></pre></td></tr></table></figure>
+<p><code>__init__</code>을 사용해서 <code>name</code>, <code>phone_number</code>, <code>e_mail</code>, 그리고 <code>address</code>라는 4가지 입력값을 클래스 인스턴스를 생성할 때 받도록 하였다.</p>
+<p>또한, 입력받은 정보를 화면에 출력하기 위해 <code>print_info</code>라는 메써드도 정의하였다.</p>
+<p>그리고 <code>run()</code>을 작성함으로써 제대로 코드가 작동함을 확인한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    kim = Contact(<span class="string">'김정욱'</span>, <span class="string">'010-1234-5678'</span>, <span class="string">'captainfox@kaist.ac.kr'</span>, <span class="string">'Daejeon'</span>)</span><br><span class="line">    kim.print_info()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span></span><br><span class="line">    run()</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line">Name :  김정욱</span><br><span class="line">Phone number :  <span class="number">010</span><span class="number">-1234</span><span class="number">-5678</span></span><br><span class="line">E-mail :  captainfox@kaist.ac.kr</span><br><span class="line">Address :  Daejeon</span><br></pre></td></tr></table></figure>
+<h3 id="데이터-입력-함수-만들기"><a href="#데이터-입력-함수-만들기" class="headerlink" title="데이터 입력 함수 만들기"></a>데이터 입력 함수 만들기</h3><p>이제, 사용자로부터 데이터를 입력받도록 함수인 <code>set_contact()</code>을 정의해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_contact</span><span class="params">()</span>:</span></span><br><span class="line">    name = input(<span class="string">"Name : "</span>)</span><br><span class="line">    phone_number = input(<span class="string">"Phone number : "</span>)</span><br><span class="line">    e_mail = input(<span class="string">"E-mail : "</span>)</span><br><span class="line">    address = input(<span class="string">"Address : "</span>)</span><br><span class="line">    contact = Contact(name, phone_number, e_mail, address)</span><br><span class="line">    <span class="keyword">return</span> contact</span><br></pre></td></tr></table></figure>
+<p>사용자에게 이름, 전화번호, 이메일, 주소를 입력 받도록 하였으며, 이를 사용하여 <code>contact</code>라는 객체를 생성한 후 반환하도록 하였다.</p>
+<p><code>run()</code>을 수정하여 결과물을 확인한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    set_contact()</span><br><span class="line">    print(contact)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span></span><br><span class="line">    run()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">김정욱 <span class="number">010</span><span class="number">-1234</span><span class="number">-5678</span> captainfox@kaist.ac.kr Daejeon   <span class="comment">#input values</span></span><br></pre></td></tr></table></figure>
+<h3 id="연락처-입력-메뉴-만들기"><a href="#연락처-입력-메뉴-만들기" class="headerlink" title="연락처 입력 메뉴 만들기"></a>연락처 입력 메뉴 만들기</h3><p>이제, 주소록 프로그램의 메뉴를 만들어 보자.</p>
+<p>크게 [연락처 입력], [연락처 출력], [연락처 삭제], [종료] 버튼으로 구성하려 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_menu</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"1. 연락처 입력"</span>)</span><br><span class="line">    print(<span class="string">"2. 연락처 출력"</span>)</span><br><span class="line">    print(<span class="string">"3. 연락처 삭제"</span>)</span><br><span class="line">    print(<span class="string">"4. 종료"</span>)</span><br><span class="line">    menu = input(<span class="string">"메뉴선택 : "</span>)</span><br><span class="line">    <span class="keyword">return</span> int(menu)</span><br></pre></td></tr></table></figure>
+<p>한번 실행된 프로그램은 [종료] 버튼을 누르기 전에는 계속 실행되어야 한다. 파이썬에서는 <code>while 1</code>이라는 구문을 사용하면 무한 루프를 사용할 수 있다.</p>
+<p><code>run()</code>을 수정하여 4를 눌렀을 때 프로그램이 종료되도록 해보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        menu = print_menu()</span><br><span class="line">        <span class="keyword">if</span> menu == <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">1.</span> 연락처 입력</span><br><span class="line"><span class="number">2.</span> 연락처 출력</span><br><span class="line"><span class="number">3.</span> 연락처 삭제</span><br><span class="line"><span class="number">4.</span> 종료</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">4</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>이제, 앞서 작성했던 <code>set_contact()</code>을 1을 눌렀을 때 작동하도록 <code>run()</code>을 수정해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    contact_list = []   <span class="comment"># 빈 리스트 생성</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        menu = print_menu()</span><br><span class="line">        <span class="keyword">if</span> menu == <span class="number">1</span>:</span><br><span class="line">            contact = set_contact()</span><br><span class="line">            contact_list.append(contact)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>이제 이 프로그램은 1을 눌렀을 때 <code>contact</code>라는 객체를 생성하고, 이는 <code>contact_list</code>라는 리스트 자료형에 <code>append()</code>를 통해 차곡차곡 쌓일 것이다.</p>
+<h3 id="연락처-출력-메뉴-만들기"><a href="#연락처-출력-메뉴-만들기" class="headerlink" title="연락처 출력 메뉴 만들기"></a>연락처 출력 메뉴 만들기</h3><p>2를 눌렀을 때 입력받은 연락처를 출력하도록 <code>run()</code>을 수정해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    contact_list = []</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        menu = print_menu()</span><br><span class="line">        <span class="keyword">if</span> menu == <span class="number">1</span>:</span><br><span class="line">            contact = set_contact()</span><br><span class="line">            contact_list.append(contact)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">2</span>:</span><br><span class="line">            print_contact(contact_list)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>이는 간단하게 <code>print_contact()</code>을 추가함으로써 이루어진다.</p>
+<h3 id="연락처-삭제-메뉴-만들기"><a href="#연락처-삭제-메뉴-만들기" class="headerlink" title="연락처 삭제 메뉴 만들기"></a>연락처 삭제 메뉴 만들기</h3><p>이번에는 3을 눌렀을 때 연락처를 삭제하도록 해보자.</p>
+<p><code>contact_list</code>에서 <code>name</code>을 입력받았을 때, 해당하는 객체를 삭제하도록 하는 <code>delete_contact()</code>을 먼저 만들어 본다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_contact</span><span class="params">(contact_list, name)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i, contact <span class="keyword">in</span> enumerate(contact_list):</span><br><span class="line">        <span class="keyword">if</span> contact.name == name:</span><br><span class="line">            <span class="keyword">del</span> contact_list[i]</span><br></pre></td></tr></table></figure>
+<p><code>enumerate()</code>함수가 쓰임에 주목하자. (사실 아직 이 함수의 동작 원리가 헷갈린다..ㅠㅠ)</p>
+<p>이제 <code>run()</code>을 수정하면 되겠다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    contact_list = []</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        menu = print_menu()</span><br><span class="line">        <span class="keyword">if</span> menu == <span class="number">1</span>:</span><br><span class="line">            contact = set_contact()</span><br><span class="line">            contact_list.append(contact)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">2</span>:</span><br><span class="line">            print_contact(contact_list)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">3</span>:</span><br><span class="line">            name = input(<span class="string">"Name: "</span>)</span><br><span class="line">            delete_contact(contact_list, name)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>전반적인 구조와 기능은 작성이 완료되었다. 이제 프로그램의 편의를 위해 기능을 추가해 보자.</p>
+<p>프로그램을 켜서 연락처를 등록하였는데, 종료 후 연락처가 지워진다면 곤란할 것이다.</p>
+<p>이 문제를 해결하려면, 연락처를 등록 후 이를 저장해야 하고, 프로그램이 동작할 때 다시 불러와야 한다.</p>
+<h3 id="기타-기능-추가하기"><a href="#기타-기능-추가하기" class="headerlink" title="기타 기능 추가하기"></a>기타 기능 추가하기</h3><p>먼저 연락처 저장 기능을 담은 <code>store_contact()</code>부터 작성해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_contact</span><span class="params">(contact_list)</span>:</span></span><br><span class="line">    f = open(<span class="string">"contact_db.txt"</span>, <span class="string">"wt"</span>)</span><br><span class="line">    <span class="keyword">for</span> contact <span class="keyword">in</span> contact_list:</span><br><span class="line">        f.write(contact.name + <span class="string">'\n'</span>)</span><br><span class="line">        f.write(contact.phone_number + <span class="string">'\n'</span>)</span><br><span class="line">        f.write(contact.e_mail + <span class="string">'\n'</span>)</span><br><span class="line">        f.write(contact.addr + <span class="string">'\n'</span>)</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<p><code>store_contact()</code>을 실행하면, <code>contact_db.txt</code>라는 텍스트 파일 안에 이름, 전화번호, 이메일, 그리고 주소가 저장된다.</p>
+<p>이번에는 텍스트 파일로부터 정보를 로드하는 함수 <code>load_contact()</code>을 작성해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_contact</span><span class="params">(contact_list)</span>:</span></span><br><span class="line">    f = open(<span class="string">"contact_db.txt"</span>, <span class="string">"rt"</span>)</span><br><span class="line">    lines = f.readlines()</span><br><span class="line">    num = len(lines) / <span class="number">4</span></span><br><span class="line">    num = int(num)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        name = lines[<span class="number">4</span>*i].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        phone_number = lines[<span class="number">4</span>*i+<span class="number">1</span>].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        e_mail = lines[<span class="number">4</span>*i+<span class="number">2</span>].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        address = lines[<span class="number">4</span>*i+<span class="number">3</span>].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        contact = Contact(name, phone_number, e_mail, address)</span><br><span class="line">        contact_list.append(contact)</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<p><code>readlines()</code> 함수는 파일의 모든 라인을 읽어서 각각의 줄을 요소로 갖는 리스트로 반환한다. 자세한 내용은 <a href="https://wikidocs.net/26#readlines" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하자.</p>
+<p>각각의 <code>contact</code>당 4줄의 데이터가 존재하므로 4로 나눈 후 <code>int</code>로 반환하게 함으로써 몇 개의 연락처가 존재하는지 확인한다.</p>
+<p>그리고 <code>for문</code>을 통해 쭉 읽은 데이터들을 쪼개어서 각각의 변수에 할당하는데 끝의 공백을 제거하기 위해 <code>.rstrip()</code>함수를 사용하였다.</p>
+<p>위 함수의 자세한 쓰임새는 <a href="http://www.w3big.com/ko/python/att-string-rstrip.html" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하자.</p>
+<p>마지막으로, 작성한 <code>store_contact()</code>와 <code>load_contact()</code>을 <code>run()</code>에 적용시킨다.</p>
+<p><code>store_contact()</code>은 프로그램을 종료하기 직전, <code>load_contact()</code>은 프로그램을 실행시킨 직후 수행되면 된다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    contact_list = []</span><br><span class="line">    load_contact(contact_list)</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        menu = print_menu()</span><br><span class="line">        <span class="keyword">if</span> menu == <span class="number">1</span>:</span><br><span class="line">            contact = set_contact()</span><br><span class="line">            contact_list.append(contact)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">2</span>:</span><br><span class="line">            print_contact(contact_list)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">3</span>:</span><br><span class="line">            name = input(<span class="string">"Name: "</span>)</span><br><span class="line">            delete_contact(contact_list, name)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">4</span>:</span><br><span class="line">            store_contact(contact_list)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<h2 id="최종-코드"><a href="#최종-코드" class="headerlink" title="최종 코드"></a>최종 코드</h2><p>아래는 지금까지 작성한 주소록 프로젝트의 최종 코드이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Contact</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, phone_number, e_mail, address)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.phone_number = phone_number</span><br><span class="line">        self.e_mail = e_mail</span><br><span class="line">        self.address = address</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Name : "</span>, self.name)</span><br><span class="line">        print(<span class="string">"Phone number : "</span>, self.phone_number)</span><br><span class="line">        print(<span class="string">"E-mail : "</span>, self.e_mail)</span><br><span class="line">        print(<span class="string">"Address : "</span>, self.address)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_contact</span><span class="params">()</span>:</span></span><br><span class="line">    name = input(<span class="string">"Name : "</span>)</span><br><span class="line">    phone_number = input(<span class="string">"Phone number : "</span>)</span><br><span class="line">    e_mail = input(<span class="string">"E-mail : "</span>)</span><br><span class="line">    address = input(<span class="string">"Address : "</span>)</span><br><span class="line">    contact = Contact(name, phone_number, e_mail, address)</span><br><span class="line">    <span class="keyword">return</span> contact</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_menu</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"1. 연락처 입력"</span>)</span><br><span class="line">    print(<span class="string">"2. 연락처 출력"</span>)</span><br><span class="line">    print(<span class="string">"3. 연락처 삭제"</span>)</span><br><span class="line">    print(<span class="string">"4. 종료"</span>)</span><br><span class="line">    menu = input(<span class="string">"메뉴선택 : "</span>)</span><br><span class="line">    <span class="keyword">return</span> int(menu)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_contact</span><span class="params">(contact_list)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> contact <span class="keyword">in</span> contact_list:</span><br><span class="line">        contact.print_info()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_contact</span><span class="params">(contact_list, name)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i, contact <span class="keyword">in</span> enumerate(contact_list):</span><br><span class="line">        <span class="keyword">if</span> contact.name == name:</span><br><span class="line">            <span class="keyword">del</span> contact_list[i]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_contact</span><span class="params">(contact_list)</span>:</span></span><br><span class="line">    f = open(<span class="string">"contact_db.txt"</span>, <span class="string">"wt"</span>)</span><br><span class="line">    <span class="keyword">for</span> contact <span class="keyword">in</span> contact_list:</span><br><span class="line">        f.write(contact.name + <span class="string">'\n'</span>)</span><br><span class="line">        f.write(contact.phone_number + <span class="string">'\n'</span>)</span><br><span class="line">        f.write(contact.e_mail + <span class="string">'\n'</span>)</span><br><span class="line">        f.write(contact.address + <span class="string">'\n'</span>)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_contact</span><span class="params">(contact_list)</span>:</span></span><br><span class="line">    f = open(<span class="string">"contact_db.txt"</span>, <span class="string">"rt"</span>)</span><br><span class="line">    lines = f.readlines()</span><br><span class="line">    num = len(lines) / <span class="number">4</span></span><br><span class="line">    num = int(num)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        name = lines[<span class="number">4</span>*i].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        phone_number = lines[<span class="number">4</span>*i+<span class="number">1</span>].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        e_mail = lines[<span class="number">4</span>*i+<span class="number">2</span>].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        address = lines[<span class="number">4</span>*i+<span class="number">3</span>].rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        contact = Contact(name, phone_number, e_mail, address)</span><br><span class="line">        contact_list.append(contact)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    contact_list = []</span><br><span class="line">    load_contact(contact_list)</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        menu = print_menu()</span><br><span class="line">        <span class="keyword">if</span> menu == <span class="number">1</span>:</span><br><span class="line">            contact = set_contact()</span><br><span class="line">            contact_list.append(contact)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">2</span>:</span><br><span class="line">            print_contact(contact_list)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">3</span>:</span><br><span class="line">            name = input(<span class="string">"Name : "</span>)</span><br><span class="line">            delete_contact(contact_list, name)</span><br><span class="line">        <span class="keyword">elif</span> menu == <span class="number">4</span>:</span><br><span class="line">            store_contact(contact_list)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+<p>지금까지 파이썬에서 자주 사용하는 부분들만 쭉 짚어보고, 기본적인 문법에 대해서 포스팅하였다.</p>
+<p>따로 작성하지는 않았지만, 조건문 사용이나 반복문 등은 위의 예제 같은 코드를 따라 적으면서 자연스럽게 익힐 수 있다. 다른 언어를 조금이라도 접해본 사람은 다 알꺼고..</p>
+<p>물론 여기서 다룬 것이 파이썬의 모든 문법은 절대 아니다. 클래스 다룰때 정적메소드 (@classmethod) 같은 것도 자주 쓰긴 하는데.. 이정도만 적을 줄 알아도 기본적인 뼈대는 다 익힌거라 다른 사람이 쓴 코드 보고 그때그때 익혀 나가기를 권한다.</p>
+<p>끗!</p>
+<p>(참고 자료 : <a href="https://wikidocs.net/3523" rel="external nofollow noopener noreferrer" target="_blank">https://wikidocs.net/3523</a>)</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/04/programming/pythonbasic/181004-python-module/" rel="next" title="Python 기본 - 10. 모듈과 패키지">
+                <i class="fa fa-chevron-left"></i> Python 기본 - 10. 모듈과 패키지
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/06/startup/181106-customer-interview-mental-model/" rel="prev" title="멘탈 모델을 적용한 고객 인터뷰">
+                멘탈 모델을 적용한 고객 인터뷰 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg" alt="Jeongwook, Kim">
+            
+              <p class="site-author-name" itemprop="name">Jeongwook, Kim</p>
+              <div class="site-description motion-element" itemprop="description">Love code, travel, and game</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jeongwookie" title="Github &rarr; https://github.com/jeongwookie" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:captainfox@kaist.ac.kr" title="E-Mail &rarr; mailto:captainfox@kaist.ac.kr" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/jeongwook-kim/" title="linkedin &rarr; https://www.linkedin.com/in/jeongwook-kim/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#주소록-프로젝트-with-Python"><span class="nav-number">1.</span> <span class="nav-text">주소록 프로젝트 with Python</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#기본-클래스-만들기"><span class="nav-number">1.1.</span> <span class="nav-text">기본 클래스 만들기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#데이터-입력-함수-만들기"><span class="nav-number">1.2.</span> <span class="nav-text">데이터 입력 함수 만들기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#연락처-입력-메뉴-만들기"><span class="nav-number">1.3.</span> <span class="nav-text">연락처 입력 메뉴 만들기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#연락처-출력-메뉴-만들기"><span class="nav-number">1.4.</span> <span class="nav-text">연락처 출력 메뉴 만들기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#연락처-삭제-메뉴-만들기"><span class="nav-number">1.5.</span> <span class="nav-text">연락처 삭제 메뉴 만들기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#기타-기능-추가하기"><span class="nav-number">1.6.</span> <span class="nav-text">기타 기능 추가하기</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#최종-코드"><span class="nav-number">2.</span> <span class="nav-text">최종 코드</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+    </div>
+    <div class="gooAd sidebar-inner" style"display: block;">
+      <!-- Google AdSense start -->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- jw google ad 1 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1156366976077024" data-ad-slot="2477415640" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- Google AdSense end -->
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongwook, Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://jeongwookie.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jeongwookie.github.io/2018/10/12/programming/pythonbasic/181012-python-adress-book-program/";
+    this.page.identifier = "2018/10/12/programming/pythonbasic/181012-python-adress-book-program/";
+    this.page.title = 'Python 기본 - 11. 파이썬으로 주소록 만들기';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jeongwookie.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

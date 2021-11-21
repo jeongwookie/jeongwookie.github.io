@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/25416425/45255002-3806e680-b3bc-11e8-8d51-5dde5f6c454d.png?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-1156366976077024",
+          enable_page_level_ads: true
+     });
+</script>
+
+  <meta name="description" content="트위터 파헤치기 두번째 시리즈의 주제는 한국어 전처리 이다.단순히 LDA 토픽 모델링을 하는 것에서부터 딥러닝 모델을 훈련시키는 것 까지 NLP와 관련된 전 과정에서 전처리는 필수적이다.텍스트 데이터의 특성상 기본적으로 노이즈 (noise)가 많은 데이터에 속하기 때문이다. 다음과 같은 과정을 보통 진행한다.  Tokenization : 문장을 하나의 기준">
+<meta name="keywords" content="Python,Datamining,Twitter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="트위터 파헤치기 시리즈 두번째 - 한국어 전처리">
+<meta property="og:url" content="https://jeongwookie.github.io/2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/index.html">
+<meta property="og:site_name" content="JW&#39;s Blog">
+<meta property="og:description" content="트위터 파헤치기 두번째 시리즈의 주제는 한국어 전처리 이다.단순히 LDA 토픽 모델링을 하는 것에서부터 딥러닝 모델을 훈련시키는 것 까지 NLP와 관련된 전 과정에서 전처리는 필수적이다.텍스트 데이터의 특성상 기본적으로 노이즈 (noise)가 많은 데이터에 속하기 때문이다. 다음과 같은 과정을 보통 진행한다.  Tokenization : 문장을 하나의 기준">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/80573175-742c0680-8a3a-11ea-9a8d-940a8215b879.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/80576775-bc4e2780-8a40-11ea-9f29-1d28ef486981.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/80576974-0c2cee80-8a41-11ea-90b9-05aa40b5c625.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/80684237-53c67f80-8b00-11ea-865a-16651c612b8e.png">
+<meta property="og:updated_time" content="2021-11-21T11:21:46.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="트위터 파헤치기 시리즈 두번째 - 한국어 전처리">
+<meta name="twitter:description" content="트위터 파헤치기 두번째 시리즈의 주제는 한국어 전처리 이다.단순히 LDA 토픽 모델링을 하는 것에서부터 딥러닝 모델을 훈련시키는 것 까지 NLP와 관련된 전 과정에서 전처리는 필수적이다.텍스트 데이터의 특성상 기본적으로 노이즈 (noise)가 많은 데이터에 속하기 때문이다. 다음과 같은 과정을 보통 진행한다.  Tokenization : 문장을 하나의 기준">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/80573175-742c0680-8a3a-11ea-9a8d-940a8215b879.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JW's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://jeongwookie.github.io/2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>트위터 파헤치기 시리즈 두번째 - 한국어 전처리 | JW's Blog</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-125636294-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-125636294-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JW's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Make stuff people want</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://www.notion.so/jeongwookie93/Jeong-Wook-Kim-03e882670c1949a99d8b408d9785468f" rel="external nofollow noopener noreferrer" target="_blank"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/jeongwookie" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JW's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">트위터 파헤치기 시리즈 두번째 - 한국어 전처리
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-04-29 16:51:49" itemprop="dateCreated datePublished" datetime="2020-04-29T16:51:49+09:00">2020-04-29</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅰ-Data-Science/" itemprop="url" rel="index"><span itemprop="name">Ⅰ. Data Science</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅰ-Data-Science/트위터-데이터-분석하기/" itemprop="url" rel="index"><span itemprop="name">트위터 데이터 분석하기</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>트위터 파헤치기 두번째 시리즈의 주제는 <strong>한국어 전처리</strong> 이다.<br>단순히 LDA 토픽 모델링을 하는 것에서부터 딥러닝 모델을 훈련시키는 것 까지 NLP와 관련된 전 과정에서 전처리는 필수적이다.<br>텍스트 데이터의 특성상 기본적으로 노이즈 (noise)가 많은 데이터에 속하기 때문이다. 다음과 같은 과정을 보통 진행한다.</p>
+<ul>
+<li>Tokenization : 문장을 하나의 기준을 가지고 자르는 것 (안녕하세요 -&gt; 안녕 / 하세요)</li>
+<li>Stemming : 동사 및 형용사 등의 활용 형태를 원문으로 바꾸는 것 (잼따 -&gt; 재미 이다)</li>
+<li>Noramlization : 표기가 다른 단어들을 통합하는 것 (입니닼ㅋㅋ -&gt; 입니다 ㅋㅋ)</li>
+<li>Noise removal : 문장의 의미를 이해하는 데에 불필요한 부분을 제거하는 것 (특수문자, url 등)</li>
+</ul>
+<p>영어의 경우 <code>nltk</code> 라는 강력한 파이썬 패키지가 존재하여, 대부분의 우리가 원하는 전처리 함수들이 구현되어 있다.<br>그러나 한국어의 경우 Tokenization의 단위가 단어인지, 형태소인지, 자모인지, 아니면 그 외인지조차 아직까지 불명확한 부분이 있다. (현재도 연구중)<br>또한, Normalization이나 Stemming의 경우에도 <code>Konlpy</code>에 최근 포함된 <code>Okt</code> 클래스가 지원하지만 써본 결과 영어만큼 완벽하지는 않다.</p>
+<p>그래서 본 포스트에서는 제일 general 한 토크나이저인 <code>Mecab</code>을 사용해서 그나마 reasonable한 방향으로 한국어 전처리를 진행해 보고자 한다. 현재도 계속 연구중이므로 완벽한 방법은 아니라는 것에 유의하자.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/80573175-742c0680-8a3a-11ea-9a8d-940a8215b879.png" width="500"></p>
+<a id="more"></a>
+<h2 id="토크나이저-설치하기"><a href="#토크나이저-설치하기" class="headerlink" title="토크나이저 설치하기"></a>토크나이저 설치하기</h2><p>전처리를 시작하기 전, base 도구가 될 토크나이저 선정 및 설치는 필수적이다.<br>다양한 토크나이저가 있지만, 속도가 빠르고 비문에서도 적당히 잘 동작하는 <code>Mecab</code> 패키지를 본 포스트에서는 사용할 것이다.<br><code>Khaiii</code> 또는 <code>Soynlp</code>와 같은 최신 한국어 대응 패키지들을 사용하여도 무방하다.<br>심지어 한국어가 아닌 다른 나라 언어 (예: 이란어)를 전처리 하고 싶을 때에도 아래의 로직은 그대로 활용할 수 있다. 적절한 토크나이저만 선택해서 설치하자.</p>
+<p>우리가 사용할 <code>Mecab</code>은 <a href="https://bitbucket.org/eunjeon/mecab-ko-dic/src/master/" rel="external nofollow noopener noreferrer" target="_blank">공식 홈페이지</a>에서 설치 방법을 확인할 수 있다. 상세한 설치 방법은 여기서는 다루지 않겠다. 총 3가지의 설치 과정을 모두 진행해야 한다는 것만 유의하자. </p>
+<ul>
+<li>Mecab-ko 설치하기 (source)</li>
+<li>Mecab-ko-dic 설치하기 (사전)</li>
+<li>Mecab-python3 설치하기 (파이썬 연동)</li>
+</ul>
+<p>포스트를 적는 도중 나 대신 <code>Mecab</code> 설치 방법에 대해 자세히 적어놓은 블로그를 발견했다. <a href="https://lsjsj92.tistory.com/491" rel="external nofollow noopener noreferrer" target="_blank">이수진 님의 블로그 - Mecab 설치</a> 을 참고해도 괜찮을 것 같다.</p>
+<p>설치 완료 후 주피터 노트북에서 동작을 확인하자. 혹시나 <code>Konlpy</code>를 설치하지 않은 사용자라면 이 패키지는 한국어 처리의 기본이니 설치해 놓자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> konlpy.tag <span class="keyword">import</span> Mecab </span><br><span class="line"></span><br><span class="line">m = Mecab()</span><br><span class="line">m.pos(<span class="string">"일등이 아니여도 괜찮아"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print out</span></span><br><span class="line">&gt;&gt; [(<span class="string">'일등'</span>, <span class="string">'NNG'</span>),</span><br><span class="line"> (<span class="string">'이'</span>, <span class="string">'JKC'</span>),</span><br><span class="line"> (<span class="string">'아니'</span>, <span class="string">'VCN'</span>),</span><br><span class="line"> (<span class="string">'여도'</span>, <span class="string">'EC'</span>),</span><br><span class="line"> (<span class="string">'괜찮'</span>, <span class="string">'VA'</span>),</span><br><span class="line"> (<span class="string">'아'</span>, <span class="string">'EC'</span>)]</span><br></pre></td></tr></table></figure>
+<h2 id="텍스트-클리닝"><a href="#텍스트-클리닝" class="headerlink" title="텍스트 클리닝"></a>텍스트 클리닝</h2><p>본격적으로 한국어 토크나이징을 진행하기 전, noise removal 파트부터 코드를 작성해 보자.</p>
+<p><a href="https://jeongwookie.github.io/2020/04/23/200423-analyze-tweet-series-1-collect/">이전 포스트 - 트윗 수집하기</a>에서 수집했던 트윗을 예시로 텍스트 클리닝을 진행할 것이다.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/80576775-bc4e2780-8a40-11ea-9f29-1d28ef486981.png" width="400"></p>
+<p>위 그림은 트위터에서 직접 눈으로 볼 수 있는 트윗의 페이지를 캡쳐한 것이다. 그러나 우리가 수집한 데이터는 아래와 같이 생겼다.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/80576974-0c2cee80-8a41-11ea-90b9-05aa40b5c625.png" width="700"></p>
+<p>상당히 텍스트 데이터의 noise가 심한 것을 확인할 수 있다. 특수문자 및 URL이 텍스트 중간 중간에 섞여 있어 제대로 제거하지 않으면 이후 분석에 방해가 된다.</p>
+<p>이제 텍스트 클리닝을 수행하는 코드를 실제로 작성해 보자. 주로 <code>regex</code> 문법을 활용할 것이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># Basic Cleaning Text Function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CleanText</span><span class="params">(readData, Num=False, Eng=False)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Remove Retweets </span></span><br><span class="line">    text = re.sub(<span class="string">'RT @[\w_]+: '</span>, <span class="string">''</span>, readData)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Remove Mentions</span></span><br><span class="line">    text = re.sub(<span class="string">'@[\w_]+'</span>, <span class="string">''</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Remove or Replace URL </span></span><br><span class="line">    text = re.sub(<span class="string">r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&amp;+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"</span>, <span class="string">' '</span>, text) <span class="comment"># http로 시작되는 url</span></span><br><span class="line">    text = re.sub(<span class="string">r"[-a-zA-Z0-9@:%._\+~#=]&#123;1,256&#125;\.[a-zA-Z0-9()]&#123;2,6&#125;\b([-a-zA-Z0-9()@:%_\+.~#?&amp;//=]*)"</span>, <span class="string">' '</span>, text) <span class="comment"># http로 시작되지 않는 url</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Remove Hashtag</span></span><br><span class="line">    text = re.sub(<span class="string">'[#]+[0-9a-zA-Z_]+'</span>, <span class="string">' '</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Remove Garbage Words (ex. &amp;lt, &amp;gt, etc)</span></span><br><span class="line">    text = re.sub(<span class="string">'[&amp;]+[a-z]+'</span>, <span class="string">' '</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Remove Special Characters</span></span><br><span class="line">    text = re.sub(<span class="string">'[^0-9a-zA-Zㄱ-ㅎ가-힣]'</span>, <span class="string">' '</span>, text)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Remove newline</span></span><br><span class="line">    text = text.replace(<span class="string">'\n'</span>,<span class="string">' '</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> Num <span class="keyword">is</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># Remove Numbers</span></span><br><span class="line">        text = re.sub(<span class="string">r'\d+'</span>,<span class="string">' '</span>,text)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> Eng <span class="keyword">is</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># Remove English </span></span><br><span class="line">        text = re.sub(<span class="string">'[a-zA-Z]'</span> , <span class="string">' '</span>, text)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Remove multi spacing &amp; Reform sentence</span></span><br><span class="line">    text = <span class="string">' '</span>.join(text.split())</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">return</span> text</span><br></pre></td></tr></table></figure>
+<p>코드가 좀 복잡하다. 그래도 위 코드는 내가 트윗을 연구 대상으로 삼으면서 여러모로 트위터에 맞게 세팅한 것이니 따라오길 바란다.</p>
+<p>위 코드가 하는 역할은 최대한 원문을 살리면서 분석에 불필요한 (토픽을 이해하는 데에 필요하지 않은) 부분을 제거하는 것이다.<br>예를 들어서 트위터에서 리트윗 시 텍스트 앞에 RT @user_screenname 과 같은 형태의 텍스트가 붙게 되는데, 이런 부분만을 제거 한다던지 하는 것이다.</p>
+<p>트위터에서 URL은 대단히 자주 보이는데, 우리가 분석할 때에는 필요치 않은 정보이다. 위 코드는 여러가지 경우의 URL을 찾아서 제거하게 해 놓았다. (Regex URL 매칭 후 제거)<br>또한 Boolean 을 사용해서 숫자와 영어에 대해서 옵션을 만들어 놓았는데, 이는 경우에 따라 숫자와 영어를 찾아서 모두 제거하고 한국어만 분석하는 것이 편하기 때문이다. 그러나 기본값은 <code>False</code>로 해 두었는데, 이를 활성화할 경우 KBS, CNN, 40개국, G20 과 같은 의미가 존재하는 단어들도 제거되기 때문이다.</p>
+<p>트위터를 분석하지 않을 경우, 위 코드 중에서 일부만 사용하고 나머지는 주석 처리하면 편하게 적용할 수 있을 것이다. (요렇게 한국어 클리닝 코드를 통으로 올려놓은 블로그는 본적이 없어서.. 지금까지 나도 갑갑했다)</p>
+<p>설명이 길었다. 위 코드를 앞의 예시 트윗에 적용해 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SAMPLE_TEXT = <span class="string">"&lt;🚨코로나19 가짜뉴스 팩트체크&gt;\n\n신천지가 기성교회에 가서 코로나를 전파하라고 했다??!\n\n- 사실 무근입니다. \n신천지는 2월 18일 부터 전국 교회를 폐쇄하고 온라인\n예배로 전환하였습니다.\n\n#온라인예배\n#가짜뉴스_이제그만\n#신천지_팩트체크 pic.twitter.com/Dppie6iean"</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">f"Before cleaning text:\n<span class="subst">&#123;SAMPLE_TEXT&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">"\n"</span>)</span><br><span class="line">print(<span class="string">f"After cleaning text:\n<span class="subst">&#123;CleanText(SAMPLE_TEXT)&#125;</span>"</span>)</span><br><span class="line">print(<span class="string">"\n"</span>)</span><br><span class="line">print(<span class="string">f"After cleaning text when Num is True:\n<span class="subst">&#123;CleanText(SAMPLE_TEXT, Num=<span class="literal">True</span>)&#125;</span>"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/25416425/80684237-53c67f80-8b00-11ea-865a-16651c612b8e.png" width="800"></p>
+<p>깔끔하게 텍스트 클리닝이 완료된 것을 확인할 수 있다.</p>
+<h2 id="텍스트-토크나이징"><a href="#텍스트-토크나이징" class="headerlink" title="텍스트 토크나이징"></a>텍스트 토크나이징</h2><p>이번에는 위 텍스트 클리닝 코드를 포함한 한국어 토크나이징을 진행해 보겠다.<br>의미를 내포하고 있는 단위로 잘라서 토픽모델링을 시도하기 전 단계로 이해하면 된다.</p>
+<p><code>Mecab</code> 토크나이저는 POS 태깅을 지원하기 때문에, 태깅 상태를 보고 조사나 어미 등 의미를 파악하는 데에 불필요한 부분들을 제거한다. </p>
+<p>추가적으로 위 프로세스에서 걸러지지 않은 Stopwords 를 추가로 거를 수도 있지만 이는 데이터에 따라서 커스터마이즈가 많이 이루어져야 하기에, 본 포스트에서는 생략했다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> konlpy.tag <span class="keyword">import</span> Mecab </span><br><span class="line"></span><br><span class="line"><span class="comment"># Preprocessing code with Mecab</span></span><br><span class="line">mecab = Mecab(dicpath=<span class="string">"/usr/local/lib/mecab/dic/mecab-ko-dic"</span>) <span class="comment"># Mecab User Dic Path</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preprocessing_mecab</span><span class="params">(readData)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#### Clean text</span></span><br><span class="line">    sentence = CleanText(readData)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#### Tokenize</span></span><br><span class="line">    morphs = mecab.pos(sentence)</span><br><span class="line">    </span><br><span class="line">    JOSA = [<span class="string">"JKS"</span>, <span class="string">"JKC"</span>, <span class="string">"JKG"</span>, <span class="string">"JKO"</span>, <span class="string">"JKB"</span>, <span class="string">"JKV"</span>, <span class="string">"JKQ"</span>, <span class="string">"JX"</span>, <span class="string">"JC"</span>] <span class="comment"># 조사</span></span><br><span class="line">    SIGN = [<span class="string">"SF"</span>, <span class="string">"SE"</span>, <span class="string">"SSO"</span>, <span class="string">"SSC"</span>, <span class="string">"SC"</span>, <span class="string">"SY"</span>] <span class="comment"># 문장 부호</span></span><br><span class="line">    TERMINATION = [<span class="string">"EP"</span>, <span class="string">"EF"</span>, <span class="string">"EC"</span>, <span class="string">"ETN"</span>, <span class="string">"ETM"</span>] <span class="comment"># 어미</span></span><br><span class="line">    SUPPORT_VERB = [<span class="string">"VX"</span>] <span class="comment"># 보조 용언</span></span><br><span class="line">    NUMBER = [<span class="string">"SN"</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Remove JOSA, EOMI, etc</span></span><br><span class="line">    morphs[:] = (morph <span class="keyword">for</span> morph <span class="keyword">in</span> morphs <span class="keyword">if</span> morph[<span class="number">1</span>] <span class="keyword">not</span> <span class="keyword">in</span> JOSA+SIGN+TERMINATION+SUPPORT_VERB)</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># Remove length-1 words  </span></span><br><span class="line">    morphs[:] = (morph <span class="keyword">for</span> morph <span class="keyword">in</span> morphs <span class="keyword">if</span> <span class="keyword">not</span> (len(morph[<span class="number">0</span>]) == <span class="number">1</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Remove Numbers</span></span><br><span class="line">    morphs[:] = (morph <span class="keyword">for</span> morph <span class="keyword">in</span> morphs <span class="keyword">if</span> morph[<span class="number">1</span>] <span class="keyword">not</span> <span class="keyword">in</span> NUMBER)</span><br><span class="line">   </span><br><span class="line">    <span class="comment"># Result pop-up</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> morph <span class="keyword">in</span> morphs:</span><br><span class="line">        result.append(morph[<span class="number">0</span>])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<p>위 코드에서 <code>Mecab</code>을 불러올 때 사용한 <code>dicpath</code> 옵션은 등록된 사용자 사전을 사용하고 싶을때 적는 것이다. 사용하지 않을 경우 지워버리면 된다.</p>
+<p>코드의 흐름은 먼저 앞의 섹션에서 작성했던 <code>CleanText()</code> 함수를 사용해 텍스트 클리닝을 진행하고, 이후 <code>Mecab</code> 토크나이저를 사용해서 토큰화한다. 그리고 POS 태깅된 정보를 활용해서 의미가 없는 단어들을 삭제한다. 추가적으로, 잘랐을 때 길이가 1인 (글자 1개) 단어는 의미를 알기 어려워 제거하였다.</p>
+<p><code>Mecab</code> 토크나이저의 POS 태깅 정보를 보다 자세히 알고 싶다면 <a href="http://kkma.snu.ac.kr/documents/?doc=postag" rel="external nofollow noopener noreferrer" target="_blank">한글 형태소 품사 태그표</a>를 참고하자.</p>
+<p>이제 위 코드를 실행시켜 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">SAMPLE_TEXT = <span class="string">"&lt;🚨코로나19 가짜뉴스 팩트체크&gt;\n\n신천지가 기성교회에 가서 코로나를 전파하라고 했다??!\n\n- 사실 무근입니다. \n신천지는 2월 18일 부터 전국 교회를 폐쇄하고 온라인\n예배로 전환하였습니다.\n\n#온라인예배\n#가짜뉴스_이제그만\n#신천지_팩트체크 pic.twitter.com/Dppie6iean"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># RUN!</span></span><br><span class="line">preprocessing_mecab(SAMPLE_TEXT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print out</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">'코로나'</span>,</span><br><span class="line"> <span class="string">'가짜'</span>,</span><br><span class="line"> <span class="string">'뉴스'</span>,</span><br><span class="line"> <span class="string">'팩트체크'</span>,</span><br><span class="line"> <span class="string">'신천지'</span>,</span><br><span class="line"> <span class="string">'기성'</span>,</span><br><span class="line"> <span class="string">'교회'</span>,</span><br><span class="line"> <span class="string">'코로나'</span>,</span><br><span class="line"> <span class="string">'전파'</span>,</span><br><span class="line"> <span class="string">'무근'</span>,</span><br><span class="line"> <span class="string">'입니다'</span>,</span><br><span class="line"> <span class="string">'신천지'</span>,</span><br><span class="line"> <span class="string">'전국'</span>,</span><br><span class="line"> <span class="string">'교회'</span>,</span><br><span class="line"> <span class="string">'폐쇄'</span>,</span><br><span class="line"> <span class="string">'온라인'</span>,</span><br><span class="line"> <span class="string">'예배'</span>,</span><br><span class="line"> <span class="string">'전환'</span>,</span><br><span class="line"> <span class="string">'온라인'</span>,</span><br><span class="line"> <span class="string">'예배'</span>,</span><br><span class="line"> <span class="string">'가짜'</span>,</span><br><span class="line"> <span class="string">'뉴스'</span>,</span><br><span class="line"> <span class="string">'이제'</span>,</span><br><span class="line"> <span class="string">'그만'</span>,</span><br><span class="line"> <span class="string">'신천지'</span>,</span><br><span class="line"> <span class="string">'팩트체크'</span>]</span><br></pre></td></tr></table></figure>
+<p>깔끔하게 토크나이징이 완료된 것을 확인할 수 있다. 읽어보면 의미도 잘 파악이 된다.<br>이제 위 코드들을 바탕으로, 다음 포스트에서는 LDA 토픽 모델링 및 간단한 워드 클라우드 만들기를 해볼 것이다.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Datamining/" rel="tag"># Datamining</a>
+          
+            <a href="/tags/Twitter/" rel="tag"># Twitter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/23/datascience/twitter/2-analyze-tweet-series-1-collect/" rel="next" title="트위터 파헤치기 시리즈 첫번째 - 수집하기">
+                <i class="fa fa-chevron-left"></i> 트위터 파헤치기 시리즈 첫번째 - 수집하기
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg" alt="Jeongwook, Kim">
+            
+              <p class="site-author-name" itemprop="name">Jeongwook, Kim</p>
+              <div class="site-description motion-element" itemprop="description">Love code, travel, and game</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jeongwookie" title="Github &rarr; https://github.com/jeongwookie" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:captainfox@kaist.ac.kr" title="E-Mail &rarr; mailto:captainfox@kaist.ac.kr" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://www.linkedin.com/in/jeongwook-kim/" title="linkedin &rarr; https://www.linkedin.com/in/jeongwook-kim/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#토크나이저-설치하기"><span class="nav-number">1.</span> <span class="nav-text">토크나이저 설치하기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#텍스트-클리닝"><span class="nav-number">2.</span> <span class="nav-text">텍스트 클리닝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#텍스트-토크나이징"><span class="nav-number">3.</span> <span class="nav-text">텍스트 토크나이징</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+    </div>
+    <div class="gooAd sidebar-inner" style"display: block;">
+      <!-- Google AdSense start -->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- jw google ad 1 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1156366976077024" data-ad-slot="2477415640" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <!-- Google AdSense end -->
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongwook, Kim</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://jeongwookie.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jeongwookie.github.io/2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/";
+    this.page.identifier = "2020/04/29/datascience/twitter/3-analyze-tweet-series-2-preprocessing/";
+    this.page.title = '트위터 파헤치기 시리즈 두번째 - 한국어 전처리';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jeongwookie.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
