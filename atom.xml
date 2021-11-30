@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jeongwookie.github.io/"/>
-  <updated>2021-11-30T05:55:40.525Z</updated>
+  <updated>2021-11-30T07:29:20.857Z</updated>
   <id>https://jeongwookie.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OS공부 - 인트로</title>
+    <link href="https://jeongwookie.github.io/2021/11/30/computerscience/operatingsystem/1-intro/"/>
+    <id>https://jeongwookie.github.io/2021/11/30/computerscience/operatingsystem/1-intro/</id>
+    <published>2021-11-30T07:18:33.000Z</published>
+    <updated>2021-11-30T07:29:20.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>운영 체제 과목을 본격적으로 들어가기 전, 인트로적인 내용을 정리했다.</p><p>운영 체제 (Operating System)는 컴퓨터 시스템을 운영하는 소프트웨어를 의미한다. 그러면 컴퓨터는 무엇인가? 무엇을 보고 컴퓨터라고 하나?<br>컴퓨터의 정의는 다음과 같이 되어 있다.</p><blockquote><p>A machine that processes the information</p></blockquote><a id="more"></a><p>즉, 정보를 처리하는 기계가 컴퓨터라는 것이다. 그러면 또 꼬리에 꼬리를 무는 질문이 있다. 정보란 무엇인가? 정보의 단위도 있는가?<br>다행히, 섀넌 선생님이 이에 대한 답을 마련해두었는데 이는 다음과 같다.<br>어떤 사건 x에 대해서 해당 사건의 정보량 I는, 해당 사건이 발생한 확률에 밑이 2인 로그를 취한 값의 negative로 하자!</p><p>이게 뭔소리냐, 일반적인 주사위를 상상해보자. 주사위는 1부터 6까지 나올 수 있다.<br>주사위를 하늘 위로 던졌다! 아직 뭐가 나올지 모르는 상황이고 사건은 발생하지 않았다. 이때 정보량은 없다.<br>주사위가 땅에 도달했다. 보니까 3이 나왔네? 이런 사건이 발생했고 이걸 나만 안다고 생각해보자.<br>이제 이 정보를 타인에게 전달해 주고 싶다. 이때, 전달되는 정보량이 얼마인가?<br>주사위를 던져서 3이 나올 확률은 알다시피 1/6이다. 섀넌의 정의에 따라서, 해당 값에 로그를 취하고 음수를 붙여주면 밑이 2인 log6이 바로 정보량이 된다. 이렇게 어떤 정보에 대해서 전달을 하고 싶을때는 반드시 해당 정보에 대한 quantitative한 정의가 동반되어야 한다. 컴퓨터는 정보를 처리하는 기계니깐..</p><p>이번에는 주사위가 아니라 동전을 던진다고 생각해보자. 동전은 앞과 뒤 이렇게 두가지 사건만 발생할 수 있고, 만약 사건 X가 동전의 앞이 나왔다고 정의되었을 때, 우리는 해당 정보의 전달량을 앞선 주사위의 예와 마찬가지로 계산할 수 있다. 밑이 2인 로그와 음수를 1/2에 취해주면…!! 1이 나왔다!</p><p>도량형을 정의할 때 해당 단위의 1을 어떤 기준으로 정의할 것인지는 대단히 중요한 문제이다. 우리는 이미 앞선 예로 정보량이 1이라는 것에 대해서 어떤 느낌인지 알았다. 바로 이것이 정보의 최소 단위인 <code>1 bit</code>을 정의하는 방식이다. bit은 binary digit의 약자이다.</p><p>그러면 이를 확장하면, 2비트는 동전 두개로 8비트는 동전 8개로 나타낼 수 있는 정보라고 이해할 수 있다. 8비트의 해당 가짓수는 2의 8승으로 이를 <code>1 byte</code>로 정의한다. 이런식으로 우리가 아는 1 메가바이트, 1 기가바이트, 1 테레바이트 등을 모두 이해할 수 있다.<br><img src="https://user-images.githubusercontent.com/25416425/144003917-54e6c816-19e3-4918-a04d-9f67172d1c59.png" alt="image"></p><p>자 정보의 단위는 알았다. 그러면 구체적으로 컴퓨터가 정보를 어떻게 처리하는지 궁금해진다. <strong>“정보의 처리”</strong> 라는 것은 정보의 상태를 0에서 1로 또는 1에서 0으로 바꾸는 것을 의미한다. 이는 NOT, AND, OR, XOR, NAND, NOR 이 여섯가지 논리 게이트를 통해서 이루어지는데 얘들을 집적 시켜서 바로 그 논리 회로를 만든다. 논리 게이트를 계속 집적시켜서 논리 회로가 점점 더 빽빽해지고 컴퓨터의 정보 처리 능력이 비약적으로 향상되는 것이다. 여기서 꼭 나오는 법칙이 있는데 그 유명한 무어의 법칙과 황의 법칙이다. </p><ul><li>무어의 법칙 : 집적도가 1년 6개월마다 두배씩 늘어남</li><li>황의 법칙 : 메모리가 1년에 두배씩 늘어남<br>해당 법칙들 까지만 이해하고, 실제로 정보를 산술연산 하는 방법이라던가 하는것은 컴퓨터 시스템 과목에서 상세하게 다루고 있기 때문에 넘어간다.</li></ul><p>그러면 이제 다시 컴퓨터로 돌아가자. 폰 노이만이 현대적 컴퓨터의 아버지라고 불리우는데, 그 이유는 그가 stored-program 방식의 컴퓨터를 설계했기 때문이다. 이게 뭐냐하면, 메모리에 프로그램을 저장해 놓고 쓰는 컴퓨터를 의미한다. 우리가 현재 사용하는 컴퓨터의 형태 아닌가! 이제 드디어 프로그램을 정의하는 단계까지 왔다.</p><p>프로그램이란, a set of instructions이다. 컴퓨터에게 어떤 task를 실행시키는 명령어들의 집합이 바로 프로그램인 것이다. 우리가 어떤 의도를 가지고 작성한 소스코드가 바로 프로그램이다. 이를 컴파일러가 컴파일하여 어셈블리어 단계를 지나 기계어로 번환되면 이는 곧 0과 1로 표현된 정보 이다. 우리는 중간 단계인 어셈블리어의 명령어를 보고 하드웨어가 어떻게 정보를 처리하고 있는지 파악할 수 있다.</p><p>프로그램이 무엇인지에 대해서 정의하였으니, 마지막으로 운영체제의 정의로 돌아가자.<br>운영체제는 컴퓨터에서 올타임으로 돌아가고 있는 프로그램이다. 구체적으로, 운영체제는 시스템 서비스들을 어플리케이션 프로그램에 제공해주는 역할을 수행하는데 이는 마치 API와 비슷하다. 사용자가 하드웨어를 직접 제어하지 않고 OS에 제어를 특정한 방법으로 요청하면, 이를 OS가 대신 처리해 주는 셈이다. 프로세스, 리소스, 유저 인터페이스 등을 관리하는 주체가 바로 운영체제! </p><h2 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h2><ul><li>1 bit는 0과 1 두가지 값만 가질 수 있는 측정 단위이다.</li><li>1 byte는 8개의 bit로 구성된 데이터의 양을 나타내는 단위이다.</li><li>무어의 법칙 : 회로의 집적도가 1년 6개월에 2배씩 늘어남</li><li>프로그램이란, 명령어들의 집합이다.</li><li>운영체제란, 시스템 콜과 같은 방법으로 사용자가 요청하면 이를 처리하여 하드웨어를 제어하는 기저 프로그램이라 할 수 있다.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;운영 체제 과목을 본격적으로 들어가기 전, 인트로적인 내용을 정리했다.&lt;/p&gt;
+&lt;p&gt;운영 체제 (Operating System)는 컴퓨터 시스템을 운영하는 소프트웨어를 의미한다. 그러면 컴퓨터는 무엇인가? 무엇을 보고 컴퓨터라고 하나?&lt;br&gt;컴퓨터의 정의는 다음과 같이 되어 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A machine that processes the information&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Ⅲ. CS Study" scheme="https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/"/>
+    
+      <category term="Operating System" scheme="https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/Operating-System/"/>
+    
+    
+      <category term="cs" scheme="https://jeongwookie.github.io/tags/cs/"/>
+    
+      <category term="os" scheme="https://jeongwookie.github.io/tags/os/"/>
+    
+  </entry>
   
   <entry>
     <title>백준 1260번 - DFS와 BFS</title>
@@ -580,36 +610,6 @@
       &lt;p&gt;지난 포스트에서는 기본적인 plot을 그리는 방법과, 가장 널리 쓰이는 패키지인 ggplot2을 간단히 다루어 보았다.&lt;/p&gt;
 &lt;p&gt;이번 포스트에서는 내장 데이터셋을 Barplot (막대 그래프) 으로 표현해 볼 것이다.&lt;/p&gt;
 &lt;p&gt;library는 마찬가지로 &lt;code&gt;gglpot2&lt;/code&gt; &lt;code&gt;plotrix&lt;/code&gt; &lt;code&gt;boot&lt;/code&gt; &lt;code&gt;scatterplot3d&lt;/code&gt; &lt;code&gt;lattice&lt;/code&gt; &lt;code&gt;MASS&lt;/code&gt; 을 기본으로 한다.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ⅰ. Data Science" scheme="https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/"/>
-    
-      <category term="데이터 시각화" scheme="https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94/"/>
-    
-    
-      <category term="R programming" scheme="https://jeongwookie.github.io/tags/R-programming/"/>
-    
-      <category term="Class" scheme="https://jeongwookie.github.io/tags/Class/"/>
-    
-      <category term="KAIST" scheme="https://jeongwookie.github.io/tags/KAIST/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R을 사용한 데이터 시각화 - 1. ggplot2 기본</title>
-    <link href="https://jeongwookie.github.io/2019/03/06/datascience/visualization/1-data-visualization-using-R-1/"/>
-    <id>https://jeongwookie.github.io/2019/03/06/datascience/visualization/1-data-visualization-using-R-1/</id>
-    <published>2019-03-06T12:54:08.000Z</published>
-    <updated>2021-11-21T11:24:00.452Z</updated>
-    
-    <content type="html"><![CDATA[<p>R은 데이터 시각화에 강력한 라이브러리들을 여럿 가지고 있어서 매우 유용하다.</p><p>이번 포스트에서 사용할 라이브러리는 아래와 같다.</p><p>library : <code>gglpot2</code> <code>plotrix</code> <code>boot</code> <code>scatterplot3d</code> <code>lattice</code> <code>MASS</code></p><a id="more"></a><p>먼저, 내장 데이터셋인 <strong>faithful</strong> 을 기본 함수 <code>plot()</code>을 통해 그려보자.</p><p><img src="https://user-images.githubusercontent.com/25416425/54251976-80ca7280-458c-11e9-99f8-fe3fbbb703b6.png" alt="faithful의 개략적 형태"></p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">head(faithful)</span><br><span class="line">fa &lt;- faithful[order(faithful$waiting),] </span><br><span class="line"><span class="comment"># waiting을 오름차순으로 정렬한 값을 fa에 저장</span></span><br><span class="line">head(fa)</span><br><span class="line">x &lt;- fa[,<span class="number">2</span>]; y &lt;- fa[,<span class="number">1</span>] </span><br><span class="line"><span class="comment"># waiting을 x에, eruptions을 y에 저장</span></span><br><span class="line">plot(x,y,type=<span class="string">"l"</span>, col=<span class="number">4</span>, xlab = <span class="string">"Waiting Time"</span>, ylab = <span class="string">"Eruption Time"</span>, main = <span class="string">"Old Faithful Eruptions"</span>)</span><br><span class="line">points(x,y, pch=<span class="number">20</span>, col=<span class="number">3</span>) </span><br><span class="line"><span class="comment"># pch는 점의 생김새를 의미, 20은 작은 점</span></span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/25416425/54250526-76f24080-4587-11e9-8024-211abb8730cf.png" width="450"></p><p>fa는 <em>waiting</em> 열을 <code>order()</code>을 통해 정렬한 <strong>faithful</strong> 데이터를 기록한 것이다.</p><p>즉, fa[,1] = fa$eruptions 이고, fa[,2] = fa$waiting 이다.</p><p><code>plot()</code>은 type을 지정할 수 있으며, 여기서는 line을 나타내었다.</p><p><code>point()</code>는 말 그대로 점을 찍는 함수이며, 여기서 점의 생김새를 결정하는 <strong>pch=</strong> 를 한번 보자.</p><p><img src="https://user-images.githubusercontent.com/25416425/54250863-bbcaa700-4588-11e9-9085-411761ab6e28.png" width="300"></p><p>여러가지 타입이 있다는 것만 알면 된다. 중요한 것은 <strong>pch=</strong> 가 점의 타입을 결정하는 요소이며 자주 쓰이는 것이 <strong>pch = 20(점), 21, 22, 23, 24, 25</strong> 라는 사실이다.</p><p>이번에는 동일한 데이터를 <code>ggplot2</code> 패키지를 통해서 그려 보자.</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(fa, aes(x,y))+</span><br><span class="line">  geom_point(col=<span class="number">3</span>) + geom_line(col=<span class="number">4</span>) + <span class="comment"># 점을 찍을 때 geom_point를 사용</span></span><br><span class="line">  xlab(<span class="string">'Waiting time'</span>) + ylab(<span class="string">'Eruption time'</span>)+</span><br><span class="line">  ggtitle(<span class="string">'Old Faithful Eruption'</span>)</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/25416425/54251159-bc177200-4589-11e9-8d10-8a0cbbc34cb9.png" width="450"></p><p>역시 <code>ggplot2</code> 답게 그래프 디자인이 조금 더 깔끔해 보인다.</p><p><code>ggplot()</code>함수는 어떤 데이터로 어느 축에 할당할 것인지 정한다. 이 함수만 출력하면 <u>아무것도 plot되지 않음에 주의하자.</u> 실제로 점을 찍고 선을 긋는 함수는 뒤에 있다.</p><p>자주 쓰이는 형태는 <code>ggplot(data, aes(x = , y = , fill = ))</code>으로, fill값에 대해서는 뒤에 다시 설명하겠다.</p><p><code>geom_point()</code>는 말그대로 점을 찍는 함수이다. 여기에도 여러가지 디자인 요소들이 있지만 자주 쓰이는 것은 <strong>col=</strong> 으로, 점의 색상을 결정한다.</p><p>이외에도 점의 모양을 결정하는 <strong>shape=</strong>, 점의 색상을 요소(factor)에 따라 변화하게 하는 <strong>aes(fill=)</strong>, 점의 크기를 결정하는 <strong>size=</strong> 등이 쓰이는데 자세한 것은 <a href="https://ggplot2.tidyverse.org/reference/geom_point.html" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하자.</p><p><code>geom_line()</code>은 선을 긋는 함수이다. 마찬가지로 <strong>col=4</strong>라고 적음으로써 4번 색상인 파랑을 출력하고 있다. 자세한 디자인 요소 변경은 <a href="https://m.blog.naver.com/coder1252/221031694057" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고하자.</p><p>이번에는 또 다른 내장 데이터인 <strong>diamonds</strong> 를 <code>ggplot2</code>로 그려 보자.</p><p><img src="https://user-images.githubusercontent.com/25416425/54252070-c6873b00-458c-11e9-934b-2f1d1fed3da7.png" alt="diamonds 데이터의 형태"></p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">head(diamonds)</span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(diamonds, aes(x=carat, y=price)) +</span><br><span class="line">  geom_point(aes(col=color)) + <span class="comment"># point의 컬러(col)를 color라는 변수값에 따라 변하도록 설정</span></span><br><span class="line">  facet_grid(color ~ .) <span class="comment"># ~을 사용한 format</span></span><br></pre></td></tr></table></figure><p><code>ggplot()</code>에서 x축 데이터를 carat열, 그리고 y축 데이터를 price열 로 설정하였다.</p><p>그리고 <code>geom_point()</code>로 점을 찍는데, 그 점들의 색상을 <u>color열의 요소에 따라 달라지도록 지정하였다.</u></p><p>마지막으로, 새로운 함수가 하나 나타났는데 바로 <code>facet_grid()</code>.</p><p>주로 <strong>집단(group) 간의 효과적인 비교를 위해 면을 분할하고 싶을 때</strong> 사용한다.</p><p>또한, 많은 경우 <code>x ~ y</code>와 같은 형태로 작성하는데, 이는 표현 그대로 좌측은 x (input), 우측은 y (output)을 의미하는 간략한 함수 형태이다.</p><p>위의 <code>facet_grid(color ~ .)</code>은 color에 따라 나머지 모든 데이터를 그룹화 하여 면을 분할 해서 표현하라는 의미로 해석된다. 참고는 <a href="https://rfriend.tistory.com/85" rel="external nofollow noopener noreferrer" target="_blank">여기</a></p><p>만약 <code>facet_grid(. ~ color)</code>로 쓴다면, 쉽게 말해서 x와 y가 반전되어 출력된다. (세로)</p><div style="width:50%; height:350px; float:left;"><br><img src="https://user-images.githubusercontent.com/25416425/54253074-ba9d7800-4590-11e9-8bf7-eb477fea57fa.png" width="350"><br></div><div style="width:50%; height:350px; float:right;"><br><img src="https://user-images.githubusercontent.com/25416425/54253032-95106e80-4590-11e9-8cd2-03386699c406.png" width="350"><br></div><p>왼쪽은 <strong>facet_grid(color ~ .)</strong> 이고, 오른쪽은 <strong>facet_grid(. ~ color)</strong> 의 결과물이다. 위의 <code>geom_point()</code> 세팅에 따라, 점의 색상이 <strong>diamonds$color</strong>의 값에 따라 달라짐을 알 수 있다.</p><p>이어지는 포스트에서는 기본 plot외의 bar, histogram 등의 형태를 다루어 볼 것이다.</p><blockquote><p><em>본 포스트는 KAIST 전산학부 대학원 과정에서 수강하고 있는 Big Data Analytics using R (CS564)을 실습하며 작성하였음을 밝힙니다.</em></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;R은 데이터 시각화에 강력한 라이브러리들을 여럿 가지고 있어서 매우 유용하다.&lt;/p&gt;
-&lt;p&gt;이번 포스트에서 사용할 라이브러리는 아래와 같다.&lt;/p&gt;
-&lt;p&gt;library : &lt;code&gt;gglpot2&lt;/code&gt; &lt;code&gt;plotrix&lt;/code&gt; &lt;code&gt;boot&lt;/code&gt; &lt;code&gt;scatterplot3d&lt;/code&gt; &lt;code&gt;lattice&lt;/code&gt; &lt;code&gt;MASS&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
