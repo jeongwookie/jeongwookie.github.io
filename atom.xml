@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jeongwookie.github.io/"/>
-  <updated>2021-12-02T09:04:29.387Z</updated>
+  <updated>2021-12-04T13:19:48.542Z</updated>
   <id>https://jeongwookie.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OS공부 - 운영체제의 개념과 구조</title>
+    <link href="https://jeongwookie.github.io/2021/12/04/computerscience/operatingsystem/2-os-structures-intro/"/>
+    <id>https://jeongwookie.github.io/2021/12/04/computerscience/operatingsystem/2-os-structures-intro/</id>
+    <published>2021-12-04T13:11:20.000Z</published>
+    <updated>2021-12-04T13:19:48.542Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="운영-체제의-정의"><a href="#운영-체제의-정의" class="headerlink" title="운영 체제의 정의"></a>운영 체제의 정의</h2><p>운영 체제 (Operating System)에 대해서 다시 정의를 짚어보고 넘어가자.</p><ul><li>OS는 컴퓨터의 하드웨어를 manage하는 소프트웨어이다.</li><li>OS는 컴퓨터 유저와 컴퓨터 하드웨어간의 매개 역할을 수행한다.</li></ul><p>이해를 돕기 위해 우리는 컴퓨터 시스템이 어떻게 구성되어 있는지 알아야 한다. 크게 4가지 component로 구성되어 있는데, 하드웨어, 운영체제, 응용 프로그램, 그리고 유저 이다. 유저가 행하는 다양한 프로그래밍이 접근하는 프로그램은 컴파일러, 어셈블러, 텍스트 에디터, 데이터베이스 시스템 등 다양하다. 이러한 시스템 프로그래밍 혹은 어플리케이션 프로그래밍을 할때 운영체제와 통신하면, 운영체제가 대신 하드웨어에 접근하는 방식으로 구성되어 있다. 아래의 그림을 참고하자.</p><p><img src="https://user-images.githubusercontent.com/25416425/144545482-4253256d-cab3-4325-a2db-f55ddf99181e.png" alt="image"></p><a id="more"></a><p>공룡책의 저자는 운영체제를 정의함에 있어서 어떤 universally하게 받아들여지는 정의는 없다고 한다. 대신, 더 common한 정의를 가져왔는데, 이는 아래와 같다.</p><blockquote><p>The one program running at all times on the computer. Usually called the kernel.</p></blockquote><p>앞으로 우리는 운영체제에서 특히 <strong>kernel</strong>이라고 불리는 부분에서 어떠한 동작이 발생하는지에 대해서 주로 관심있게 공부할 것이다.</p><h2 id="컴퓨터-시스템-구조"><a href="#컴퓨터-시스템-구조" class="headerlink" title="컴퓨터 시스템 구조"></a>컴퓨터 시스템 구조</h2><p>현대 컴퓨터 시스템은 하나 이상의 CPU를 가지고 있으며, 다양한 장치 컨트롤러들이 common bus를 통해 연결되어 있다. 아래의 그림을 참고하자. disk에는 HDD와 SSD가 사용되며, 마우스 키보드와 같은 Input 장치들과 프린터 모니터와 같은 Output 장치들 또한 메모리와 연결되어 있다.</p><p><img src="https://user-images.githubusercontent.com/25416425/144707234-af49bba4-5ba2-47e8-a239-393f2e8e02c1.png" alt="image"></p><h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h3><p>컴퓨터의 전원을 켜는 것을 우리는 부팅 한다고 표현한다. 이 때 컴퓨터를 동작시키는 프로그램이 바로 bootstrap 이라는 프로그램인데, 해당 프로그램이 해야할 역할은 당연하게도 OS를 불러와서 메모리에 로드하는 것이다. 그렇다면 bootstrap program은 어디에 저장되어 있을까? 휘발성 메모리에 부팅 시스템과 관련한 명령어들을 넣어 놓는다면, 부팅시마다 초기화 되기 때문에 큰일이 날 것이다. 그래서 이 중요한 프로그램은 <u>EEPROM과 같은 불휘발성 메모리에 저장된다.</u> 블휘발성 메모리는 전원이 끊어져도 기록된 데이터들이 소멸되지 않는 특성이 있다.</p><h3 id="Interrupts"><a href="#Interrupts" class="headerlink" title="Interrupts"></a>Interrupts</h3><p>CPU와 I/O devices 사이에 통신하는 방법 중의 하나가 바로 interrupts이다. 예를 들어서 우리가 키보드로 A라는 문자를 눌렀다고 하자. 이를 CPU에게 알려 주기 위해 transfer을 진행하고, CPU는 하던 일 (user process) 을 멈추고 이를 받아들인다. 이러한 매커니즘이 마치 CPU의 현재 동작을 방해하는 것처럼 이루어지므로 Interrupt라는 이름에 참 알맞다. 아래의 그림은 Interrupt가 발생하는 타임라인을 개략적으로 표현한 것이다. </p><p><img src="https://user-images.githubusercontent.com/25416425/144707547-e8235d42-3988-4240-8818-d65a6afd3164.png" alt="image"></p><p>이처럼 Interrupts는 하드웨어에 의해 언제든 유발될 수 있으며 동작 방식은 간단하다. CPU에 특정 시그널을 보내는 것이다.</p><h3 id="Storage-Device-Hierarchy"><a href="#Storage-Device-Hierarchy" class="headerlink" title="Storage Device Hierarchy"></a>Storage Device Hierarchy</h3><p>우리의 컴퓨터는 여러 종류의 저장 장치로 구성되어 있다. 프로그램의 목적에 따라 저장 장치를 활용하게 되는데, 예를 들어서 이전에 살펴본 Bootstrap은 RAM과 같은 휘발성 메모리에 저장되면 안될 것이다. 저장 장치들은 저장 용량과 엑세스 타임에 따라서 여러 개의 계층 구조를 가지고 있다. 아래의 그림을 참고하자.</p><p><img src="https://user-images.githubusercontent.com/25416425/144708062-e2074a9d-4944-4692-9298-19b5f1cb52d1.png" alt="image"></p><p>메인 메모리는 우리가 흔히 이야기하는 RAM이다. 여기까지가 휘발성 메모리. 그 바로 아래부터 비휘발성 메모리로, ssd와 hdd같은 저장 디스크들, 그리고 더 아래로 내려가면 광학 디스크와 마그네틱 테잎과 같은 저장 장치들이 있다. 상위 계층으로 갈수록 작은 저장 용량을 가지지만 속도가 매우 빨라진다. 가격도 비싸다..</p><h4 id="레지스터-Register"><a href="#레지스터-Register" class="headerlink" title="레지스터 (Register)"></a>레지스터 (Register)</h4><p>CPU 내에 위치한, 극히 소량의 데이터나 처리중인 중간 결과를 일시적으로 기억해 두는 고속의 전용 영역이며, 현재 수행하는 값을 기억한다. 그림 상 레지스터 위에 CPU가 있다고 이해하면 된다. </p><h4 id="캐시-Cache"><a href="#캐시-Cache" class="headerlink" title="캐시 (Cache)"></a>캐시 (Cache)</h4><p>CPU와 메모리 사이에 자주 쓰는 것을 가까운 곳에 저장하기 위해 사용하는 메모리.<br>메인 메모리에 있는 데이터를 캐시 메모리에 불러와 두고, CPU가 필요한 데이터를 캐시에서 먼저 찾도록 하면, 시스템 성능을 크게 향상시킬 수 있다.</p><blockquote><p><strong>레지스터와 캐시의 차이는?</strong><br>: <strong>캐시</strong>는 <u>CPU와 별도로 있는 저장 공간이며,</u> 메인 메모리와 CPU 간의 속도 차이를 극복하기 위한 것이다. 반면 <strong>레지스터</strong>는 <u>CPU 안에서 연산을 처리하기 위해</u>  데이터를 저장하는 공간이다.</p></blockquote><h3 id="I-O-Structures"><a href="#I-O-Structures" class="headerlink" title="I/O Structures"></a>I/O Structures</h3><p>아래 그림은 I/O 장치가 정보를 전달할때, CPU와 메모리에서 어떻게 동작하는지를 개략적으로 보여준다.</p><p><img src="https://user-images.githubusercontent.com/25416425/144708678-695e94d7-1aed-4049-b37a-5b4ba9d937a2.png" alt="image"></p><p>CPU에서 어떤 프로그램이 실행되면, 이는 캐시 메모리를 거쳐 메모리 영역의 명령어들과 데이터를 읽어온다. CPU가 I/O request를 device에 전달하면, device는 앞서 설명하였던 interrupt를 발생시키고, 이는 실행하고 있는 프로그램을 wait하게 하기도 한다. CPU의 연산이 불필요할 경우, device에서 직접 메모리로 정보를 주고받는 일종의 interrupt도 발생할 수 있는데 이를 <strong>Direct Memory Access (DMA)</strong> 라고 한다. 유튜브 동영상을 보는 것에 CPU가 열심히 계산할 필요는 없지 않을까? Network에서 데이터를 읽어서 그대로 모니터로 영상을 쏴주고, CPU는 가만히 있다가 사용자가 동영상을 멈춘다던지 뭔가 액션을 취할때만 연산을 해주면 더 효율적일 것이다.</p><h2 id="컴퓨터-시스템-아키텍쳐"><a href="#컴퓨터-시스템-아키텍쳐" class="headerlink" title="컴퓨터 시스템 아키텍쳐"></a>컴퓨터 시스템 아키텍쳐</h2><p>프로세서는 1개인데 코어가 여러 개 라는 것이 무엇을 의미할까? 쿼드코어를 넘어서서 8-코어 등의 용어를 우리는 많이 접해보았을 것이다. 아래의 개념을 먼저 짚고 넘어가자.</p><ul><li>CPU (Central Processing Unit): 명령어를 실행하는 하드웨어 장치. 중앙 처리 장치.</li><li>Processor : 기본적인 명령어들을 처리하는 논리회로. 일반적인 PC환경에서 프로세서와 CPU는 같은 개념으로 보아도 무방하다고 한다.</li><li>Core : 각종 연산을 하는 CPU의 핵심 요소. 하나의 프로세서 안에 4개의 코어가 있다는 것은 4명이 분담해서 일을 처리한다고 이해하면 된다. Core의 종류는 ARM, MIPS, x86 등의 ISA (Instruction Set Architecture) 로 구별된다.</li></ul><p><img src="https://user-images.githubusercontent.com/25416425/144709730-5fdb828d-9560-4247-8bd0-6c144ef5ac38.png" alt="image"></p><p>동일한 프로세서 칩에 여러 개의 코어가 있으면 멀티코어, 프로세서가 여려개 있으면 그게 바로 멀티프로세서 이다.</p><blockquote><p><strong>잠깐, ISA가 뭐지?</strong><br>: CPU가 인식해서 기능을 이해하고 실행할 수 있는 기계어 명령어들의 set을 의미한다. 사용자가 실행한 응용 어플리케이션은 하단에 존재하는 알고리즘, 프로그래밍 언어, 어셈블리어, 기계어 등 소프트웨어 파트를 거쳐서 하드웨어 파트로 넘어가게 되는데 이때 소프트웨어와 하드웨어의 중재 역할을 하는 부분이 바로 ISA이다. 다시 말하면 최하위 레벨의 프로그래밍 인터페이스로, 프로세서 (cpu)가 실행할 수 있는 모든 명령어들을 포함한다.</p></blockquote><h2 id="운영-체제의-실제-운영-방식"><a href="#운영-체제의-실제-운영-방식" class="headerlink" title="운영 체제의 실제 운영 방식"></a>운영 체제의 실제 운영 방식</h2><p>운영 체제는 두 가지 모드로 나누어 운영을 하게 되는데, 이를 <strong>user mode</strong>와 <strong>kernel mode</strong> 라고 한다.<br>user mode에서는 우리가 일반적으로 실행하는 프로그램들이 동작한다. 반면 kernel mode에서는 OS 코드를 실행한다. 이렇게 모드를 나누는 이유는, 유저가 혹시 잘못된 프로그램을 동작 시켰을 때 컴퓨터 전체의 동작이 망가지는 것을 대비하기 위함이다.</p><p><img src="https://user-images.githubusercontent.com/25416425/144710603-4510ced8-d344-485b-878b-fcbc6be50dca.png" alt="image"></p><p>위의 그림을 보면 kernel mode가 언제 등장하는지 이해할 수 있다. 유저 프로세스는 user mode에서 실행되고 있다. 이때 유저 프로세스가 system call이라는 방식으로 OS를 부르면, 이때 trap이 발생하면서 kernel mode로 진입된다. 그리고 system call이 수행된 후 다시 user mode로 리턴된다. 이러한 seperate mode 동작 방식으로 OS는 의도치 않은 동작을 하는 프로그램이 자칫 다른 프로그램이나 디바이스에 영향을 주는 것을 원천적으로 차단할 수 있는 것이다.</p><p>마지막으로, 운영 체제가 어떤 서비스를 제공하는지 그림으로 살펴본다. 뭐 그냥 중요한걸 다 한다고 볼 수 있다.<br>OS 없으면 못살어<del>~</del>~</p><p><img src="https://user-images.githubusercontent.com/25416425/144710798-4d768917-895f-4371-9a94-335cdede9a86.png" alt="image"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;운영-체제의-정의&quot;&gt;&lt;a href=&quot;#운영-체제의-정의&quot; class=&quot;headerlink&quot; title=&quot;운영 체제의 정의&quot;&gt;&lt;/a&gt;운영 체제의 정의&lt;/h2&gt;&lt;p&gt;운영 체제 (Operating System)에 대해서 다시 정의를 짚어보고 넘어가자.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS는 컴퓨터의 하드웨어를 manage하는 소프트웨어이다.&lt;/li&gt;
+&lt;li&gt;OS는 컴퓨터 유저와 컴퓨터 하드웨어간의 매개 역할을 수행한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이해를 돕기 위해 우리는 컴퓨터 시스템이 어떻게 구성되어 있는지 알아야 한다. 크게 4가지 component로 구성되어 있는데, 하드웨어, 운영체제, 응용 프로그램, 그리고 유저 이다. 유저가 행하는 다양한 프로그래밍이 접근하는 프로그램은 컴파일러, 어셈블러, 텍스트 에디터, 데이터베이스 시스템 등 다양하다. 이러한 시스템 프로그래밍 혹은 어플리케이션 프로그래밍을 할때 운영체제와 통신하면, 운영체제가 대신 하드웨어에 접근하는 방식으로 구성되어 있다. 아래의 그림을 참고하자.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/25416425/144545482-4253256d-cab3-4325-a2db-f55ddf99181e.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ⅲ. CS Study" scheme="https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/"/>
+    
+      <category term="Operating System" scheme="https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/Operating-System/"/>
+    
+    
+      <category term="cs" scheme="https://jeongwookie.github.io/tags/cs/"/>
+    
+      <category term="os" scheme="https://jeongwookie.github.io/tags/os/"/>
+    
+  </entry>
   
   <entry>
     <title>백준 2667번 - 단지번호붙이기</title>
@@ -597,34 +629,6 @@
       <category term="Datamining" scheme="https://jeongwookie.github.io/tags/Datamining/"/>
     
       <category term="WEB Crawling" scheme="https://jeongwookie.github.io/tags/WEB-Crawling/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KAIST 창업석사 신입생 모집</title>
-    <link href="https://jeongwookie.github.io/2019/03/14/others/school/3-kschool-2019-fall-admission/"/>
-    <id>https://jeongwookie.github.io/2019/03/14/others/school/3-kschool-2019-fall-admission/</id>
-    <published>2019-03-14T08:36:59.000Z</published>
-    <updated>2021-11-21T11:28:21.136Z</updated>
-    
-    <content type="html"><![CDATA[<p>안녕하세요! 오늘은 제가 다니고 있는 카이스트 창업석사 모집 소식을 들고 찾아왔습니다.</p><p>창업석사 자체에 대한 소개글은 이전 포스트인 <a href="https://jeongwookie.github.io/2018/09/14/180914-kschool-student/">KAIST 창업석사</a>를 참고해 주세요.</p><p>이번에 입학하시는 분들은 k-school 7기 생으로 입학하시는 거에요. (19년 가을학기 시작)</p><a id="more"></a><p><img src="https://user-images.githubusercontent.com/25416425/54342510-ff540c80-467f-11e9-88ed-8dbc343577fa.png" width="450"></p><p>학교에서 하는 오피셜한 설명회가 총 2번 있는데 각각 서울 (3월 27일), 대전 (3월 20일)에서 열립니다. 여기에는 제 선배나 동기분들도 참여하셔서 직접 질의응답을 진행하실 꺼에요. 학교 생활이나 군대 등 궁금하신 부분이 있다면 직접 참여하셔서 물어봐도 좋을 것 같군요.</p><p>이번에도 많은 학과들이 창업석사로 학생을 선발하고 있습니다. 참여 학과는 <a href="https://kschool.kaist.ac.kr/Page/Kschool_Area" rel="external nofollow noopener noreferrer" target="_blank">여기</a></p><p>제 주변에도 그렇고, 제 다음으로 입학하신 분들도 수업때 만나 보았었는데요. 학과도 다양하고, 나이대도 다양합니다. 옛날에 카이스트 학부를 졸업하시고 근 10년만에 다시 창업석사로 오신 분도 계십니다 ^^ 그만큼 메리트가 있다는 것이겠죠.</p><p>결국 창업의 성패는 같이 하는 사람이 누구인가에 따라 크게 좌우됩니다. 좋은 분들과 만날 기회를 가지고, 같이 공부하고 디스커션 하다 보면 공동 창업자가 되실 분을 만날 수 있지 않을까요?</p><p>특히, 현재 전산학부를 베이스로 가지고 계신 분이나, 개발자로 전향하고자 하시는 분들이 주목해야 할 모집 학과를 아래에 정리해 보았습니다.</p><ul><li>전산학부 (<a href="https://cs.kaist.ac.kr/" rel="external nofollow noopener noreferrer" target="_blank">https://cs.kaist.ac.kr/</a>)</li><li>산업및시스템공학과 (<a href="http://ie.kaist.ac.kr/" rel="external nofollow noopener noreferrer" target="_blank">http://ie.kaist.ac.kr/</a>)</li><li>지식서비스공학대학원 (<a href="http://kse.kaist.ac.kr/insiter.php?design_file=1246.php" rel="external nofollow noopener noreferrer" target="_blank">http://kse.kaist.ac.kr/insiter.php?design_file=1246.php</a>)</li><li>문화기술대학원 (<a href="https://ct.kaist.ac.kr/main.php?lang=2" rel="external nofollow noopener noreferrer" target="_blank">https://ct.kaist.ac.kr/main.php?lang=2</a>)</li></ul><p>전산학부는 모두 다 아시듯이 전산 전공을 통해서 특화하여 나가실 분이 좋겠지요. 이에 비해 아래 세가지 전공의 대학원들은 <u>개발 능력을 베이스로 실전에 적용하는 분야들이 다른 케이스</u>입니다.</p><p>창업석사 선발은 기본적으로 두 가지 기준을 가지고 있는데, 하나가 창업원을 운영하는 K-School이고 나머지 하나는 각 학과 교수님 입니다. </p><p>창업원 교수님들의 면접에 통과하셨더라도 학과에서 일반 대학원생을 모집하는 것과 동일한 기준으로 한번 더 시험을 보게 되므로, 각 학과 홈페이지에서 어떤 모집 요강을 가지고 있는지 상세하게 살피시길 바랍니다.</p><p>예를 들어, 전산학부는 코딩 테스트를 보고 이를 전공 면접에서 활용하고, 문화기술대학원은 전공과 자기소개와 관련된 ppt를 준비하여야 합니다. 또한 산업및시스템공학과 에서는 필기 시험을 치르는 등 각 학과 별로 모집하는 방법이 다양합니다.</p><p>하나의 모집 분야에만 지원이 가능하니, 잘 살펴보시고 본인에게 맞는 선택을 하시길 바랍니다.</p><p>선택에 도움이 되시라고 위 전공 분야에서 열린 과목들을 간단하게 아래에 적어봤습니다. (현재 저도 수강중입니다)</p><ul><li>산업및시스템공학부: Machine Learning for Knokledge Service</li><li>문화기술대학원: Big Data Analysis Using R</li><li>지식서비스공학대학원 : Datamining</li></ul><p>보시다시피, 기본적으로 전산학부와 유사한 수업들이 열립니다. 코드 쉐어를 하기도 하구요.</p><p>하지만, 이런 지식들을 가지고 추구하는 방향이 다르기 때문에 각 학과에서 주요 연구실 홈페이지를 들어가셔서 자신이 관심있는 분야를 서칭하시면 도움이 많이 됩니다.</p><p>입학과 관련해서 궁금하신 부분이 있으면 <a href="mailto:captainfox@kaist.ac.kr" rel="external nofollow noopener noreferrer" target="_blank">captainfox@kaist.ac.kr</a>로 메일 주세요.</p><p>많은 도움은 드리지 못하여도, 제가 아는 선에서 답변 드릴 수 있도록 하겠습니다.</p><p>꼭 붙으시길 바랄께요!</p><p><img src="https://user-images.githubusercontent.com/25416425/54344075-8e165880-4683-11e9-90bd-778452d7df7a.jpg" width="450"></p><center> 19년 가을학기 모집 포스터<br>(상세 내용은 kschool 홈페이지 참고) </center>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;안녕하세요! 오늘은 제가 다니고 있는 카이스트 창업석사 모집 소식을 들고 찾아왔습니다.&lt;/p&gt;
-&lt;p&gt;창업석사 자체에 대한 소개글은 이전 포스트인 &lt;a href=&quot;https://jeongwookie.github.io/2018/09/14/180914-kschool-student/&quot;&gt;KAIST 창업석사&lt;/a&gt;를 참고해 주세요.&lt;/p&gt;
-&lt;p&gt;이번에 입학하시는 분들은 k-school 7기 생으로 입학하시는 거에요. (19년 가을학기 시작)&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ⅹ. Others" scheme="https://jeongwookie.github.io/categories/%E2%85%A9-Others/"/>
-    
-      <category term="학교 이야기" scheme="https://jeongwookie.github.io/categories/%E2%85%A9-Others/%ED%95%99%EA%B5%90-%EC%9D%B4%EC%95%BC%EA%B8%B0/"/>
-    
-    
-      <category term="KAIST" scheme="https://jeongwookie.github.io/tags/KAIST/"/>
-    
-      <category term="K-school" scheme="https://jeongwookie.github.io/tags/K-school/"/>
     
   </entry>
   
