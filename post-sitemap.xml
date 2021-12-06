@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/</loc>
+        <lastmod>2021-12-06T09:33:44.189Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2021/12/04/computerscience/operatingsystem/2-os-structures-intro/</loc>
+        <lastmod>2021-12-06T09:33:31.966Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2019/02/03/others/diary/7-find-a-new-hobby/</loc>
         <lastmod>2021-12-06T09:25:24.605Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,22 +34,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2021/11/14/others/diary/8-my-recent-days-in-2021/</loc>
         <lastmod>2021-12-06T09:25:11.406Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/</loc>
-        <lastmod>2021-12-06T09:23:51.458Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2021/12/04/computerscience/operatingsystem/2-os-structures-intro/</loc>
-        <lastmod>2021-12-04T13:19:48.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -241,22 +241,22 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
+        <lastmod>2021-12-06T09:25:24.605Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/tags/cs/</loc>
-        <lastmod>2021-12-06T09:23:51.458Z</lastmod>
+        <lastmod>2021-12-06T09:33:44.189Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/tags/os/</loc>
-        <lastmod>2021-12-06T09:23:51.458Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
-        <lastmod>2021-12-06T09:25:24.605Z</lastmod>
+        <lastmod>2021-12-06T09:33:44.189Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

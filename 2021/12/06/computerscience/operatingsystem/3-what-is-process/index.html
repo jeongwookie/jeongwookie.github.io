@@ -102,20 +102,20 @@
      });
 </script>
 
-  <meta name="description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다.HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세스">
+  <meta name="description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
 <meta name="keywords" content="cs,os">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS공부 - 프로세스">
 <meta property="og:url" content="https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/index.html">
 <meta property="og:site_name" content="JW&#39;s Blog">
-<meta property="og:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다.HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세스">
+<meta property="og:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/144817003-230dce48-06b1-488e-898b-d4e028870858.png">
-<meta property="og:updated_time" content="2021-12-06T09:23:51.458Z">
+<meta property="og:updated_time" content="2021-12-06T09:33:44.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS공부 - 프로세스">
-<meta name="twitter:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다.HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세스">
+<meta name="twitter:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png">
 
 
@@ -491,9 +491,10 @@
       
 
       
-        <h2 id="프로세스의-정의"><a href="#프로세스의-정의" class="headerlink" title="프로세스의 정의"></a>프로세스의 정의</h2><p><strong>프로세스 (process)</strong> 란, 실행 중인 프로그램을 뜻한다.<br>HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세스 라고 할 수 있겠다. 이제 이 프로세스는 cpu를 점유하거나, 파일을 열거나, I/O 장치들과 신호를 주고 받게 될 것이다. 운영체제가 해야 하는 가장 기본적인 활동은 <u>바로 프로세스를 관리하는 것이다</u>.</p>
-<p><img src="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png" alt="image"></p>
+        <h2 id="프로세스의-정의"><a href="#프로세스의-정의" class="headerlink" title="프로세스의 정의"></a>프로세스의 정의</h2><p><strong>프로세스 (process)</strong> 란, 실행 중인 프로그램을 뜻한다.</p>
+<p>HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세스 라고 할 수 있겠다. 이제 이 프로세스는 cpu를 점유하거나, 파일을 열거나, I/O 장치들과 신호를 주고 받게 될 것이다. 운영체제가 해야 하는 가장 기본적인 활동은 <u>바로 프로세스를 관리하는 것이다</u>.</p>
 <a id="more"></a>
+<p><img src="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png" alt="image"></p>
 <p>프로세스는 위 그림과 같은 주소 공간을 필요로 하게 된다. text 영역에는 우리가 작성한 프로그램 코드가 들어 있고, data에는 전역 변수가, heap 영역에는 동적으로 할당된 메모리가 들어 있다. C에서는 <code>malloc</code>, Java에서는 <code>new</code>와 같은 코드가 메모리 동적 할당을 수행한다. stack 영역은 임시 데이터 저장 공간이라고 할 수 있는데 여기는 지역 번수, 함수의 매개 변수, 리턴값의 주소 등이 들어 있다. stack 영역은 위에서부터 아래로 커지고, heap 영역은 아래에서 위로 커지는 방식이다. 이렇게 쭉 쌓아오다가 만약 부족해지면 다른 메모리 영역을 참조하기도 한다.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x; <span class="comment">// uninitialized data section</span></span><br><span class="line"><span class="keyword">int</span> y = <span class="number">15</span>; <span class="comment">// initialized data section</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> <span class="comment">// stack section</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *values; <span class="comment">// stack section </span></span><br><span class="line">    <span class="keyword">int</span> i; <span class="comment">// stack section</span></span><br><span class="line"></span><br><span class="line">    values = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">5</span>) <span class="comment">// heap section</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; <span class="number">5</span>; i++) <span class="comment">// text section에서 수행</span></span><br><span class="line">        values[i] = i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 프로그램이 종료되고, 다시 제어권을 os에게 넘겨줌</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위 소스 코드가 우리가 일반적으로 작성하는 형태이고, 이를 컴파일 하여 <code>a.out</code> 이라는 프로그램을 만들 수 있다. 해당 프로그램이 메모리에 로드되면서 각각의 section을 차지하게 되는 이런 일련의 동작을 프로세스 라고 할 수 있겠다. (즉, 실행중인 프로그램!)</p>
