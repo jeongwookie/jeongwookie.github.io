@@ -372,6 +372,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/12/programming/pythonbasic/4-list-operation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JW's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/12/programming/pythonbasic/4-list-operation/" class="post-title-link" itemprop="url">Python 기본 - 4. 리스트 자료형 다루기</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-12 13:49:03" itemprop="dateCreated datePublished" datetime="2018-09-12T13:49:03+09:00">2018-09-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅱ-Programming/" itemprop="url" rel="index"><span itemprop="name">Ⅱ. Programming</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅱ-Programming/파이썬-기본/" itemprop="url" rel="index"><span itemprop="name">파이썬 기본</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/09/12/programming/pythonbasic/4-list-operation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/12/programming/pythonbasic/4-list-operation/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://wikidocs.net/14" rel="external nofollow noopener noreferrer" target="_blank">리스트 (list)</a>란 특정 값들을 <strong>순서 있게 저장</strong>하는 자료형이다.</p>
+<p>C와는 달리, 하나의 리스트 안에 숫자와 문자가 공존할 수 있더라.</p>
+<p>앞서 배운 문자열처럼 리스트 또한 인덱싱과 슬라이싱을 할 수 있다.</p>
+<p>하지만, 각각의 결과물에 대해 조심해야 할 필요가 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [<span class="string">"Python"</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">0</span>])  <span class="comment">#lst의 첫번째 원소를 출력</span></span><br><span class="line">Python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">1</span>])  <span class="comment">#lst의 두번째 원소를 출력</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">1</span>:])   <span class="comment">#lst를 두번째 부터 끝까지 슬라이싱</span></span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[<span class="number">0</span>][<span class="number">0</span>])   <span class="comment">#lst의 첫번째 원소 안의 첫번째 원소</span></span><br><span class="line">P</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/12/programming/pythonbasic/4-list-operation/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2018/09/11/programming/pythonbasic/3-first-homework-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2095,7 +2282,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-count">60</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

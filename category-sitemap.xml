@@ -44,7 +44,7 @@
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%B7%A8%EB%AF%B8/</loc>
-        <lastmod>2021-11-21T11:28:17.658Z</lastmod>
+        <lastmod>2021-11-21T11:28:16.847Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -113,20 +113,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/</loc>
-        <lastmod>2021-11-30T05:46:53.647Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/</loc>
-        <lastmod>2021-11-30T05:46:53.647Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A1-Programming/</loc>
         <lastmod>2021-12-02T09:04:29.387Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -149,14 +135,28 @@
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/</loc>
-        <lastmod>2021-12-04T13:19:48.542Z</lastmod>
+        <lastmod>2021-12-06T09:23:51.458Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/Operating-System/</loc>
-        <lastmod>2021-12-04T13:19:48.542Z</lastmod>
+        <lastmod>2021-12-06T09:23:51.458Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/</loc>
+        <lastmod>2021-12-06T09:25:24.605Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/</loc>
+        <lastmod>2021-12-06T09:25:24.605Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
