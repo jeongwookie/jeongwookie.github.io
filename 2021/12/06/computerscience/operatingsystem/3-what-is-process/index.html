@@ -112,7 +112,8 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/144817003-230dce48-06b1-488e-898b-d4e028870858.png">
-<meta property="og:updated_time" content="2021-12-06T09:33:44.189Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/145335493-9b5e84a0-0892-4c0f-8a0a-3434f17bd1df.png">
+<meta property="og:updated_time" content="2021-12-09T05:12:32.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS공부 - 프로세스">
 <meta name="twitter:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
@@ -501,9 +502,9 @@
 <h2 id="프로세스의-상태"><a href="#프로세스의-상태" class="headerlink" title="프로세스의 상태"></a>프로세스의 상태</h2><p>프로세스는 총 다섯 가지 상태를 가질 수 있다.</p>
 <ul>
 <li>new :  프로세스가 생성 되었을 때</li>
+<li>ready : 프로세스가 cpu를 할당 받기를 기다리고 있을 때 (준비 완료!)</li>
 <li>running : 명령어들이 실행되고 있을 때</li>
 <li>waiting : 프로세스가 어떤 이벤트가 발생하기를 기다리고 있을 때</li>
-<li>ready : 프로세스가 cpu를 할당 받기를 기다리고 있을 때 (준비 완료!)</li>
 <li>terminated : 프로세스가 종료 되었을 때</li>
 </ul>
 <p><img src="https://user-images.githubusercontent.com/25416425/144817003-230dce48-06b1-488e-898b-d4e028870858.png" alt="image"></p>
@@ -517,7 +518,29 @@
 <li>I/O 요청이 종료되면, 해당 프로세스는 다시 cpu를 점유할 수 있는 상태가 되므로 ready queue에 들어가서 대기한다.</li>
 <li>마지막으로 <code>exit()</code>과 같은 명시적인 종료 시스템 콜이 들어오면, 프로세스는 종료된다. (terminated 상태)</li>
 </ol>
-<h2 id="프로세스-컨트롤-블록"><a href="#프로세스-컨트롤-블록" class="headerlink" title="프로세스 컨트롤 블록"></a>프로세스 컨트롤 블록</h2><p>추가 예정</p>
+<h2 id="프로세스-컨트롤-블록"><a href="#프로세스-컨트롤-블록" class="headerlink" title="프로세스 컨트롤 블록"></a>프로세스 컨트롤 블록</h2><p><strong>프로세스 컨트롤 블록 (Process Control Block, PCB)</strong>은 운영체제가 가지고 있는 프로세스에 대한 정보의 총집합이다.<br>다시 말하면, 운영체제가 프로세스 스케쥴링을 위해 프로세스에 관한 모든 정보를 가지고 있는 데이터베이스를 의미한다.</p>
+<p>각 프로세스가 생성될 때 마다 고유의 PCB가 생성되고, 프로세스가 완료되면 제거된다. 이런 정보 구조체가 실제로 어떻게 쓰일까? 프로세스는 기본적으로 cpu를 점유하여 작업을 처리한다. 그런데, 우리가 앞서 살펴본 process state에 따르면 프로세스가 running 상태에 있더라도 특정 이벤트 혹은 interrupt에 의해 ready나 wait 상태로 바뀐다. 이때 PCB를 활용하여, 방금 전까지 작업한 내용들을 전부 저장해 둔다. 이후 다시 해당 프로세스가 cpu를 점유하게 되면 (running 상태) PCB로부터 해당 정보들을 불러와서 작업을 이어서 진행할 수 있게 된다. </p>
+<p><img src="https://user-images.githubusercontent.com/25416425/145335493-9b5e84a0-0892-4c0f-8a0a-3434f17bd1df.png" alt="image"></p>
+<p>PCB는 위 그림과 같은 구조로 이루어져 있다. 중요한 몇 가지만 짚고 넘어가자.</p>
+<ul>
+<li>프로세스 식별자 (process ID)</li>
+<li>프로세스 상태 (process state) : ready? wait? 이런 상태들을 저장해두어야 한다.</li>
+<li><strong>프로그램 카운터 (program counter, pc)</strong> : 해당 프로세스가 다음에 실행할 명령어의 주소를 가리킨다.</li>
+<li>cpu 및 일반 레지스터</li>
+<li>cpu 스케쥴링 정보 : 최종 실행 시각, 우선 순위, 점유 시간 등등</li>
+<li>메모리 관리 정보 : 해당 프로세스의 주소 공간</li>
+<li>프로세스 계정 정보</li>
+<li>입출력 상태 정보 : 프로세스에 할당돤 입출력장치 목록, 열린 파일 목록 등</li>
+</ul>
+<h2 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h2><ul>
+<li>프로세스란, 실행 중인 프로그램을 뜻함</li>
+<li>프로세스가 필요한 메모리 주소 공간은 text, data, heap, stack이 있음</li>
+<li>ready 상태의 프로세스는 cpu 스케쥴러에 의해 running 상태로 바뀜</li>
+<li>running 상태의 프로세스는 I/O interrupt에 의해 wait 상태로 바뀔 수 있음</li>
+<li>running 상태의 프로세스는 cpu 스케쥴러에 의해 interrupt 되어 다시 ready 상태로 바뀔 수 있음</li>
+<li>PCB는 프로세스의 정보를 담고 있는 데이터베이스임. 프로세스가 스케쥴링되어 바뀔 때 유용하게 사용됨</li>
+<li>특히, 프로그램 카운터 (pc)는 해당 프로세스가 다음에 실행할 명령어의 주소를 저장하고 있음</li>
+</ul>
 
       
     </div>
@@ -874,7 +897,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#프로세스의-정의"><span class="nav-number">1.</span> <span class="nav-text">프로세스의 정의</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#프로세스의-상태"><span class="nav-number">2.</span> <span class="nav-text">프로세스의 상태</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#프로세스-컨트롤-블록"><span class="nav-number">3.</span> <span class="nav-text">프로세스 컨트롤 블록</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#프로세스의-정의"><span class="nav-number">1.</span> <span class="nav-text">프로세스의 정의</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#프로세스의-상태"><span class="nav-number">2.</span> <span class="nav-text">프로세스의 상태</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#프로세스-컨트롤-블록"><span class="nav-number">3.</span> <span class="nav-text">프로세스 컨트롤 블록</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#요약"><span class="nav-number">4.</span> <span class="nav-text">요약</span></a></li></ol></div>
             
 
           </div>
