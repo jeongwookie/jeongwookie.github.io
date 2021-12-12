@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jeongwookie.github.io/"/>
-  <updated>2021-12-08T08:57:21.685Z</updated>
+  <updated>2021-12-12T08:37:25.104Z</updated>
   <id>https://jeongwookie.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>백준 1018번 - 체스판 다시 칠하기</title>
+    <link href="https://jeongwookie.github.io/2021/12/12/programming/codingtest/bruteforce/1-baekjoon-1018/"/>
+    <id>https://jeongwookie.github.io/2021/12/12/programming/codingtest/bruteforce/1-baekjoon-1018/</id>
+    <published>2021-12-12T08:25:37.000Z</published>
+    <updated>2021-12-12T08:37:25.104Z</updated>
+    
+    <content type="html"><![CDATA[<p>코테 풀이들은 대부분 길어서 더보기 클릭을 하지 않으면 보이지 않도록 해당 문구를 추가합니다.</p><a id="more"></a><h2 id="백준-1018-체스판-다시-칠하기"><a href="#백준-1018-체스판-다시-칠하기" class="headerlink" title="백준 1018: 체스판 다시 칠하기"></a>백준 1018: 체스판 다시 칠하기</h2><p>문제 출처 : <a href="https://www.acmicpc.net/problem/1018" rel="external nofollow noopener noreferrer" target="_blank">https://www.acmicpc.net/problem/1018</a><br><img src="https://user-images.githubusercontent.com/25416425/145705691-7056894e-4d24-4251-99e2-a9ab7fb8eea5.png" alt="image"></p><h2 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h2><p>일단 문제를 읽고 체스판 자체를 코드로 구현해야 한다.<br>그리고 체스판을 구성할 수 있는 모든 경우의 수를 다 세어가면서 (브루트 포스) 최소 값을 구하면 되는 문제이다.<br>체스판을 칠할 때, 먼저 8 by 8 체스판을 구성할 수 있는 모든 경우의 수를 파악하고<br>이후 해당 체스판을 픽한 후 그 체스판을 칠할 수 있는 모든 경우의 수를 계산한다.<br>브루트 포스 문제는 모든 경우를 빠지지 않고 검사하였는지 꼼꼼히 따져보는 것이 핵심!!</p><h2 id="문제-풀이"><a href="#문제-풀이" class="headerlink" title="문제 풀이"></a>문제 풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">[플이 논리]</span><br><span class="line"><span class="number">1.</span> <span class="number">8</span> by <span class="number">8</span> 체스판 몇개를 구성할 수 있는지 <span class="keyword">for</span>문을 통해 파악한다.</span><br><span class="line"><span class="number">2.</span> 이 때, 시작점으로 할 수 있는 정사각형의 경우의 수를 세면 편하다.</span><br><span class="line"><span class="number">3.</span> 다 세었다면, 딱 하나의 경우로 fix한 후 그 board를 체스판으로 만들려면 최소 몇개를 칠해야 하는지 계산하는 함수를 구성한다.</span><br><span class="line"><span class="number">4.</span> 체스판으로 만들 수 있는 모든 경우를 세려면, 시작점이 B인 체스판 구성 또는 시작점이 W인 체스판 구성 이렇게 두가지만 세어주면 모든 경우가 커버된다.</span><br><span class="line"><span class="number">5.</span> 해당 경우에 최소 몇번의 정사각형을 칠해야 하는지 각각 세어서 리턴해주면 종료!</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_chess_board</span><span class="params">(i,j)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    starting point : (i,j)</span></span><br><span class="line"><span class="string">    start_white : W로 시작하는 체스판을 구성하는 경우, 칠해야 하는 최소 정사각형 개수</span></span><br><span class="line"><span class="string">    start_black : B로 시작하는 체스판을 구성하는 경우, 칠해야 하는 최소 정사각형 개수</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 초기화</span></span><br><span class="line">    start_white, start_black = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># for loop 으로 보드 전체 탐색</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(i, i+<span class="number">8</span>):</span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> range(j, j+<span class="number">8</span>):</span><br><span class="line">            <span class="keyword">if</span> (x + y) % <span class="number">2</span> == <span class="number">0</span>: <span class="comment"># 징검다리 탐색을 위한 테크닉</span></span><br><span class="line">                <span class="keyword">if</span> board[x][y] == <span class="string">"W"</span>: <span class="comment"># 시작점이 W이면,</span></span><br><span class="line">                    start_black += <span class="number">1</span> <span class="comment"># 시작을 B로 하는 체스판 만들려면 칠해야함</span></span><br><span class="line">                <span class="keyword">else</span>: <span class="comment"># 시작점이 B이면,</span></span><br><span class="line">                    start_white += <span class="number">1</span> <span class="comment"># 시작을 W로 하는 체스판 만들려면 칠해야함</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> board[x][y] == <span class="string">"B"</span>: <span class="comment"># 두번째 칸이 B이면,</span></span><br><span class="line">                    start_black += <span class="number">1</span> <span class="comment"># 시작을 B로 하는 체스판 만들려면 W로 칠해야함</span></span><br><span class="line">                <span class="keyword">else</span>: <span class="comment"># 두번째 칸이 W이면,</span></span><br><span class="line">                    start_white += <span class="number">1</span> <span class="comment"># 시작을 W로 하는 체스판 만들려면 B로 칠해야함</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> start_white, start_black</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">import</span> sys; readline = sys.stdin.readline</span><br><span class="line">    N, M = map(int, readline().split())</span><br><span class="line">    board = []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(N):</span><br><span class="line">        board.append([i <span class="keyword">for</span> i <span class="keyword">in</span> readline().strip()])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 시작점 경우의 수 계산하기</span></span><br><span class="line">    answer = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N<span class="number">-8</span>+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(M<span class="number">-8</span>+<span class="number">1</span>):</span><br><span class="line">            <span class="comment"># 시작점이 (i,j) 인 체스 보드</span></span><br><span class="line">            start_white, start_black = make_chess_board(i,j)</span><br><span class="line">            answer.append(min(start_white, start_black))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 최종적으로 min값 선정</span></span><br><span class="line">    print(min(answer))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;코테 풀이들은 대부분 길어서 더보기 클릭을 하지 않으면 보이지 않도록 해당 문구를 추가합니다.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ⅱ. Programming" scheme="https://jeongwookie.github.io/categories/%E2%85%A1-Programming/"/>
+    
+      <category term="코딩 테스트 문제 풀이" scheme="https://jeongwookie.github.io/categories/%E2%85%A1-Programming/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/"/>
+    
+      <category term="브루트 포스" scheme="https://jeongwookie.github.io/categories/%E2%85%A1-Programming/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4/%EB%B8%8C%EB%A3%A8%ED%8A%B8-%ED%8F%AC%EC%8A%A4/"/>
+    
+    
+      <category term="Python" scheme="https://jeongwookie.github.io/tags/Python/"/>
+    
+      <category term="Codingtest" scheme="https://jeongwookie.github.io/tags/Codingtest/"/>
+    
+      <category term="Baekjoon" scheme="https://jeongwookie.github.io/tags/Baekjoon/"/>
+    
+      <category term="bruteforce" scheme="https://jeongwookie.github.io/tags/bruteforce/"/>
+    
+      <category term="implementation" scheme="https://jeongwookie.github.io/tags/implementation/"/>
+    
+  </entry>
   
   <entry>
     <title>백준 2178번 - 미로 탐색</title>
@@ -524,9 +558,9 @@
     
       <category term="Python" scheme="https://jeongwookie.github.io/tags/Python/"/>
     
-      <category term="Datamining" scheme="https://jeongwookie.github.io/tags/Datamining/"/>
-    
       <category term="WEB Crawling" scheme="https://jeongwookie.github.io/tags/WEB-Crawling/"/>
+    
+      <category term="Datamining" scheme="https://jeongwookie.github.io/tags/Datamining/"/>
     
   </entry>
   
@@ -591,36 +625,6 @@
       <category term="Linux" scheme="https://jeongwookie.github.io/tags/Linux/"/>
     
       <category term="Boot USB" scheme="https://jeongwookie.github.io/tags/Boot-USB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R을 사용한 데이터 시각화 - 3. histogram과 barplot 그리기</title>
-    <link href="https://jeongwookie.github.io/2019/03/25/datascience/visualization/3-data-visualization-using-R-3/"/>
-    <id>https://jeongwookie.github.io/2019/03/25/datascience/visualization/3-data-visualization-using-R-3/</id>
-    <published>2019-03-25T13:23:09.000Z</published>
-    <updated>2021-11-21T11:24:14.003Z</updated>
-    
-    <content type="html"><![CDATA[<p>이번 포스트에서는 Histogram 과 Boxplot 다루어 볼 것이다.</p><p>내장 데이터셋인 <code>cane</code>을 활용하여 먼저 Histogram을 그려보자.</p><p><img src="https://user-images.githubusercontent.com/25416425/58715926-d9c6db80-8402-11e9-986b-85a5cd951f12.png" width="450"></p><a id="more"></a><h2 id="Simple-histogram"><a href="#Simple-histogram" class="headerlink" title="Simple histogram"></a>Simple histogram</h2><p><code>hist()</code> 함수가 기본적으로 내장되어 있다.</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(boot)</span><br><span class="line">head(cane)</span><br><span class="line">ratio &lt;- cane$r/cane$n <span class="comment"># dataset_name$column_name</span></span><br><span class="line">hist(ratio, breaks = <span class="number">20</span>, xlab = <span class="string">"Diseased Shoot Ratio"</span>, </span><br><span class="line">    col = <span class="string">'aquamarine'</span>, main = <span class="string">"Histogram of Diseased Shoot Ratio"</span>)</span><br></pre></td></tr></table></figure><p>코드에서 <code>breaks</code> 옵션은 블록의 크기를 얼마나 잘게 쪼갤지 조절한다.</p><blockquote><p>왼쪽은 breaks = 20, 오른쪽은 breaks = 40 일때</p></blockquote><div style="width:50%; height:450px; float:left;"><br><img src="https://user-images.githubusercontent.com/25416425/58709127-7635b180-83f4-11e9-82b1-f0aa805f3e23.png" width="450"><br></div><div style="width:50%; height:450px; float:right;"><br><img src="https://user-images.githubusercontent.com/25416425/58709161-8fd6f900-83f4-11e9-9694-471d2de5b72f.png" width="450"><br></div><h2 id="ggplot으로-histogram-그리기"><a href="#ggplot으로-histogram-그리기" class="headerlink" title="ggplot으로 histogram 그리기"></a>ggplot으로 histogram 그리기</h2><p>ggplot으로 histogram을 그릴 때는, <code>geom_histogram()</code> 함수를 사용한다.</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(cane, aes(x=r/n, fill=block)) + </span><br><span class="line">  geom_histogram(col=<span class="string">"black"</span>, bins=<span class="number">20</span>) + theme_bw() + </span><br><span class="line">  facet_grid(block ~ .) + xlab(<span class="string">'Diseased Shoot Ratio'</span>) + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>) <span class="comment"># legend를 제거</span></span><br></pre></td></tr></table></figure><p><code>fill</code> 옵션으로 block 별로 다르게 색상을 표시하라고 지정했다.</p><p>히스토그램 내 <code>bins</code> 옵션은 위의 <code>breaks</code>와 동일한 효과이며, <code>facet_grid()</code> 를 활용하여 cane 내의 block 값 별로 분리하여 출력했다.</p><p><img src="https://user-images.githubusercontent.com/25416425/58710078-7df65580-83f6-11e9-8436-e8374169e332.png" width="450"></p><h2 id="Simple-boxplot"><a href="#Simple-boxplot" class="headerlink" title="Simple boxplot"></a>Simple boxplot</h2><p>이번에는 <strong>Boxplot</strong> 을 그려 보자. 주로 그룹 간의 차이를 나타낼 때 사용하며, 꽤나 자주 등장하는 타입이므로 중요하다.</p><p>데이터는 내장 데이터셋인 <code>ToothGrowth</code>를 사용한다. 데이터를 먼저 살펴보자.</p><p><img src="https://user-images.githubusercontent.com/25416425/58710691-de39c700-83f7-11e9-9855-7e041a70ed07.png" width="450"></p><p>기본적으로 <code>boxplot()</code> 함수로 그릴 수 있다.</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># simple boxplot</span></span><br><span class="line">boxplot(len~supp, data=ToothGrowth, xlab=<span class="string">'Supplement Type'</span>, ylab=<span class="string">'Tooth Length'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Boxplot of len against dose and supp factors</span></span><br><span class="line">boxplot(len~supp*dose, data=ToothGrowth, notch=<span class="literal">T</span>, </span><br><span class="line">        xlab=<span class="string">'Suppliment and Dose'</span>, ylab=<span class="string">'Tooth length'</span>, col=c(<span class="string">'cyan'</span>, <span class="string">'magenta'</span>))</span><br></pre></td></tr></table></figure><blockquote><p>왼쪽은 <strong>supp</strong>을 기준으로, 오른쪽은 <strong>supp</strong>와 <strong>dose</strong>를 조합하여 그린 boxplot</p></blockquote><div style="width:50%; height:450px; float:left;"><br><img src="https://user-images.githubusercontent.com/25416425/58710962-759f1a00-83f8-11e9-91ef-d743bce361e4.png" width="450"><br></div><div style="width:50%; height:450px; float:right;"><br><img src="https://user-images.githubusercontent.com/25416425/58710999-894a8080-83f8-11e9-9eec-28b45072b2a1.png" width="450"><br></div><h2 id="ggplot으로-boxplot-그리기"><a href="#ggplot으로-boxplot-그리기" class="headerlink" title="ggplot으로 boxplot 그리기"></a>ggplot으로 boxplot 그리기</h2><p>ggplot으로 boxplot을 그릴 때는, <code>geom_boxplot()</code> 함수를 사용한다.</p><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(ToothGrowth, aes(x=factor(dose), y=len)) +</span><br><span class="line">  geom_boxplot(aes(fill=supp)) +</span><br><span class="line">  xlab(<span class="string">'Dose'</span>) + ylab(<span class="string">'Tooth length'</span>) + ggtitle(<span class="string">'Analyzing ToothGrowth Data'</span>)</span><br></pre></td></tr></table></figure><p>x 값에 우리가 원하는 <code>dose</code>를 넣을 때, 자료형을 num 에서 factor로 바꿔주기 위해서 (category화) <code>factor()</code> 함수를 사용했다.</p><p>boxplot의 색상은 <code>supp</code>에 따라 바뀌도록 <code>fill</code> 옵션을 지정하였다.</p><p><img src="https://user-images.githubusercontent.com/25416425/58711160-d9294780-83f8-11e9-8689-429a08b549be.png" width="450"></p><p>확실히 ggplot으로 그린 그래프들이 전반적으로 깔끔하다. 기본적인 graph 그리기 포스트는 끝!</p><blockquote><p><em>본 포스트는 KAIST 전산학부 대학원 과정에서 수강하고 있는 Big Data Analytics using R (CS564)을 실습하며 작성하였음을 밝힙니다.</em></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;이번 포스트에서는 Histogram 과 Boxplot 다루어 볼 것이다.&lt;/p&gt;
-&lt;p&gt;내장 데이터셋인 &lt;code&gt;cane&lt;/code&gt;을 활용하여 먼저 Histogram을 그려보자.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/25416425/58715926-d9c6db80-8402-11e9-986b-85a5cd951f12.png&quot; width=&quot;450&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ⅰ. Data Science" scheme="https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/"/>
-    
-      <category term="데이터 시각화" scheme="https://jeongwookie.github.io/categories/%E2%85%A0-Data-Science/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94/"/>
-    
-    
-      <category term="R programming" scheme="https://jeongwookie.github.io/tags/R-programming/"/>
-    
-      <category term="Class" scheme="https://jeongwookie.github.io/tags/Class/"/>
-    
-      <category term="KAIST" scheme="https://jeongwookie.github.io/tags/KAIST/"/>
     
   </entry>
   
