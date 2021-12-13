@@ -8,6 +8,46 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2021/11/14/others/diary/11-my-recent-days-in-2021/</loc>
+        <lastmod>2021-12-13T05:07:50.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/07/23/others/diary/10-my-summer-these-days/</loc>
+        <lastmod>2021-12-13T05:07:44.335Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/06/28/others/diary/9-spring-semester-finish/</loc>
+        <lastmod>2021-12-13T05:07:36.666Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/02/03/others/diary/8-find-a-new-hobby/</loc>
+        <lastmod>2021-12-13T05:07:31.688Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2019/01/22/others/diary/7-AI-development-training-course-in-kaist/</loc>
+        <lastmod>2021-12-13T05:06:21.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2021/12/12/programming/codingtest/bruteforce/1-baekjoon-1018/</loc>
         <lastmod>2021-12-12T08:37:25.104Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -42,22 +82,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2021/12/04/computerscience/operatingsystem/2-os-structures-intro/</loc>
         <lastmod>2021-12-06T09:33:31.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/02/03/others/diary/7-find-a-new-hobby/</loc>
-        <lastmod>2021-12-06T09:25:24.605Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2021/11/14/others/diary/8-my-recent-days-in-2021/</loc>
-        <lastmod>2021-12-06T09:25:11.406Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -280,30 +304,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2019/03/14/others/school/3-kschool-2019-fall-admission/</loc>
-        <lastmod>2021-11-21T11:28:21.136Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/01/22/others/school/2-AI-development-training-course-in-kaist/</loc>
-        <lastmod>2021-11-21T11:28:20.468Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2018/09/14/others/school/1-kschool-student/</loc>
-        <lastmod>2021-11-21T11:28:19.669Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/2019/01/17/others/hobby/4-house-remodeling-4/</loc>
         <lastmod>2021-11-21T11:28:16.847Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -386,22 +386,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2018/09/10/others/blog/1-github-blog-image-upload/</loc>
         <lastmod>2021-11-21T11:27:49.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/07/23/others/school/5-my-summer-these-days/</loc>
-        <lastmod>2021-11-21T11:26:34.684Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2019/06/28/others/school/4-spring-semester-finish/</loc>
-        <lastmod>2021-11-21T11:26:17.325Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

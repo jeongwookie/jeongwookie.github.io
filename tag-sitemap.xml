@@ -45,6 +45,13 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/tags/KAIST/</loc>
+        <lastmod>2021-11-21T11:24:14.003Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/tags/Game/</loc>
         <lastmod>2021-11-21T11:27:59.208Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -75,48 +82,6 @@
     <url>
         <loc>https://jeongwookie.github.io/tags/Computer-room/</loc>
         <lastmod>2021-11-21T11:28:16.847Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/IBM-Watson/</loc>
-        <lastmod>2021-11-21T11:28:20.468Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/AI/</loc>
-        <lastmod>2021-11-21T11:28:20.468Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/Chatbot/</loc>
-        <lastmod>2021-11-21T11:28:20.468Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/KAIST-IT-Program/</loc>
-        <lastmod>2021-11-21T11:28:20.468Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/KAIST/</loc>
-        <lastmod>2021-11-21T11:28:21.136Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/tags/K-school/</loc>
-        <lastmod>2021-11-21T11:28:21.136Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -213,13 +178,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
-        <lastmod>2021-12-06T09:25:24.605Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/tags/DFS-BFS/</loc>
         <lastmod>2021-12-08T08:57:21.685Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -271,6 +229,34 @@
     <url>
         <loc>https://jeongwookie.github.io/tags/implementation/</loc>
         <lastmod>2021-12-12T08:37:25.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/IBM-Watson/</loc>
+        <lastmod>2021-12-13T05:06:21.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/AI/</loc>
+        <lastmod>2021-12-13T05:06:21.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Chatbot/</loc>
+        <lastmod>2021-12-13T05:06:21.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/tags/Daily-life/</loc>
+        <lastmod>2021-12-13T05:07:50.169Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
