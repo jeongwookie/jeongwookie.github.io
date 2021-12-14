@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://jeongwookie.github.io/2021/12/13/computerscience/operatingsystem/4-process-scheduling/</loc>
+        <lastmod>2021-12-14T09:00:23.523Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/</loc>
+        <lastmod>2021-12-14T08:48:30.862Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/2021/11/30/computerscience/operatingsystem/1-intro/</loc>
+        <lastmod>2021-12-14T08:40:00.060Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://jeongwookie.github.io/2021/11/14/others/diary/11-my-recent-days-in-2021/</loc>
         <lastmod>2021-12-13T05:07:50.169Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -56,14 +80,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/</loc>
-        <lastmod>2021-12-09T05:12:32.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/2021/12/08/programming/codingtest/dfs%26bfs/3-baekjoon-2178/</loc>
         <lastmod>2021-12-08T08:57:21.685Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -82,14 +98,6 @@
     <url>
         <loc>https://jeongwookie.github.io/2021/12/04/computerscience/operatingsystem/2-os-structures-intro/</loc>
         <lastmod>2021-12-06T09:33:31.966Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/2021/11/30/computerscience/operatingsystem/1-intro/</loc>
-        <lastmod>2021-11-30T07:29:20.857Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

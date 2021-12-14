@@ -103,9 +103,9 @@
 </script>
 
   <meta name="description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
-<meta name="keywords" content="cs,os">
+<meta name="keywords" content="cs,os,process">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS공부 - 프로세스">
+<meta property="og:title" content="OS공부 - 프로세스 정의">
 <meta property="og:url" content="https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/index.html">
 <meta property="og:site_name" content="JW&#39;s Blog">
 <meta property="og:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
@@ -113,9 +113,9 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/144817003-230dce48-06b1-488e-898b-d4e028870858.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/145335493-9b5e84a0-0892-4c0f-8a0a-3434f17bd1df.png">
-<meta property="og:updated_time" content="2021-12-09T05:12:32.603Z">
+<meta property="og:updated_time" content="2021-12-14T08:48:30.862Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OS공부 - 프로세스">
+<meta name="twitter:title" content="OS공부 - 프로세스 정의">
 <meta name="twitter:description" content="프로세스의 정의프로세스 (process) 란, 실행 중인 프로그램을 뜻한다. HDD, SSD와 같은 스토리지에 우리가 작성한 코드 파일이 있을 것이다. 이런 명령어들의 집합으로 구성된 프로그램을 실행시키게 되면 해당 정보들이 메모리에 로드 된다. 해당 프로그램은 이제 cpu가 fetch해서 연산할 수 있는 상태가 되는데, 해당 상태에 있는 프로그램을 프로세">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/25416425/144813252-f2160a8b-923b-4978-ac3f-8b20efcf79bf.png">
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>OS공부 - 프로세스 | JW's Blog</title>
+  <title>OS공부 - 프로세스 정의 | JW's Blog</title>
   
 
 
@@ -393,7 +393,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OS공부 - 프로세스
+          <h1 class="post-title" itemprop="name headline">OS공부 - 프로세스 정의
 
               
             
@@ -499,6 +499,9 @@
 <p>프로세스는 위 그림과 같은 주소 공간을 필요로 하게 된다. text 영역에는 우리가 작성한 프로그램 코드가 들어 있고, data에는 전역 변수가, heap 영역에는 동적으로 할당된 메모리가 들어 있다. C에서는 <code>malloc</code>, Java에서는 <code>new</code>와 같은 코드가 메모리 동적 할당을 수행한다. stack 영역은 임시 데이터 저장 공간이라고 할 수 있는데 여기는 지역 번수, 함수의 매개 변수, 리턴값의 주소 등이 들어 있다. stack 영역은 위에서부터 아래로 커지고, heap 영역은 아래에서 위로 커지는 방식이다. 이렇게 쭉 쌓아오다가 만약 부족해지면 다른 메모리 영역을 참조하기도 한다.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x; <span class="comment">// uninitialized data section</span></span><br><span class="line"><span class="keyword">int</span> y = <span class="number">15</span>; <span class="comment">// initialized data section</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> <span class="comment">// stack section</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *values; <span class="comment">// stack section </span></span><br><span class="line">    <span class="keyword">int</span> i; <span class="comment">// stack section</span></span><br><span class="line"></span><br><span class="line">    values = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*<span class="number">5</span>) <span class="comment">// heap section</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; <span class="number">5</span>; i++) <span class="comment">// text section에서 수행</span></span><br><span class="line">        values[i] = i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 프로그램이 종료되고, 다시 제어권을 os에게 넘겨줌</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위 소스 코드가 우리가 일반적으로 작성하는 형태이고, 이를 컴파일 하여 <code>a.out</code> 이라는 프로그램을 만들 수 있다. 해당 프로그램이 메모리에 로드되면서 각각의 section을 차지하게 되는 이런 일련의 동작을 프로세스 라고 할 수 있겠다. (즉, 실행중인 프로그램!)</p>
+<blockquote>
+<p><strong>프로그램을 실행시키는 방법</strong><br>Load : Disk에 있는 프로그램을 DRAM과 같은 메모리에 프로세스로 적재한다.<br>Dynamic Allocation : 메모리에 적재된 프로그램의 데이터를 위 그림처럼 배치한다.<br>Initialization : 미리 처리되어야 할 file descriptor 및 I/O 를 처리한다.<br>Jump to Entry point : C언어에서는 main() 함수와 같이 시작지점으로 점프한다.</p>
+</blockquote>
 <h2 id="프로세스의-상태"><a href="#프로세스의-상태" class="headerlink" title="프로세스의 상태"></a>프로세스의 상태</h2><p>프로세스는 총 다섯 가지 상태를 가질 수 있다.</p>
 <ul>
 <li>new :  프로세스가 생성 되었을 때</li>
@@ -567,6 +570,8 @@
             <a href="/tags/cs/" rel="tag"># cs</a>
           
             <a href="/tags/os/" rel="tag"># os</a>
+          
+            <a href="/tags/process/" rel="tag"># process</a>
           
         </div>
       
@@ -669,7 +674,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -821,7 +826,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">37</span>
+                      
+                    
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1067,7 +1074,7 @@
   var disqus_config = function() {
     this.page.url = "https://jeongwookie.github.io/2021/12/06/computerscience/operatingsystem/3-what-is-process/";
     this.page.identifier = "2021/12/06/computerscience/operatingsystem/3-what-is-process/";
-    this.page.title = 'OS공부 - 프로세스';
+    this.page.title = 'OS공부 - 프로세스 정의';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');

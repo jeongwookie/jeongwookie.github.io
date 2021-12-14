@@ -113,20 +113,6 @@
     </url>
 
     <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/</loc>
-        <lastmod>2021-12-09T05:12:32.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/Operating-System/</loc>
-        <lastmod>2021-12-09T05:12:32.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A1-Programming/</loc>
         <lastmod>2021-12-12T08:37:25.104Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -157,6 +143,20 @@
     <url>
         <loc>https://jeongwookie.github.io/categories/%E2%85%A9-Others/%EC%9D%BC%EA%B8%B0/</loc>
         <lastmod>2021-12-13T05:07:50.169Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/</loc>
+        <lastmod>2021-12-14T09:00:23.523Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/Operating-System/</loc>
+        <lastmod>2021-12-14T09:00:23.523Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
