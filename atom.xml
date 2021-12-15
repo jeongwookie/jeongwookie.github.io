@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jeongwookie.github.io/"/>
-  <updated>2021-12-14T09:00:23.523Z</updated>
+  <updated>2021-12-15T10:01:39.506Z</updated>
   <id>https://jeongwookie.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OS공부 - 제한적 직접 실행</title>
+    <link href="https://jeongwookie.github.io/2021/12/15/computerscience/operatingsystem/5-limited-direct-execution/"/>
+    <id>https://jeongwookie.github.io/2021/12/15/computerscience/operatingsystem/5-limited-direct-execution/</id>
+    <published>2021-12-15T08:47:11.000Z</published>
+    <updated>2021-12-15T10:01:39.506Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><em>본 포스팅부터 Remzi 교수님의 <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" rel="external nofollow noopener noreferrer" target="_blank">Operating Systems: Three Easy Pieces</a>로 교재를 갈아탑니다.</em></p></blockquote><h2 id="Limited-Direct-Execution"><a href="#Limited-Direct-Execution" class="headerlink" title="Limited Direct Execution"></a>Limited Direct Execution</h2><p>cpu를 가상화 하기 위해, 우리는 시분할 (time-sharing) 아이디어를 도입했다. 한 프로세스를 잠시 동안 실행하고, 다른 프로세스를 또 잠깐 실행하고, 이런식으로 계속해서 잠깐씩 실행시키면 된다. 그런데 여기에는 두가지 문제점이 있다.</p><ul><li>성능 저하 : 계속 process를 바꾸는 것은 시스템에 과중한 overhead를 줄 수 있어, 이것은 성능 저하로 이어진다.</li><li>제어 문제 : cpu에 대한 제어를 유지하면서 process를 효율적으로 실행해야 한다. 그렇지 않으면 한 프로세스가 영원히 실행되거나, 접근해서는 안되는 정보에 접근할 수 있다.</li></ul><p>어떻게 하면 cpu 가상화를 성능과 제어를 유지하면서 구현할 수 있을까? 본 포스트에서는 위의 두 문제를 해결하는 기법인 <strong>제한적 직접 실행 (Limited Direct Execution)</strong>에 대해서 알아볼 것이다.</p><a id="more"></a><h2 id="기본-원리"><a href="#기본-원리" class="headerlink" title="기본 원리"></a>기본 원리</h2><p>Limited 라는 단어를 제외한 Direct Execution은 말 그대로 프로그램을 cpu상에서 직접 실행하는 것을 의미한다.<br>운영체제는 PCB에 해당하는 메모리에 정보들을 탑재하고, main()을 실행한다. 이 때, 프로그램은 한번 수행되면 종료될 때 까지 수행된다. 그러므로, 앞서 언급한 cpu 가상화를 구현할 수가 없다..!! 한번 실행된 프로세스에 대해서 제어권이 없으며, 다른 프로세스를 번갈아가면서 수행하는 time-sharing도 할 수 없다 ㅠㅠ<br>그러므로, 프로그램 실행에 제한을 두지 않으면 (limited) 안된다는 결론에 도달했다. 어떤 식으로 제한을 두어서 위의 문제점들을 해결할 수 있을지 알아보자.</p><h3 id="문제점-1-제한된-연산"><a href="#문제점-1-제한된-연산" class="headerlink" title="문제점 1: 제한된 연산"></a>문제점 1: 제한된 연산</h3><p>직접 실행의 장점은 빠르게 실행된다는 것이다. 그러나 프로그램 실행 도중에 disk에 I/O 요청을 한다거나 Memory를 더 할당받고 싶을 때 이를 해결할 수 없다. 또한, 프로세스가 악의적인 코드를 실행하더라도 운영체제는 해당 프로세스에 cpu 제어권을 넘겨줬기 때문에 이를 막을 방법이 없다.. 이를 어떻게 해결하면 좋을까?</p><p>그냥 프로세스가 하고싶은 대로 하라고 방치하면, 위의 문제 상황 중 일부는 해결할 수 있을 것이다.. 그러나 프로세스의 권한을 제한할 수 없어 disk에 대한 보호 기능이 완전히 상실되게 된다.</p><p>이러한 문제 때문에 실제로 도입된 방법은 위의 방법이 아니다. 바로 <strong>사용자 모드 (user mode)</strong>와 <strong>커널 모드 (kernel mode)로</strong> 실행 모드를 구별하는 것이다. 사용자 모드에서는 할 수 있는 일이 제한되어 있다. 예를 들어 응용 프로그램은 하드웨어 자원에 대한 접근 권한이 제한되어 있고, 이를 넘어서는 코드가 실행된다면 프로세스는 곧바로 예외를 발생시켜 운영체제에게 해당 사실을 알려준다. 운영체제는 해당 프로세스를 제거해버린다.<br>커널 모드에서는 운영체제의 중요한 코드들이 실행된다. 컴퓨터의 모든 자원에 대한 접근 권한을 가지고 있다. 그래서 해당 모드에서는 원하는 모든 작업을 수행할 수 있다.</p><p>만약 사용자 프로세스가 disk I/O와 같은 특권 명령어를 실행하고 싶을때는 어떻게 하면 될까? 이러한 제한 작업의 실행을 허용하기 위해 <strong>시스템 콜 (System call)</strong>이 도입되었다. 시스템 콜은 유저 모드 프로세스에게 커널 모드에서 수행가능한 작업을 수행할 수 있도록 OS가 제공하는 API라고 이해하면 된다. 시스템 콜이 실행되면, <code>trap</code>이라는 특수 명령어가 실행 되고 이는 모드를 커널 모드로 전환한다. 그리고 커널 모드에서 유저 프로세스가 요청한 특정한 작업을 처리한다. 이후 운영체제는 <code>return-from-trap</code>이라는 특수 명령어를 호출하여 다시 모드를 원래 모드인 유저 모드로 전환한다.</p><p><code>trap</code> 명령어가 실행될때를 좀 더 자세하게 알아보자. 해당 명령이 수행되면, 프로세스는 program counter, flags, register 정보 등을 각 프로세스의 커널 스택에 저장한다. 나중에 다시 유저 모드로 돌아왔을 때 프로세스를 제대로 리턴해야 하기 때문이다. 커널 모드에서의 작업이 마무리되면 <code>return-from-trap</code>가 호출되는데, 이때 아까 커널 스택에 저장해둔 정보들을 pop 하여 모두 제거한다.</p><blockquote><p><em>Q. trap 명령어가 실행되면, 운영체제의 어떤 코드를 실행할지 어떻게 알까?</em><br><em>운영체제가 trap을 처리하기 위해서 <strong>trap table</strong>을 사용한다. 이 테이블은 부팅 시에 초기화가 이루어지며, 소프트웨어적 사건들을 처리하기 위한 함수 (trap handler) 들이 들어 있다. 각 함수에는 시스템 콜 넘버 (system call number)라는 번호가 정의되어 있고, 운영체제만 해당 위치를 기억 하고 있다. 이제 유저 프로세스가 trap 명령어를 호출하면, 전달 받은 시스템 콜 번호를 확인한 후 유효한 경우 이를 테이블에서 검색 후 실행한다. (사용자 프로그램은 시스템 콜의 위치를 모른다! 일종의 보안 기법이다.)</em></p></blockquote><p><img src="https://user-images.githubusercontent.com/25416425/146164998-89dc44a9-81b0-4ff8-9fdc-80c6a20791bd.png" alt="image"></p><h3 id="문제점-2-프로세스-간-전환"><a href="#문제점-2-프로세스-간-전환" class="headerlink" title="문제점 2: 프로세스 간 전환"></a>문제점 2: 프로세스 간 전환</h3><p>이후 서술</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;본 포스팅부터 Remzi 교수님의 &lt;a href=&quot;https://pages.cs.wisc.edu/~remzi/OSTEP/&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Operating Systems: Three Easy Pieces&lt;/a&gt;로 교재를 갈아탑니다.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Limited-Direct-Execution&quot;&gt;&lt;a href=&quot;#Limited-Direct-Execution&quot; class=&quot;headerlink&quot; title=&quot;Limited Direct Execution&quot;&gt;&lt;/a&gt;Limited Direct Execution&lt;/h2&gt;&lt;p&gt;cpu를 가상화 하기 위해, 우리는 시분할 (time-sharing) 아이디어를 도입했다. 한 프로세스를 잠시 동안 실행하고, 다른 프로세스를 또 잠깐 실행하고, 이런식으로 계속해서 잠깐씩 실행시키면 된다. 그런데 여기에는 두가지 문제점이 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;성능 저하 : 계속 process를 바꾸는 것은 시스템에 과중한 overhead를 줄 수 있어, 이것은 성능 저하로 이어진다.&lt;/li&gt;
+&lt;li&gt;제어 문제 : cpu에 대한 제어를 유지하면서 process를 효율적으로 실행해야 한다. 그렇지 않으면 한 프로세스가 영원히 실행되거나, 접근해서는 안되는 정보에 접근할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;어떻게 하면 cpu 가상화를 성능과 제어를 유지하면서 구현할 수 있을까? 본 포스트에서는 위의 두 문제를 해결하는 기법인 &lt;strong&gt;제한적 직접 실행 (Limited Direct Execution)&lt;/strong&gt;에 대해서 알아볼 것이다.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ⅲ. CS Study" scheme="https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/"/>
+    
+      <category term="Operating System" scheme="https://jeongwookie.github.io/categories/%E2%85%A2-CS-Study/Operating-System/"/>
+    
+    
+      <category term="cs" scheme="https://jeongwookie.github.io/tags/cs/"/>
+    
+      <category term="os" scheme="https://jeongwookie.github.io/tags/os/"/>
+    
+      <category term="process" scheme="https://jeongwookie.github.io/tags/process/"/>
+    
+  </entry>
   
   <entry>
     <title>OS공부 - 프로세스 스케쥴링</title>
@@ -591,38 +627,6 @@
       <category term="WEB Crawling" scheme="https://jeongwookie.github.io/tags/WEB-Crawling/"/>
     
       <category term="Datamining" scheme="https://jeongwookie.github.io/tags/Datamining/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Server Setting - 고정 ip 없이 주피터(jupyter) 원격 접속 설정하기</title>
-    <link href="https://jeongwookie.github.io/2019/05/23/server/2-ubuntu-jupyter-notebook-remote/"/>
-    <id>https://jeongwookie.github.io/2019/05/23/server/2-ubuntu-jupyter-notebook-remote/</id>
-    <published>2019-05-23T03:36:42.000Z</published>
-    <updated>2021-11-21T11:46:23.346Z</updated>
-    
-    <content type="html"><![CDATA[<p>오늘은 머신러닝과 데이터 사이언스 분야에서 거의 필수적으로 사용하고 있는 주피터 (Jupyter notebook)를 원격으로 접속할 수 있도록 세팅해 보겠다.</p><p>이 과정은 동일한 ip를 사용중인 wifi 환경에서 벗어난 (예를 들어 카페나 학교 등) 곳에서도 집에 있는 서버를 접속하여 편안한 코딩을 할 수 있도록 하기 위함이다.</p><p>셋팅은 Ubuntu 18.04 기준으로 진행하였다.</p><a id="more"></a><h2 id="공유기-설정하기"><a href="#공유기-설정하기" class="headerlink" title="공유기 설정하기"></a>공유기 설정하기</h2><p>먼저, 주피터 노트북을 원격으로 접속하려면 서버가 있는 환경의 고정 ip가 필요하다.</p><p>마치 택배를 배송받을 집 주소가 있어야 하는 것인데, 일반적으로 학교나 연구실, 회사가 아닌 이상 고정 ip가 아닌 유동 ip를 사용한다.</p><p>쉽게 말하면, 우리집 주소가 계속 바뀐다는 것. 이러면 제대로 찾아갈 수가 없다..</p><p>그래서 먼저 <strong>DDNS</strong> 라는 기능을 제공하는 공유기를 준비하여 우리의 유동 ip와 특정 문자열을 연결시킬 것이다.</p><p>택배 회사와 계약해서 ‘정욱이네’ 로 물건을 배송해 주세요~ 하면 우리집으로 배송되는 것과 비슷하다.</p><p>하지만 그 전에 집에 있는 공유기가 DDNS 기능을 제공하는지 검색해서 확인해보자.</p><p>아니라면 새로 하나 장만하기를 추천한다. 세팅이 가장 쉬운 것은 iptime 공유기이다.</p><p>다나와에서 아래와 같이 검색하면 쉽게 제품을 확인할 수 있다. 나는 마침 굴러다니는 12,900원짜리 iptime N702R 공유기가 있어 이것을 사용했다.</p><p><img src="https://user-images.githubusercontent.com/25416425/58224546-2baf9780-7d59-11e9-86d0-cdd5f5e9d578.png" width="600"></p><h3 id="DDNS-설정-진입"><a href="#DDNS-설정-진입" class="headerlink" title="DDNS 설정 진입"></a>DDNS 설정 진입</h3><p>iptime 공유기 설정을 위해 192.168.0.1로 접속한다. 기본 아이디 비밀번호는 admin으로 동일하다. 혹시 비밀번호를 설정했는데 잊어버렸다면 공유기 reset 버튼을 꾹 눌러서 초기화하자.</p><p>접속해서 관리 설정을 누르면 아래와 같은 화면이 보일 것이다.</p><p><img src="https://user-images.githubusercontent.com/25416425/58224807-17b86580-7d5a-11e9-9d38-2fdd1d88e13d.png" width="600"></p><p>여기서 고급 설정 -&gt; 특수 기능 -&gt; <strong>DDNS 설정</strong> 으로 들어간다.</p><p>호스트 이름은 원하는 것으로 자유롭게 입력한다. 이 주소로 서버에 접속할 것이다.</p><p>사용자 아이디는 자주 사용하는 메일을 입력하고 (예시 : <a href="mailto:OOO@gmail.com" rel="external nofollow noopener noreferrer" target="_blank">OOO@gmail.com</a>)</p><p>오른쪽에 보이는 보안문자를 입력 후 DDNS 등록을 누르면 끝!</p><p><img src="https://user-images.githubusercontent.com/25416425/58224946-b8a72080-7d5a-11e9-8bd3-97751756093d.png" width="600"></p><p>아래에 등록 IP 주소가 나오는데, 이것으로 외부에서 접속이 가능하게 한다. 방금 전 입력하였던 호스트 이름으로도 접속이 가능하다.</p><h3 id="포트포워딩-설정"><a href="#포트포워딩-설정" class="headerlink" title="포트포워딩 설정"></a>포트포워딩 설정</h3><p>이번에는 포트포워딩 설정을 해보자. 특정 포트를 열고, 아까 전 설정한 DDNS 으로 등록된 ip 주소와 함께 입력하면 그것이 완전한 우리 서버의 주소이다. 등록된 ip는 전체 주소, 특정 포트 번호는 상세 주소라고 생각하면 된다.</p><p>고급 설정 -&gt; NAT/라우터 관리 -&gt; <strong>포트포워드 설정</strong> 으로 들어간다.</p><p>적당한 규칙 이름을 지정하고, 내부 ip 주소는 현재 세팅하고 있는 서버의 주소를 입력하면 된다. 현재 접속된 IP 주소를 체크하여도 괜찮다.</p><p>프로토콜은 TCP로 하고, 외부 포트 및 내부 포트 번호를 모두 3389로 입력한다. (기본)</p><p><img src="https://user-images.githubusercontent.com/25416425/58225218-fce6f080-7d5b-11e9-913e-93ddf12bc6ed.png" width="600"></p><p>여기까지 진행한 내용을 간단히 정리해 보면,</p><p>외부에서 서버에 접속할 때 DDNS 설정 시 입력하였던 적당한 호스트 이름 주소 (OOO.iptime.org) 및 포트번호 (3389)를 입력하면, 포트포워딩을 설정한 내부 ip + 해당 포트(3389) 로 접속되는 것이다.</p><h3 id="공유기-설정-접속-관리"><a href="#공유기-설정-접속-관리" class="headerlink" title="공유기 설정 접속 관리"></a>공유기 설정 접속 관리</h3><p>마지막으로, 외부에서도 서버에 연결된 공유기의 설정을 변경하고 싶을때를 대비하여 세팅을 해보자.</p><p>고급 설정 -&gt; 보안 기능 -&gt; <strong>공유기 접속/보안관리</strong> 로 들어간다.</p><p>외부 접속 보안에서 <strong>[원격 관리 포트 사용]</strong> 을 체크하고, 적당한 포트 번호를 입력한다. (예시: 1234)</p><p>적용 버튼을 누르면 끝! 이제 외부에서 공유기를 설정하고 싶을 때는 <strong>OOO.iptime.org:1234</strong> 로 접속하면 된다.</p><p><img src="https://user-images.githubusercontent.com/25416425/58225493-39671c00-7d5d-11e9-8b2c-35e3264e9df8.png" width="600"></p><p>그리고 공유기를 혹시 초기화 하였다면 공유기 자체의 무선 비밀번호 또한 초기화 되어 있을 것이므로, 기본 설정에서 각자 세팅해 주자.</p><h2 id="우분투에서-포트-열기"><a href="#우분투에서-포트-열기" class="headerlink" title="우분투에서 포트 열기"></a>우분투에서 포트 열기</h2><p>전반적인 공유기 설정은 완료되었다. 이제 주피터를 설정해야 하는데, 그 전에 아까 전 입력했던 포트를 우분투에서 열어놓자.</p><p>터미널을 열고, 아래와 같은 코드를 순차적으로 입력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3389 포트 오픈</span></span><br><span class="line">sudo iptables -I INPUT <span class="number">1</span> -p tcp --dport <span class="number">3389</span> -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 포트가 열렸는지 확인</span></span><br><span class="line">sudo iptables -L -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3389 포트의 방화벽 해제</span></span><br><span class="line">sudo ufw allow <span class="number">3389</span></span><br></pre></td></tr></table></figure><h2 id="주피터-노트북-설정하기"><a href="#주피터-노트북-설정하기" class="headerlink" title="주피터 노트북 설정하기"></a>주피터 노트북 설정하기</h2><h3 id="비밀번호-설정"><a href="#비밀번호-설정" class="headerlink" title="비밀번호 설정"></a>비밀번호 설정</h3><p>먼저 주피터 노트북의 설정 파일을 만들고, 이를 우리의 세팅으로 수정할 것이다.</p><p>우분투 터미널을 켜고, 아래와 같은 코드를 순차적으로 입력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda activate ds_fox <span class="comment"># 나의 가상 환경 activate</span></span><br><span class="line">jupyter notebook –generate-config <span class="comment"># 주피터 설정 파일 만들기</span></span><br><span class="line">ipython</span><br><span class="line"><span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line">passwd()</span><br></pre></td></tr></table></figure><p><code>passwd()</code> 을 입력하면 아래에 패스워드를 입력하라고 뜨는데, 이것이 차후 주피터 서버에 접속할 때 요구하는 자신만의 비밀번호이다.</p><p>입력을 완료하면 Output으로 <code>sha1:----</code> 이런 형태의 긴 암호화된 문자열이 출력되는데, <strong>반드시 어딘가에 복사/붙여넣기 를 해놓도록 하자.</strong></p><p><img src="https://user-images.githubusercontent.com/25416425/58225860-09207d00-7d5f-11e9-8b05-e3de12559791.png" width="600"></p><h3 id="주피터-환경-설정"><a href="#주피터-환경-설정" class="headerlink" title="주피터 환경 설정"></a>주피터 환경 설정</h3><p>이제, 아까 만든 주피터 설정 파일을 vi 편집기로 열어서 수정할 것이다. 아래와 같은 코드를 입력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config file 열기</span></span><br><span class="line"><span class="comment"># jeongwook 자리에는 username 을 입력할 것</span></span><br><span class="line">vi /home/jeongwook/.jupyter/jupyter_notebook_config.py</span><br></pre></td></tr></table></figure><p>입력하면 vi 편집기가 열릴 것이다. 처음 다루는 사람이라면 조금 어려울 수 있지만 간단한 규칙 몇가지만 알면 삽질을 피할 수 있을 것이다.</p><ol><li>방향키를 함부로 누르지 말것. 항상 <strong>ctrl 키</strong>를 누른 채로 움직인다.</li><li>명령어를 입력하고 싶으면 <strong>esc 키</strong>를 한번 누른 후 : 을 입력할 것</li><li>코드를 추가하고 싶을 때는 <strong>i (커서 오른쪽 시작)</strong> or <strong>a (커서 왼쪽 시작)</strong> 을 한번 누르고 입력할 것</li><li>코드를 수정하고 싶을 때는 backspace 키가 아닌 <strong>delete 키</strong>를 사용할 것</li></ol><p>이정도면 따로 찾아보지 않아도 대충은 코드 입력/수정이 가능하지 않을까 싶다.</p><p>이제 차례대로 수정해보자. 순서대로 입력하면 된다.</p><p><strong>a. 비밀번호 등록</strong></p><p><code>:/pp.pass/</code> 명령어를 입력하여 <strong>password</strong> 가 있는 위치를 찾는다. 찾으면 주석 아래에 코드를 입력한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = get_config()</span><br><span class="line">c.NotebookApp.password = u‘내비밀번호붙여넣기’ <span class="comment"># sha1:--- 붙여넣기</span></span><br></pre></td></tr></table></figure><p><strong>b. 외부 접속 허용</strong></p><p><code>:/pp.allow/</code> 를 입력 후 대충 위쪽을 보면 <code>#c.NotebookApp.alloworigin = &#39;&#39;</code> 이런 주석이 있다. 바로 아래에다가 코드를 추가한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.allow_origin = ‘*’</span><br></pre></td></tr></table></figure><p><strong>c. 아이피 설정</strong></p><p><code>:/pp.ip/</code> 로 <strong>ip</strong> 가 있는 위치를 찾고, 주석 아래에 추가한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip = <span class="string">'192.168.0.2'</span> <span class="comment"># DDNS 설정 시 입력했던 내부 ip주소</span></span><br></pre></td></tr></table></figure><p><strong>d. 포트 설정</strong></p><p><code>:/pp.port/</code> 로 <strong>port</strong> 가 있는 위치를 찾고, 주석 아래에 열어놓은 포트 번호를 추가한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.port = <span class="number">3389</span></span><br></pre></td></tr></table></figure><p><strong>e. 시작 시 브라우저 실행 여부</strong></p><p><code>:/pp.op/</code> 로 <strong>open</strong> 이 있는 위치를 찾고, 주석 아래에 추가한다.</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.open_browser = <span class="literal">False</span></span><br></pre></td></tr></table></figure><p>차례대로 주피터 설정 파일을 수정하고, 명령어 <code>:wq</code> 를 입력하여 저장하고 밖으로 나온다.</p><p>이것으로 주피터 외부 접속 환경설정이 끝났다.</p><p>잘 설정되었는지 확인해 보려면, 서버 컴퓨터에서 <code>jupyter notebook</code>을 입력해서 서버를 켠 후, 다른 외부망을 사용중인 PC에서 <strong>OOO.iptime.org:3389</strong> 를 입력해 보면 된다.</p><p>아래와 같은 창이 뜨면 성공!!</p><p><img src="https://user-images.githubusercontent.com/25416425/58226511-e6439800-7d61-11e9-97aa-e1e3dc6207e2.png" width="600"></p><p><em>세팅하는데 참고한 블로그들</em><br><em><a href="https://light-tree.tistory.com/111" rel="external nofollow noopener noreferrer" target="_blank">https://light-tree.tistory.com/111</a></em><br><em><a href="https://breath91.tistory.com/" rel="external nofollow noopener noreferrer" target="_blank">https://breath91.tistory.com/</a></em><br><em><a href="https://ironmask.net/354" rel="external nofollow noopener noreferrer" target="_blank">https://ironmask.net/354</a></em><br><em><a href="https://linguist79.tistory.com/45" rel="external nofollow noopener noreferrer" target="_blank">https://linguist79.tistory.com/45</a></em></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;오늘은 머신러닝과 데이터 사이언스 분야에서 거의 필수적으로 사용하고 있는 주피터 (Jupyter notebook)를 원격으로 접속할 수 있도록 세팅해 보겠다.&lt;/p&gt;
-&lt;p&gt;이 과정은 동일한 ip를 사용중인 wifi 환경에서 벗어난 (예를 들어 카페나 학교 등) 곳에서도 집에 있는 서버를 접속하여 편안한 코딩을 할 수 있도록 하기 위함이다.&lt;/p&gt;
-&lt;p&gt;셋팅은 Ubuntu 18.04 기준으로 진행하였다.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ⅴ. DevEnv" scheme="https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/"/>
-    
-      <category term="Jupyter" scheme="https://jeongwookie.github.io/categories/%E2%85%A4-DevEnv/Jupyter/"/>
-    
-    
-      <category term="Server setting" scheme="https://jeongwookie.github.io/tags/Server-setting/"/>
-    
-      <category term="Ubuntu" scheme="https://jeongwookie.github.io/tags/Ubuntu/"/>
-    
-      <category term="Linux" scheme="https://jeongwookie.github.io/tags/Linux/"/>
-    
-      <category term="Jupyter notebook" scheme="https://jeongwookie.github.io/tags/Jupyter-notebook/"/>
     
   </entry>
   
