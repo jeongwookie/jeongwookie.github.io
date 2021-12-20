@@ -372,6 +372,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongwook, Kim">
+      <meta itemprop="description" content="Love code, travel, and game">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JW's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/" class="post-title-link" itemprop="url">OS공부 - 스케쥴링 정책</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-12-20 16:45:46" itemprop="dateCreated datePublished" datetime="2021-12-20T16:45:46+09:00">2021-12-20</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅲ-CS-Study/" itemprop="url" rel="index"><span itemprop="name">Ⅲ. CS Study</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅲ-CS-Study/Operating-System/" itemprop="url" rel="index"><span itemprop="name">Operating System</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/20/computerscience/operatingsystem/6-scheduling-policy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="몇-가지-가정"><a href="#몇-가지-가정" class="headerlink" title="몇 가지 가정"></a>몇 가지 가정</h3><p>프로세스가 동작하는 일련의 행위를 워크로드 (workload) 라고 한다. 프로세스 스케쥴링을 이해하기 위해, 먼저 현실과는 동떨어진 워크로드를 가정하고 해당 가정들을 하나하나 제거할 수 있는 스케쥴링 정책들을 알아볼 것이다.</p>
+<ul>
+<li>모든 작업은 같은 시간 동안 실행 된다.</li>
+<li>모든 작업은 동시에 도착한다.</li>
+<li>작업은 일단 시작하면 최종적으로 종료될 때 까지 실행된다.</li>
+<li>모든 작업은 CPU만 사용하며, 입출력을 수행하지 않는다.</li>
+<li>각 작업의 실행 시간은 사전에 알려져 있다.</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2021/12/15/computerscience/operatingsystem/5-limited-direct-execution/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2050,189 +2240,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2021/11/14/others/diary/11-my-recent-days-in-2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeongwook, Kim">
-      <meta itemprop="description" content="Love code, travel, and game">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/25416425/59519549-10245080-8f03-11e9-9a48-21e99af119f3.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JW's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2021/11/14/others/diary/11-my-recent-days-in-2021/" class="post-title-link" itemprop="url">2021년의 근황</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2021-11-14 21:14:29" itemprop="dateCreated datePublished" datetime="2021-11-14T21:14:29+09:00">2021-11-14</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅹ-Others/" itemprop="url" rel="index"><span itemprop="name">Ⅹ. Others</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ⅹ-Others/일기/" itemprop="url" rel="index"><span itemprop="name">일기</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/2021/11/14/others/diary/11-my-recent-days-in-2021/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/14/others/diary/11-my-recent-days-in-2021/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>블로그를 오랜만에 접속했습니다.<br>18년도에 블로그를 만들었을 때, 꾸준히 한달에 한번이라도 글을 쓰자 생각했었는데 지켜지지 않았네요 ㅠ.ㅠ<br>2020년의 나와 현재의 나를 비교하면서 되돌아보니 생각보다 이것저것 바뀐 것이 있습니다. 물론 시간이 너무 빨리 지나가는 것 같은 생각은 항상 하지만요.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2021/11/14/others/diary/11-my-recent-days-in-2021/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2281,7 +2288,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
