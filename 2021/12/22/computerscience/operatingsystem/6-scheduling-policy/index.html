@@ -106,13 +106,15 @@
 <meta name="keywords" content="cs,os,process">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS공부 - 스케쥴링 정책">
-<meta property="og:url" content="https://jeongwookie.github.io/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/index.html">
+<meta property="og:url" content="https://jeongwookie.github.io/2021/12/22/computerscience/operatingsystem/6-scheduling-policy/index.html">
 <meta property="og:site_name" content="JW&#39;s Blog">
 <meta property="og:description" content="몇 가지 가정프로세스가 동작하는 일련의 행위를 워크로드 (workload) 라고 한다. 프로세스 스케쥴링을 이해하기 위해, 먼저 현실과는 동떨어진 워크로드를 가정하고 해당 가정들을 하나하나 제거할 수 있는 스케쥴링 정책들을 알아볼 것이다.  모든 작업은 같은 시간 동안 실행 된다. 모든 작업은 동시에 도착한다. 작업은 일단 시작하면 최종적으로 종료될 때 까">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/146739771-ff093d78-1c64-4a60-83a4-7c9d8a090be0.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/25416425/146740877-41afc472-170d-4151-9f7f-ac73a83f630c.png">
-<meta property="og:updated_time" content="2021-12-20T09:18:56.774Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/147050944-d76996ac-fbfe-4634-9a3b-5637f73a5e66.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25416425/147054603-22495c65-09a2-4e9f-b017-0e354e15e911.png">
+<meta property="og:updated_time" content="2021-12-22T07:54:51.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS공부 - 스케쥴링 정책">
 <meta name="twitter:description" content="몇 가지 가정프로세스가 동작하는 일련의 행위를 워크로드 (workload) 라고 한다. 프로세스 스케쥴링을 이해하기 위해, 먼저 현실과는 동떨어진 워크로드를 가정하고 해당 가정들을 하나하나 제거할 수 있는 스케쥴링 정책들을 알아볼 것이다.  모든 작업은 같은 시간 동안 실행 된다. 모든 작업은 동시에 도착한다. 작업은 일단 시작하면 최종적으로 종료될 때 까">
@@ -125,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://jeongwookie.github.io/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/">
+  <link rel="canonical" href="https://jeongwookie.github.io/2021/12/22/computerscience/operatingsystem/6-scheduling-policy/">
 
 
 
@@ -375,7 +377,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/">
+    <link itemprop="mainEntityOfPage" href="https://jeongwookie.github.io/2021/12/22/computerscience/operatingsystem/6-scheduling-policy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeongwook, Kim">
@@ -418,7 +420,7 @@
                 
               
 
-              <time title="Created: 2021-12-20 16:45:46" itemprop="dateCreated datePublished" datetime="2021-12-20T16:45:46+09:00">2021-12-20</time>
+              <time title="Created: 2021-12-22 16:45:46" itemprop="dateCreated datePublished" datetime="2021-12-22T16:45:46+09:00">2021-12-22</time>
             
 
             
@@ -462,8 +464,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/20/computerscience/operatingsystem/6-scheduling-policy/" itemprop="commentCount"></span>
+                <a href="/2021/12/22/computerscience/operatingsystem/6-scheduling-policy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/22/computerscience/operatingsystem/6-scheduling-policy/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -523,7 +525,16 @@
 <li>평균 반환 시간은 <strong>110초</strong>이고, 평균 응답 시간은 70초이다.</li>
 </ul>
 <p>이제 FCFS 알고리즘의 단점이 명확하게 보인다. 위의 예시처럼 시간이 많이 필요한 작업이 먼저 수행되면, 빨리 끝날 수 있었던 작업들이 한없이 기다린다. 그래서 결과적으로 평균 반환 시간이 심각한 수준으로 증가한다. 이러한 현상을 <strong>convoy effect</strong>라고 한다. 유튜브에서 해당 현상을 설명한 영상을 보았는데, 일명 똥차 효과라고 하더라. 똥차가 앞에서 길막고 있으면 뒤에 아무리 슈퍼카가 있어도 못지나간다는..ㅋㅋㅋ 대형마트에서도 이런 현상이 벌어진다. 나는 생수 한병 살려고 하는데 내 앞에 한 3일치 식량을 사는 분이 계시다면 ㅠㅠ 한병은 금방 계산해서 나갈 수 있는건데 계속 기다려야 하기에 효율성에서 문제가 생기겠지?</p>
-<h3 id="최단-우선-작업-알고리즘"><a href="#최단-우선-작업-알고리즘" class="headerlink" title="최단 우선 작업 알고리즘"></a>최단 우선 작업 알고리즘</h3><p>최단 우선 작업 (Shortest Job First, SJF) 알고리즘은 위 convoy effect를 간단하게 해결하는 알고리즘이다.<br>계속 작성할 계획…</p>
+<h3 id="최단-우선-작업-알고리즘"><a href="#최단-우선-작업-알고리즘" class="headerlink" title="최단 우선 작업 알고리즘"></a>최단 우선 작업 알고리즘</h3><p>최단 우선 작업 (Shortest Job First, SJF) 알고리즘은 위 convoy effect를 간단하게 해결하는 알고리즘이다. 이름을 보고 바로 동작 원리를 이해할 수 있는데, <u>가장 짧은 실행 시간을 가진 작업을 먼저 실행시키는 것이다.</u> 위의 convoy effect가 발생한 예시를 해당 알고리즘으로 다시 돌려보자.</p>
+<p><img src="https://user-images.githubusercontent.com/25416425/147050944-d76996ac-fbfe-4634-9a3b-5637f73a5e66.png" alt="image"></p>
+<p>SJF 알고리즘은 위와 같이 실행 시간이 짧은 작업 B와 C를 먼저 실행시킨 후, 실행 시간이 긴 작업 A를 실행한다. 각 작업의 반환 시간과 응답 시간을 구한 후 평균을 구해보면, 평균 반환 시간은 <strong>50초</strong>, 평균 응답 시간은 <strong>10초</strong>이다. 똑같은 상황에서 월등한 성능 향상을 보이고 있다..!!</p>
+<p>모든 작업이 동시에 도착한다면, SJF는 최적의 스케쥴링 알고리즘이다. 하지만 해당 가정은 우리가 위에서 두번째로 가정한 워크로드로, 매우 비현실적이다. 이를 제거해 보면 SJF의 단점이 바로 보인다. 위의 예시와 동일한데 작업 A가 작업 B, C보다 일찍 도착했다고 가정해 보자. 작업 B와 C가 도착하였을 때는 이미 작업 A가 cpu를 점유하고 있다. 작업 A는 완료될 때 까지 수행되므로 B와 C는 SJF 알고리즘을 적용하였음에도 계속 기다려야한다. 앞의 FCFS 알고리즘처럼 convoy effect가 다시 발생하는 것이다. </p>
+<p>FCFS 알고리즘과 SJF 알고리즘 모두 <strong>비 선점형 (non-preemptive)</strong> 스케쥴러에 해당한다. 이 시스템은 각 작업이 종료될 때 까지 계속 실행한다. 문맥 교환을 할 수 없는 것이다. 실행 중인 프로세스를 잠시 중단하고 다른 프로세스를 시작할 수 있는 <strong>선점형 (preemptive)</strong> 스케쥴러를 사용해야 위 문제를 해결할 수 있다.</p>
+<h3 id="최소-잔여시간-우선-알고리즘"><a href="#최소-잔여시간-우선-알고리즘" class="headerlink" title="최소 잔여시간 우선 알고리즘"></a>최소 잔여시간 우선 알고리즘</h3><p>이제 3번째 가정 이었던 “작업은 끝날 때 까지 계속 실행된다” 를 제거해 보자. 최소 잔여시간 우선 (Shortest Time-to-Completion First, STCF) 알고리즘은 새로운 작업이 도착할 경우, 현재 실행중인 작업의 잔여 실행 시간과 새로운 작업의 잔여 실행 시간을 비교하여, <u>잔여 실행 시간이 가장 작은 작업을 스케쥴링하는 비 선점형 방식이다.</u></p>
+<p><img src="https://user-images.githubusercontent.com/25416425/147054603-22495c65-09a2-4e9f-b017-0e354e15e911.png" alt="image"></p>
+<p>위 예시처럼 긴 실행 시간을 가진 작업 A가 먼저 도착해서 10초간 실행이 되었다. 이후 실행 시간이 짧은 작업 B와 C가 도착하니, STCF 알고리즘에 의해 잔여시간이 긴 작업 A를 중단하고, 잔여시간이 짧은 작업 B가 실행 되었다. 마찬가지로 잔여시간이 짧은 작업 C가 실행된 후, 작업 A가 남은 90초간 실행된다. 평균을 구해보면, 평균 반환 시간은 <strong>50초</strong>로 SJF와 동일한 성능을 보이면서 평균 응답 시간은 <strong>무려 3.3초</strong>로 짧아졌음을 확인할 수 있다.</p>
+<p>지금까지는 주로 반환 시간을 줄이기 위한, 즉 성능 향상을 위한 알고리즘을 소개했다. 하지만 응답 시간 또한 매우 중요한 기준으로, 스케쥴러의 효율을 판단한다. 효율을 향상시킬 수 있는 알고리즘은 어떤 것이 있을까?</p>
+<h3 id="라운드-로빈"><a href="#라운드-로빈" class="headerlink" title="라운드 로빈"></a>라운드 로빈</h3><p>응답 시간 (response time)은 시스템에게 상호 작용을 원할히 하기 위한 성능을 측정하는 지표이다. 여러 가지를 보완한 STCF 알고리즘도 응답 시간 측면에서는 좋지 않다. 예를 들어</p>
 
       
     </div>
@@ -880,7 +891,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#몇-가지-가정"><span class="nav-number">1.</span> <span class="nav-text">몇 가지 가정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#평가-항목"><span class="nav-number">2.</span> <span class="nav-text">평가 항목</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#반환-시간"><span class="nav-number">2.1.</span> <span class="nav-text">반환 시간</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#응답-시간"><span class="nav-number">2.2.</span> <span class="nav-text">응답 시간</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#공정성"><span class="nav-number">2.3.</span> <span class="nav-text">공정성</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#선입선출-알고리즘"><span class="nav-number">3.</span> <span class="nav-text">선입선출 알고리즘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#최단-우선-작업-알고리즘"><span class="nav-number">4.</span> <span class="nav-text">최단 우선 작업 알고리즘</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#몇-가지-가정"><span class="nav-number">1.</span> <span class="nav-text">몇 가지 가정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#평가-항목"><span class="nav-number">2.</span> <span class="nav-text">평가 항목</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#반환-시간"><span class="nav-number">2.1.</span> <span class="nav-text">반환 시간</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#응답-시간"><span class="nav-number">2.2.</span> <span class="nav-text">응답 시간</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#공정성"><span class="nav-number">2.3.</span> <span class="nav-text">공정성</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#선입선출-알고리즘"><span class="nav-number">3.</span> <span class="nav-text">선입선출 알고리즘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#최단-우선-작업-알고리즘"><span class="nav-number">4.</span> <span class="nav-text">최단 우선 작업 알고리즘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#최소-잔여시간-우선-알고리즘"><span class="nav-number">5.</span> <span class="nav-text">최소 잔여시간 우선 알고리즘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#라운드-로빈"><span class="nav-number">6.</span> <span class="nav-text">라운드 로빈</span></a></li></ol></div>
             
 
           </div>
@@ -1048,8 +1059,8 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jeongwookie.github.io/2021/12/20/computerscience/operatingsystem/6-scheduling-policy/";
-    this.page.identifier = "2021/12/20/computerscience/operatingsystem/6-scheduling-policy/";
+    this.page.url = "https://jeongwookie.github.io/2021/12/22/computerscience/operatingsystem/6-scheduling-policy/";
+    this.page.identifier = "2021/12/22/computerscience/operatingsystem/6-scheduling-policy/";
     this.page.title = 'OS공부 - 스케쥴링 정책';
     };
   function loadComments() {
